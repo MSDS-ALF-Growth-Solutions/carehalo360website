@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const footerLinks = [
   { href: "/how-it-works", label: "How It Works" },
@@ -26,9 +27,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">
-              CareHalo360
-            </h3>
+            <Link to="/" className="inline-block mb-3">
+              <img src={logo} alt="CareHalo360" className="h-12 w-auto" />
+            </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
               Privacy-first home safety monitoring designed for dignity.
             </p>

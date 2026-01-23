@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "/how-it-works", label: "How It Works" },
@@ -20,8 +21,8 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
-          <Link to="/" className="text-lg font-semibold text-foreground">
-            CareHalo360
+          <Link to="/" className="flex items-center gap-2">
+            <img src={logo} alt="CareHalo360" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
