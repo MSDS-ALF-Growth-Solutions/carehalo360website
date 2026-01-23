@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Settings, Eye, Cpu, Bell } from "lucide-react";
+import { FadeInView, StaggerContainer, StaggerItem, ImageReveal } from "@/components/animations/MotionElements";
 import homeInteriorImage from "@/assets/home-interior.jpg";
 
 const steps = [
@@ -30,40 +31,40 @@ export default function HowItWorksSection() {
   return (
     <section className="section">
       <div className="container">
-        <div className="text-center mb-12">
+        <FadeInView className="text-center mb-12">
           <h2 className="mb-4">How CareHalo360 works</h2>
           <p className="text-lg max-w-2xl mx-auto">
             Simple, thoughtful technology that stays out of the way.
           </p>
-        </div>
+        </FadeInView>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Steps */}
-          <div className="card-grid-4 lg:grid-cols-2">
+          <StaggerContainer className="card-grid-4 lg:grid-cols-2" staggerDelay={0.1}>
             {steps.map((step, index) => (
-              <div key={index} className="care-card">
+              <StaggerItem key={index} className="care-card">
                 <step.icon className="w-8 h-8 text-primary mb-4" />
                 <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
                 <p className="text-sm text-muted-foreground">{step.description}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           {/* Image */}
-          <div>
+          <ImageReveal delay={0.2}>
             <img
               src={homeInteriorImage}
               alt="Minimal modern home hallway with warm natural lighting and subtle smart home aesthetic"
               className="care-image"
             />
-          </div>
+          </ImageReveal>
         </div>
 
-        <div className="text-center mt-12">
+        <FadeInView className="text-center mt-12" delay={0.3}>
           <Button asChild variant="link" size="lg">
             <Link to="/how-it-works">Learn more about how it works →</Link>
           </Button>
-        </div>
+        </FadeInView>
       </div>
     </section>
   );
