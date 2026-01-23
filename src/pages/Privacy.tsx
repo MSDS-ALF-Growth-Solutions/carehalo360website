@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
+import { FadeInView, HeroAnimation, HeroItem, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
 import dignityImage from "@/assets/privacy/dignity-comfort.jpg";
 import abstractMotionImage from "@/assets/privacy/abstract-motion.jpg";
@@ -29,18 +30,26 @@ export default function Privacy() {
           {/* Hero Section */}
           <section className="section bg-secondary/30">
             <div className="container">
-              <div className="max-w-3xl mx-auto text-center">
-                <h1 className="mb-6">Privacy isn't a feature. It's the foundation.</h1>
-                <p className="text-xl text-muted-foreground mb-4">
-                  CareHalo360 was built on a simple belief:
-                </p>
-                <p className="text-xl font-medium text-foreground">
-                  Safety should never come at the cost of dignity.
-                </p>
-                <p className="text-lg text-muted-foreground mt-6">
-                  That belief shapes every design decision we make, from how data is processed to what we intentionally choose not to collect.
-                </p>
-              </div>
+              <HeroAnimation className="max-w-3xl mx-auto text-center">
+                <HeroItem>
+                  <h1 className="mb-6">Privacy isn't a feature. It's the foundation.</h1>
+                </HeroItem>
+                <HeroItem>
+                  <p className="text-xl text-muted-foreground mb-4">
+                    CareHalo360 was built on a simple belief:
+                  </p>
+                </HeroItem>
+                <HeroItem>
+                  <p className="text-xl font-medium text-foreground">
+                    Safety should never come at the cost of dignity.
+                  </p>
+                </HeroItem>
+                <HeroItem>
+                  <p className="text-lg text-muted-foreground mt-6">
+                    That belief shapes every design decision we make, from how data is processed to what we intentionally choose not to collect.
+                  </p>
+                </HeroItem>
+              </HeroAnimation>
             </div>
           </section>
 
@@ -48,7 +57,7 @@ export default function Privacy() {
           <section className="section">
             <div className="container">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div>
+                <FadeInView>
                   <h2 className="mb-4">Designed for dignity, not surveillance</h2>
                   <p className="text-lg text-muted-foreground mb-6">
                     Many home monitoring systems rely on constant video feeds, identity tracking, or devices that people are expected to wear.
@@ -70,14 +79,14 @@ export default function Privacy() {
                       We design for trust, not control.
                     </li>
                   </ul>
-                </div>
-                <div>
+                </FadeInView>
+                <ImageReveal>
                   <img
                     src={dignityImage}
                     alt="Older adult resting comfortably in a private home environment"
                     className="care-image"
                   />
-                </div>
+                </ImageReveal>
               </div>
             </div>
           </section>
@@ -85,32 +94,32 @@ export default function Privacy() {
           {/* How We Protect Privacy Section */}
           <section className="section bg-secondary/30">
             <div className="container">
-              <div className="max-w-3xl mx-auto text-center mb-12">
+              <FadeInView className="max-w-3xl mx-auto text-center mb-12">
                 <h2 className="mb-4">How CareHalo360 protects privacy</h2>
-              </div>
+              </FadeInView>
               
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div className="order-2 lg:order-1">
+                <ImageReveal className="order-2 lg:order-1">
                   <img
                     src={abstractMotionImage}
                     alt="Abstract illustration representing privacy-first motion analysis"
                     className="care-image"
                   />
-                </div>
-                <div className="order-1 lg:order-2 space-y-8">
-                  <div>
+                </ImageReveal>
+                <StaggerContainer className="order-1 lg:order-2 space-y-8">
+                  <StaggerItem>
                     <h3 className="text-xl font-semibold mb-3">On-device intelligence</h3>
                     <p className="text-muted-foreground">
                       CareHalo360 processes information inside the home, directly on the device. This reduces unnecessary data transmission and helps keep sensitive information where it belongs: private.
                     </p>
-                  </div>
-                  <div>
+                  </StaggerItem>
+                  <StaggerItem>
                     <h3 className="text-xl font-semibold mb-3">Abstract motion, not identity</h3>
                     <p className="text-muted-foreground">
                       Instead of storing or transmitting identifiable video, CareHalo360 converts movement into abstract motion representations. This allows the system to detect safety-related events without recognizing faces, identities, or personal details.
                     </p>
-                  </div>
-                </div>
+                  </StaggerItem>
+                </StaggerContainer>
               </div>
             </div>
           </section>
@@ -119,10 +128,12 @@ export default function Privacy() {
           <section className="section">
             <div className="container">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-center mb-12">What we do (and don't do)</h2>
+                <FadeInView>
+                  <h2 className="text-center mb-12">What we do (and don't do)</h2>
+                </FadeInView>
                 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="care-card">
+                <StaggerContainer className="grid md:grid-cols-2 gap-8">
+                  <StaggerItem className="care-card">
                     <h3 className="text-lg font-semibold mb-6 text-primary">What CareHalo360 does</h3>
                     <ul className="space-y-4 text-muted-foreground">
                       <li className="flex items-start gap-3">
@@ -142,9 +153,9 @@ export default function Privacy() {
                         Supports families with clear, timely awareness
                       </li>
                     </ul>
-                  </div>
+                  </StaggerItem>
                   
-                  <div className="care-card">
+                  <StaggerItem className="care-card">
                     <h3 className="text-lg font-semibold mb-6 text-muted-foreground">What CareHalo360 does not do</h3>
                     <ul className="space-y-4 text-muted-foreground">
                       <li className="flex items-start gap-3">
@@ -164,12 +175,14 @@ export default function Privacy() {
                         No selling or sharing personal data
                       </li>
                     </ul>
-                  </div>
-                </div>
+                  </StaggerItem>
+                </StaggerContainer>
 
-                <p className="text-center text-muted-foreground mt-8">
-                  Privacy is not something we add later. It's built into how the system works.
-                </p>
+                <FadeInView delay={0.3}>
+                  <p className="text-center text-muted-foreground mt-8">
+                    Privacy is not something we add later. It's built into how the system works.
+                  </p>
+                </FadeInView>
               </div>
             </div>
           </section>
@@ -178,7 +191,7 @@ export default function Privacy() {
           <section className="section bg-secondary/30">
             <div className="container">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div>
+                <FadeInView>
                   <h2 className="mb-4">Respecting independence at home</h2>
                   <p className="text-lg text-muted-foreground mb-6">
                     CareHalo360 is designed to blend into everyday life.
@@ -189,14 +202,14 @@ export default function Privacy() {
                   <p className="text-muted-foreground">
                     This approach helps families support independence while maintaining peace of mind.
                   </p>
-                </div>
-                <div>
+                </FadeInView>
+                <ImageReveal>
                   <img
                     src={homeComfortImage}
                     alt="Warm family home interior emphasizing comfort and privacy"
                     className="care-image"
                   />
-                </div>
+                </ImageReveal>
               </div>
             </div>
           </section>
@@ -204,7 +217,7 @@ export default function Privacy() {
           {/* Trust Through Transparency Section */}
           <section className="section">
             <div className="container">
-              <div className="max-w-3xl mx-auto text-center">
+              <FadeInView className="max-w-3xl mx-auto text-center">
                 <h2 className="mb-4">Clear boundaries. Honest design.</h2>
                 <p className="text-lg text-muted-foreground mb-6">
                   We believe trust comes from clarity.
@@ -215,14 +228,14 @@ export default function Privacy() {
                 <p className="text-muted-foreground">
                   If something doesn't align with dignity or respect, it doesn't belong in the system.
                 </p>
-              </div>
+              </FadeInView>
             </div>
           </section>
 
           {/* Final CTA Section */}
           <section className="section bg-secondary/30">
             <div className="container">
-              <div className="max-w-2xl mx-auto text-center">
+              <FadeInView className="max-w-2xl mx-auto text-center">
                 <h2 className="mb-4">Care works best when trust comes first.</h2>
                 <p className="text-lg text-muted-foreground mb-8">
                   CareHalo360 helps families stay aware while protecting privacy and independence.
@@ -242,7 +255,7 @@ export default function Privacy() {
                     Read FAQs →
                   </Link>
                 </div>
-              </div>
+              </FadeInView>
             </div>
           </section>
         </main>

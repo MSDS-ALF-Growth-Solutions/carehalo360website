@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FadeInView, HeroAnimation, HeroItem, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
 const faqSections = [
   {
@@ -168,19 +169,27 @@ export default function FAQ() {
         {/* Hero Section */}
         <section className="section">
           <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="mb-6">Frequently Asked Questions</h1>
-              <p className="text-xl text-muted-foreground mb-4">
-                Clear answers. No guesswork.
-              </p>
-              <p className="text-muted-foreground mb-4">
-                Choosing care technology for your home is a big decision. Below are answers 
-                to the most common questions families ask about CareHalo360.
-              </p>
-              <p className="text-muted-foreground">
-                If something isn't answered here, we're always happy to help.
-              </p>
-            </div>
+            <HeroAnimation className="max-w-3xl mx-auto text-center">
+              <HeroItem>
+                <h1 className="mb-6">Frequently Asked Questions</h1>
+              </HeroItem>
+              <HeroItem>
+                <p className="text-xl text-muted-foreground mb-4">
+                  Clear answers. No guesswork.
+                </p>
+              </HeroItem>
+              <HeroItem>
+                <p className="text-muted-foreground mb-4">
+                  Choosing care technology for your home is a big decision. Below are answers 
+                  to the most common questions families ask about CareHalo360.
+                </p>
+              </HeroItem>
+              <HeroItem>
+                <p className="text-muted-foreground">
+                  If something isn't answered here, we're always happy to help.
+                </p>
+              </HeroItem>
+            </HeroAnimation>
           </div>
         </section>
 
@@ -192,40 +201,45 @@ export default function FAQ() {
           >
             <div className="container">
               <div className="max-w-3xl mx-auto">
-                <h2 className="text-center mb-8">{section.title}</h2>
+                <FadeInView>
+                  <h2 className="text-center mb-8">{section.title}</h2>
+                </FadeInView>
                 
-                <Accordion type="single" collapsible className="space-y-4">
-                  {section.faqs.map((faq, faqIndex) => (
-                    <AccordionItem 
-                      key={faqIndex} 
-                      value={`section-${sectionIndex}-item-${faqIndex}`}
-                      className="care-card border-none"
-                    >
-                      <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                        {faq.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground leading-relaxed">
-                        {faq.answer}
-                        {faq.question === "Does CareHalo360 record video?" && (
-                          <span className="block mt-2">
-                            For more details, visit our{" "}
-                            <Link to="/privacy" className="text-primary hover:underline">
-                              Privacy & Trust page
-                            </Link>.
-                          </span>
-                        )}
-                        {faq.question === "How much does CareHalo360 cost?" && (
-                          <span className="block mt-2">
-                            You can view full details on our{" "}
-                            <Link to="/pricing" className="text-primary hover:underline">
-                              Pricing page
-                            </Link>.
-                          </span>
-                        )}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
+                <StaggerContainer>
+                  <Accordion type="single" collapsible className="space-y-4">
+                    {section.faqs.map((faq, faqIndex) => (
+                      <StaggerItem key={faqIndex}>
+                        <AccordionItem 
+                          value={`section-${sectionIndex}-item-${faqIndex}`}
+                          className="care-card border-none"
+                        >
+                          <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                            {faq.question}
+                          </AccordionTrigger>
+                          <AccordionContent className="text-muted-foreground leading-relaxed">
+                            {faq.answer}
+                            {faq.question === "Does CareHalo360 record video?" && (
+                              <span className="block mt-2">
+                                For more details, visit our{" "}
+                                <Link to="/privacy" className="text-primary hover:underline">
+                                  Privacy & Trust page
+                                </Link>.
+                              </span>
+                            )}
+                            {faq.question === "How much does CareHalo360 cost?" && (
+                              <span className="block mt-2">
+                                You can view full details on our{" "}
+                                <Link to="/pricing" className="text-primary hover:underline">
+                                  Pricing page
+                                </Link>.
+                              </span>
+                            )}
+                          </AccordionContent>
+                        </AccordionItem>
+                      </StaggerItem>
+                    ))}
+                  </Accordion>
+                </StaggerContainer>
               </div>
             </div>
           </section>
@@ -234,7 +248,7 @@ export default function FAQ() {
         {/* Final CTA */}
         <section className="section section-warm">
           <div className="container">
-            <div className="max-w-2xl mx-auto text-center">
+            <FadeInView className="max-w-2xl mx-auto text-center">
               <h2 className="mb-4">Care decisions feel easier with clear answers.</h2>
               <p className="text-lg text-muted-foreground mb-8">
                 CareHalo360 is designed to support families with calm, privacy-first safety monitoring.
@@ -242,7 +256,7 @@ export default function FAQ() {
               <Button asChild variant="hero" size="xl">
                 <Link to="/get-started">Get Started Now</Link>
               </Button>
-            </div>
+            </FadeInView>
           </div>
         </section>
       </main>
