@@ -13,6 +13,7 @@ const footerLinks = [
 const legalLinks = [
   { href: "/terms", label: "Terms" },
   { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/cancel", label: "Cancel Subscription" },
 ];
 
 export default function Footer() {
