@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container">
-        <div className="flex items-center justify-between h-[72px]">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="CareHalo360" className="h-[4.5rem] w-auto" />
