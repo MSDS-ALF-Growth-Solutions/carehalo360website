@@ -22,7 +22,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="CareHalo360" className="h-14 w-auto" />
+            <img src={logo} alt="CareHalo360" className="h-[4.5rem] w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
