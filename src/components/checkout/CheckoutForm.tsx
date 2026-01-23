@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import { Lock, Shield, Users } from "lucide-react";
+import { FadeInView, HeroAnimation, HeroItem, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
 export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -75,14 +76,20 @@ export default function CheckoutForm() {
     <section className="section">
       <div className="container">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-center mb-4">Complete your setup</h1>
-          <p className="text-center text-lg mb-12 max-w-xl mx-auto">
-            Start your CareHalo360 subscription today.
-          </p>
+          <HeroAnimation className="text-center mb-12">
+            <HeroItem>
+              <h1 className="mb-4">Complete your setup</h1>
+            </HeroItem>
+            <HeroItem>
+              <p className="text-lg max-w-xl mx-auto">
+                Start your CareHalo360 subscription today.
+              </p>
+            </HeroItem>
+          </HeroAnimation>
 
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Pricing Summary - Right on desktop, top on mobile */}
-            <div className="lg:col-span-2 lg:order-2">
+            <FadeInView className="lg:col-span-2 lg:order-2" delay={0.2}>
               <div className="care-card sticky top-24">
                 <h3 className="text-lg font-semibold mb-1">CareHalo360 Monthly Subscription</h3>
                 <div className="flex items-baseline gap-1 mb-2">
@@ -96,10 +103,10 @@ export default function CheckoutForm() {
                   Hardware included.
                 </p>
               </div>
-            </div>
+            </FadeInView>
 
             {/* Form - Left on desktop, bottom on mobile */}
-            <div className="lg:col-span-3 lg:order-1">
+            <FadeInView className="lg:col-span-3 lg:order-1" delay={0.1}>
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Customer Information */}
                 <div className="space-y-4">
@@ -293,7 +300,7 @@ export default function CheckoutForm() {
                   </a>
                 </p>
               </form>
-            </div>
+            </FadeInView>
           </div>
         </div>
       </div>

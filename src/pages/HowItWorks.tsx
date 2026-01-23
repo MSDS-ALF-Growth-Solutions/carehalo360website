@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
+import { FadeInView, HeroAnimation, HeroItem, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
 import setupImage from "@/assets/how-it-works/setup-living-room.jpg";
 import passiveImage from "@/assets/how-it-works/passive-monitoring.jpg";
@@ -31,30 +32,40 @@ export default function HowItWorks() {
           {/* Hero Section */}
           <section className="section bg-secondary/30">
             <div className="container">
-              <div className="max-w-3xl mx-auto text-center">
-                <h1 className="mb-6">How CareHalo360 Works</h1>
-                <p className="text-xl text-muted-foreground mb-4">
-                  Quiet support. Thoughtful technology. Designed for real life.
-                </p>
-                <p className="text-lg text-muted-foreground mb-8">
-                  CareHalo360 is built to stay out of the way while staying aware of what matters.
-                  It works silently in the background, supporting families without disrupting daily routines.
-                </p>
-                <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-8">
-                  <span className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary" /> No wearables
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary" /> No buttons
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary" /> No constant supervision
-                  </span>
-                </div>
-                <Button asChild variant="hero" size="xl">
-                  <Link to="/get-started">Get Started Now</Link>
-                </Button>
-              </div>
+              <HeroAnimation className="max-w-3xl mx-auto text-center">
+                <HeroItem>
+                  <h1 className="mb-6">How CareHalo360 Works</h1>
+                </HeroItem>
+                <HeroItem>
+                  <p className="text-xl text-muted-foreground mb-4">
+                    Quiet support. Thoughtful technology. Designed for real life.
+                  </p>
+                </HeroItem>
+                <HeroItem>
+                  <p className="text-lg text-muted-foreground mb-8">
+                    CareHalo360 is built to stay out of the way while staying aware of what matters.
+                    It works silently in the background, supporting families without disrupting daily routines.
+                  </p>
+                </HeroItem>
+                <HeroItem>
+                  <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-8">
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-primary" /> No wearables
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-primary" /> No buttons
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-primary" /> No constant supervision
+                    </span>
+                  </div>
+                </HeroItem>
+                <HeroItem>
+                  <Button asChild variant="hero" size="xl">
+                    <Link to="/get-started">Get Started Now</Link>
+                  </Button>
+                </HeroItem>
+              </HeroAnimation>
             </div>
           </section>
 
@@ -62,7 +73,7 @@ export default function HowItWorks() {
           <section className="section">
             <div className="container">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div>
+                <FadeInView>
                   <h2 className="mb-4">Set up in minutes</h2>
                   <p className="text-lg text-muted-foreground mb-6">
                     CareHalo360 arrives ready to go. There's no complex installation and no technical expertise required.
@@ -87,14 +98,14 @@ export default function HowItWorks() {
                       </li>
                     </ul>
                   </div>
-                </div>
-                <div>
+                </FadeInView>
+                <ImageReveal>
                   <img
                     src={setupImage}
                     alt="Older adult living comfortably in a modern home with natural light"
                     className="care-image"
                   />
-                </div>
+                </ImageReveal>
               </div>
             </div>
           </section>
@@ -103,14 +114,14 @@ export default function HowItWorks() {
           <section className="section bg-secondary/30">
             <div className="container">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div className="order-2 lg:order-1">
+                <ImageReveal className="order-2 lg:order-1">
                   <img
                     src={passiveImage}
                     alt="Senior walking independently through a home hallway"
                     className="care-image"
                   />
-                </div>
-                <div className="order-1 lg:order-2">
+                </ImageReveal>
+                <FadeInView className="order-1 lg:order-2">
                   <h2 className="mb-4">Always on. Never intrusive.</h2>
                   <p className="text-lg text-muted-foreground mb-6">
                     CareHalo360 does not require anyone to wear a device or remember to press a button.
@@ -135,7 +146,7 @@ export default function HowItWorks() {
                       </li>
                     </ul>
                   </div>
-                </div>
+                </FadeInView>
               </div>
             </div>
           </section>
@@ -144,7 +155,7 @@ export default function HowItWorks() {
           <section className="section">
             <div className="container">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div>
+                <FadeInView>
                   <h2 className="mb-4">Privacy-first by design</h2>
                   <p className="text-lg text-muted-foreground mb-6">
                     CareHalo360 processes movement directly on the device, inside the home.
@@ -172,14 +183,14 @@ export default function HowItWorks() {
                   <p className="text-sm text-muted-foreground mt-6">
                     This approach provides awareness without turning the home into a surveillance space.
                   </p>
-                </div>
-                <div>
+                </FadeInView>
+                <ImageReveal>
                   <img
                     src={privacyImage}
                     alt="Abstract motion representation illustration showing privacy-first monitoring"
                     className="care-image"
                   />
-                </div>
+                </ImageReveal>
               </div>
             </div>
           </section>
@@ -188,14 +199,14 @@ export default function HowItWorks() {
           <section className="section bg-secondary/30">
             <div className="container">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div className="order-2 lg:order-1">
+                <ImageReveal className="order-2 lg:order-1">
                   <img
                     src={alertsImage}
                     alt="Caregiver calmly checking phone at home"
                     className="care-image"
                   />
-                </div>
-                <div className="order-1 lg:order-2">
+                </ImageReveal>
+                <FadeInView className="order-1 lg:order-2">
                   <h2 className="mb-4">Alerts when it matters, not constant noise</h2>
                   <p className="text-lg text-muted-foreground mb-6">
                     CareHalo360 is designed to reduce anxiety, not increase it.
@@ -223,7 +234,7 @@ export default function HowItWorks() {
                   <p className="text-sm text-muted-foreground mt-6">
                     This keeps families informed without overwhelming them.
                   </p>
-                </div>
+                </FadeInView>
               </div>
             </div>
           </section>
@@ -232,7 +243,7 @@ export default function HowItWorks() {
           <section className="section">
             <div className="container">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div>
+                <FadeInView>
                   <h2 className="mb-4">Designed for everyday living</h2>
                   <p className="text-lg text-muted-foreground mb-6">
                     CareHalo360 is built for homes, not hospitals or clinical environments.
@@ -257,14 +268,14 @@ export default function HowItWorks() {
                       </li>
                     </ul>
                   </div>
-                </div>
-                <div>
+                </FadeInView>
+                <ImageReveal>
                   <img
                     src={realHomesImage}
                     alt="Older adult relaxing peacefully in a familiar home setting"
                     className="care-image"
                   />
-                </div>
+                </ImageReveal>
               </div>
             </div>
           </section>
@@ -273,10 +284,12 @@ export default function HowItWorks() {
           <section className="section bg-secondary/30">
             <div className="container">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-center mb-12">What CareHalo360 is (and isn't)</h2>
+                <FadeInView>
+                  <h2 className="text-center mb-12">What CareHalo360 is (and isn't)</h2>
+                </FadeInView>
                 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="care-card">
+                <StaggerContainer className="grid md:grid-cols-2 gap-8">
+                  <StaggerItem className="care-card">
                     <h3 className="text-lg font-semibold mb-4 text-primary">What CareHalo360 is</h3>
                     <ul className="space-y-3 text-muted-foreground">
                       <li className="flex items-start gap-3">
@@ -292,9 +305,9 @@ export default function HowItWorks() {
                         Designed to complement care
                       </li>
                     </ul>
-                  </div>
+                  </StaggerItem>
                   
-                  <div className="care-card">
+                  <StaggerItem className="care-card">
                     <h3 className="text-lg font-semibold mb-4 text-muted-foreground">What CareHalo360 is not</h3>
                     <ul className="space-y-3 text-muted-foreground">
                       <li className="flex items-start gap-3">
@@ -310,12 +323,14 @@ export default function HowItWorks() {
                         A medical device
                       </li>
                     </ul>
-                  </div>
-                </div>
+                  </StaggerItem>
+                </StaggerContainer>
 
-                <p className="text-center text-muted-foreground mt-8">
-                  CareHalo360 exists to support people, not monitor them.
-                </p>
+                <FadeInView delay={0.3}>
+                  <p className="text-center text-muted-foreground mt-8">
+                    CareHalo360 exists to support people, not monitor them.
+                  </p>
+                </FadeInView>
               </div>
             </div>
           </section>
@@ -323,7 +338,7 @@ export default function HowItWorks() {
           {/* Final CTA Section */}
           <section className="section">
             <div className="container">
-              <div className="max-w-2xl mx-auto text-center">
+              <FadeInView className="max-w-2xl mx-auto text-center">
                 <h2 className="mb-4">Care should feel supportive, not invasive.</h2>
                 <p className="text-lg text-muted-foreground mb-8">
                   CareHalo360 helps families stay aware while loved ones keep their independence.
@@ -343,7 +358,7 @@ export default function HowItWorks() {
                     Read FAQs →
                   </Link>
                 </div>
-              </div>
+              </FadeInView>
             </div>
           </section>
         </main>
