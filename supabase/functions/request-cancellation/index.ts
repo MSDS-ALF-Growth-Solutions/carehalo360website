@@ -20,6 +20,9 @@ serve(async (req) => {
   try {
     logStep("Function started");
 
+    const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
+    if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
+
     const supabaseUrl = Deno.env.get("SUPABASE_URL");
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     if (!supabaseUrl || !supabaseServiceKey) {
@@ -40,36 +43,48 @@ serve(async (req) => {
     }
 
     const normalizedEmail = email.toLowerCase().trim();
-    logStep("Processing cancellation request", { email: normalizedEmail });
+    logStep("Checking for active subscription", { email: normalizedEmail });
 
-    // Try to verify with Stripe, but don't block if not found
-    let verifiedInStripe = false;
-    let stripeCustomerId = null;
+    const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
     
-    try {
-      const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
-      if (stripeKey) {
-        const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
-        const customers = await stripe.customers.list({ email: normalizedEmail, limit: 1 });
-        
-        if (customers.data.length > 0) {
-          stripeCustomerId = customers.data[0].id;
-          const subscriptions = await stripe.subscriptions.list({
-            customer: stripeCustomerId,
-            status: "active",
-            limit: 1,
-          });
-          verifiedInStripe = subscriptions.data.length > 0;
-          logStep("Stripe verification complete", { verified: verifiedInStripe, customerId: stripeCustomerId });
-        } else {
-          logStep("No Stripe customer found, will store request for manual review");
-        }
-      }
-    } catch (stripeError) {
-      logStep("Stripe verification failed, continuing anyway", { error: String(stripeError) });
+    // Find customer by email
+    const customers = await stripe.customers.list({ email: normalizedEmail, limit: 1 });
+    
+    if (customers.data.length === 0) {
+      logStep("No customer found", { email: normalizedEmail });
+      return new Response(
+        JSON.stringify({ 
+          error: "We couldn't find a subscription with this email. Please check the confirmation email you received when subscribing and use that email address.",
+          found: false 
+        }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 404 }
+      );
     }
 
-    // Always store the cancellation request for manual processing
+    const customerId = customers.data[0].id;
+    logStep("Customer found", { customerId });
+
+    // Check for active subscription
+    const subscriptions = await stripe.subscriptions.list({
+      customer: customerId,
+      status: "active",
+      limit: 1,
+    });
+
+    if (subscriptions.data.length === 0) {
+      logStep("No active subscription found", { customerId });
+      return new Response(
+        JSON.stringify({ 
+          error: "This email has no active subscription. It may have already been canceled. Please contact support if you need help.",
+          found: false 
+        }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 404 }
+      );
+    }
+
+    logStep("Active subscription found, storing cancellation request");
+
+    // Store the cancellation request
     const { error: insertError } = await supabase
       .from("cancellation_requests")
       .insert({
@@ -77,9 +92,6 @@ serve(async (req) => {
         name: name || null,
         reason: reason || null,
         status: "pending",
-        notes: verifiedInStripe 
-          ? `Verified: Active subscription found (Customer: ${stripeCustomerId})`
-          : "Needs manual verification - no active subscription found in Stripe",
       });
 
     if (insertError) {
@@ -87,7 +99,7 @@ serve(async (req) => {
       throw new Error("Failed to submit cancellation request");
     }
 
-    logStep("Cancellation request stored successfully", { verified: verifiedInStripe });
+    logStep("Cancellation request stored successfully");
 
     return new Response(
       JSON.stringify({ 
