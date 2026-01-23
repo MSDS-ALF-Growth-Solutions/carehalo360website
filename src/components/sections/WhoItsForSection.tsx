@@ -1,4 +1,5 @@
 import { Heart, MapPin, Stethoscope, Brain } from "lucide-react";
+import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
 const audiences = [
   {
@@ -31,22 +32,22 @@ export default function WhoItsForSection() {
   return (
     <section className="section">
       <div className="container">
-        <div className="text-center mb-12">
+        <FadeInView className="text-center mb-12">
           <h2 className="mb-4">Made for families supporting care at home.</h2>
-        </div>
+        </FadeInView>
 
-        <div className="card-grid-4">
+        <StaggerContainer className="card-grid-4" staggerDelay={0.1}>
           {audiences.map((audience, index) => (
-            <div key={index} className="care-card">
+            <StaggerItem key={index} className="care-card">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
                 <audience.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-lg font-semibold mb-3">{audience.title}</h3>
               <p className="text-sm text-muted-foreground italic mb-2">{audience.pain}</p>
               <p className="text-sm text-muted-foreground">{audience.benefit}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

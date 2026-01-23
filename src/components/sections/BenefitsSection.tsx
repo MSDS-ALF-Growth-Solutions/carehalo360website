@@ -1,4 +1,5 @@
 import { Home, Shield, Zap } from "lucide-react";
+import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
 const benefits = [
   {
@@ -22,25 +23,27 @@ export default function BenefitsSection() {
   return (
     <section className="section section-light">
       <div className="container">
-        <div className="text-center mb-12">
+        <FadeInView className="text-center mb-12">
           <h2 className="mb-4">Built for real homes. Built for trust.</h2>
-        </div>
+        </FadeInView>
 
-        <div className="card-grid">
+        <StaggerContainer className="card-grid" staggerDelay={0.15}>
           {benefits.map((benefit, index) => (
-            <div key={index} className="care-card text-center">
+            <StaggerItem key={index} className="care-card text-center">
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <benefit.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
               <p className="text-muted-foreground">{benefit.description}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
-        <p className="text-center text-muted-foreground mt-10">
-          Simple by design. Reliable by necessity.
-        </p>
+        <FadeInView className="text-center mt-10" delay={0.3}>
+          <p className="text-muted-foreground">
+            Simple by design. Reliable by necessity.
+          </p>
+        </FadeInView>
       </div>
     </section>
   );

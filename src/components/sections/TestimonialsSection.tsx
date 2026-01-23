@@ -1,3 +1,4 @@
+import { ImageReveal, FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 import familyImage from "@/assets/family-peace-of-mind.jpg";
 
 const testimonials = [
@@ -24,34 +25,38 @@ export default function TestimonialsSection() {
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image */}
-          <div>
+          <ImageReveal>
             <img
               src={familyImage}
               alt="Adult daughter calmly checking phone notification in her kitchen, representing family peace of mind"
               className="care-image"
             />
-          </div>
+          </ImageReveal>
 
           {/* Content */}
           <div>
-            <h2 className="mb-8">Trust grows from consistency.</h2>
+            <FadeInView>
+              <h2 className="mb-8">Trust grows from consistency.</h2>
+            </FadeInView>
 
-            <div className="space-y-6">
+            <StaggerContainer className="space-y-6" staggerDelay={0.15}>
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="testimonial-card">
+                <StaggerItem key={index} className="testimonial-card">
                   <p className="text-foreground mb-4">"{testimonial.quote}"</p>
                   <div className="text-sm text-muted-foreground">
                     <span className="font-medium">{testimonial.author}</span>
                     <span className="mx-2">·</span>
                     <span>{testimonial.location}</span>
                   </div>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
 
-            <p className="text-xs text-muted-foreground mt-6 italic">
-              Results vary by home setup and individual needs.
-            </p>
+            <FadeInView delay={0.5}>
+              <p className="text-xs text-muted-foreground mt-6 italic">
+                Results vary by home setup and individual needs.
+              </p>
+            </FadeInView>
           </div>
         </div>
       </div>

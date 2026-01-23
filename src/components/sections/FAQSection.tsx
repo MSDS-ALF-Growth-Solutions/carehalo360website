@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FadeInView } from "@/components/animations/MotionElements";
 
 const faqs = [
   {
@@ -37,20 +38,24 @@ export default function FAQSection() {
     <section className="section">
       <div className="container">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-center mb-10">Frequently asked questions</h2>
+          <FadeInView>
+            <h2 className="text-center mb-10">Frequently asked questions</h2>
+          </FadeInView>
 
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="faq-item">
-                <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <FadeInView delay={0.1}>
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="faq-item">
+                  <AccordionTrigger className="text-left text-foreground font-semibold hover:no-underline">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </FadeInView>
         </div>
       </div>
     </section>
