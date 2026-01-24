@@ -53,10 +53,23 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-border">
         <div className="container py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <small className="text-muted-foreground">
-            © {new Date().getFullYear()} CareHalo360. All rights reserved.
-          </small>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <small className="text-muted-foreground">
+              © {new Date().getFullYear()} CareHalo360. All rights reserved.
+            </small>
+            <small className="text-muted-foreground">
+              A product of{" "}
+              <a
+                href="https://alfgrowth.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                MSDS ALF Growth Solutions Inc.
+              </a>
+            </small>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-4">
             {legalLinks.map((link) => (
               <Link
                 key={link.href}
