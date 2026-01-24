@@ -1,8 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { Mail, Clock, AlertTriangle } from "lucide-react";
 import { FadeInView, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
+
+import heroImage from "@/assets/heroes/contact-hero.jpg";
 import contactImage from "@/assets/contact/supportive-workspace.jpg";
 
 const helpTopics = [
@@ -27,18 +30,17 @@ export default function Contact() {
       <Header />
 
       <main className="flex-1">
+        {/* Hero Section */}
+        <PageHero
+          title="Contact & Support"
+          subtitle="We're here to help."
+          description="CareHalo360 is designed to feel simple and supportive, and so is our support. If you have questions about setup, billing, privacy, or anything else, our team is here to help."
+          backgroundImage={heroImage}
+        />
+
         <section className="section">
           <div className="container">
             <div className="max-w-4xl mx-auto">
-              <FadeInView>
-                <h1 className="text-center mb-4">Contact & Support</h1>
-              </FadeInView>
-              <FadeInView delay={0.1}>
-                <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-                  We're here to help.
-                </p>
-              </FadeInView>
-
               <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
                 <ImageReveal>
                   <img

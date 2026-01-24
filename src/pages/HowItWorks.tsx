@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
-import { FadeInView, HeroAnimation, HeroItem, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
+import { FadeInView, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
+import heroImage from "@/assets/heroes/how-it-works-hero.jpg";
 import setupImage from "@/assets/how-it-works/setup-living-room.jpg";
 import passiveImage from "@/assets/how-it-works/passive-monitoring.jpg";
 import privacyImage from "@/assets/how-it-works/privacy-motion.jpg";
@@ -30,44 +32,27 @@ export default function HowItWorks() {
         <Header />
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="section bg-secondary/30">
-            <div className="container">
-              <HeroAnimation className="max-w-3xl mx-auto text-center">
-                <HeroItem>
-                  <h1 className="mb-6">How CareHalo360 Works</h1>
-                </HeroItem>
-                <HeroItem>
-                  <p className="text-xl text-muted-foreground mb-4">
-                    Quiet support. Thoughtful technology. Designed for real life.
-                  </p>
-                </HeroItem>
-                <HeroItem>
-                  <p className="text-lg text-muted-foreground mb-8">
-                    CareHalo360 is built to stay out of the way while staying aware of what matters.
-                    It works silently in the background, supporting families without disrupting daily routines.
-                  </p>
-                </HeroItem>
-                <HeroItem>
-                  <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-8">
-                    <span className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary" /> No wearables
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary" /> No buttons
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary" /> No constant supervision
-                    </span>
-                  </div>
-                </HeroItem>
-                <HeroItem>
-                  <Button asChild variant="hero" size="xl">
-                    <Link to="/get-started">Get Started Now</Link>
-                  </Button>
-                </HeroItem>
-              </HeroAnimation>
+          <PageHero
+            title="How CareHalo360 Works"
+            subtitle="Quiet support. Thoughtful technology. Designed for real life."
+            description="CareHalo360 is built to stay out of the way while staying aware of what matters. It works silently in the background, supporting families without disrupting daily routines."
+            backgroundImage={heroImage}
+          >
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground mb-6">
+              <span className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary" /> No wearables
+              </span>
+              <span className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary" /> No buttons
+              </span>
+              <span className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-primary" /> No constant supervision
+              </span>
             </div>
-          </section>
+            <Button asChild variant="hero" size="xl">
+              <Link to="/get-started">Get Started Now</Link>
+            </Button>
+          </PageHero>
 
           {/* Simple Setup Section */}
           <section className="section">

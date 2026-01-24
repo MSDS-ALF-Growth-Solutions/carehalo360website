@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -9,7 +10,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FadeInView, HeroAnimation, HeroItem, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
+import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
+
+import heroImage from "@/assets/heroes/faq-hero.jpg";
 
 const faqSections = [
   {
@@ -167,31 +170,12 @@ export default function FAQ() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="section">
-          <div className="container">
-            <HeroAnimation className="max-w-3xl mx-auto text-center">
-              <HeroItem>
-                <h1 className="mb-6">Frequently Asked Questions</h1>
-              </HeroItem>
-              <HeroItem>
-                <p className="text-xl text-muted-foreground mb-4">
-                  Clear answers. No guesswork.
-                </p>
-              </HeroItem>
-              <HeroItem>
-                <p className="text-muted-foreground mb-4">
-                  Choosing care technology for your home is a big decision. Below are answers 
-                  to the most common questions families ask about CareHalo360.
-                </p>
-              </HeroItem>
-              <HeroItem>
-                <p className="text-muted-foreground">
-                  If something isn't answered here, we're always happy to help.
-                </p>
-              </HeroItem>
-            </HeroAnimation>
-          </div>
-        </section>
+        <PageHero
+          title="Frequently Asked Questions"
+          subtitle="Clear answers. No guesswork."
+          description="Choosing care technology for your home is a big decision. Below are answers to the most common questions families ask about CareHalo360. If something isn't answered here, we're always happy to help."
+          backgroundImage={heroImage}
+        />
 
         {/* FAQ Sections */}
         {faqSections.map((section, sectionIndex) => (

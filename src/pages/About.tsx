@@ -2,10 +2,12 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Shield, Heart, Settings, Eye, Clock } from "lucide-react";
 import { FadeInView, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
+import heroImage from "@/assets/heroes/about-hero.jpg";
 import trustHomeImage from "@/assets/about/trust-home.jpg";
 import thoughtfulDesignImage from "@/assets/about/thoughtful-design.jpg";
 
@@ -86,30 +88,12 @@ export default function About() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="section">
-          <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <FadeInView>
-                <h1 className="mb-6">Care starts with trust.</h1>
-              </FadeInView>
-              <FadeInView delay={0.1}>
-                <p className="text-lg text-muted-foreground mb-6">
-                  CareHalo360 was created to support families caring for loved ones at home 
-                  without turning homes into surveillance spaces or asking people to sacrifice 
-                  dignity for safety.
-                </p>
-              </FadeInView>
-              <FadeInView delay={0.2}>
-                <p className="text-muted-foreground">
-                  Everything we build starts with one guiding belief:
-                </p>
-                <p className="text-primary font-medium mt-2">
-                  Care should feel supportive, respectful, and human.
-                </p>
-              </FadeInView>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title="Care starts with trust."
+          subtitle="CareHalo360 was created to support families caring for loved ones at home without turning homes into surveillance spaces or asking people to sacrifice dignity for safety."
+          description="Everything we build starts with one guiding belief: Care should feel supportive, respectful, and human."
+          backgroundImage={heroImage}
+        />
 
         {/* Our Mission */}
         <section className="section section-warm">
