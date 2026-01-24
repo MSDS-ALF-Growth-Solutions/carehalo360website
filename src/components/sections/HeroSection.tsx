@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { HeroAnimation, HeroItem, ImageReveal } from "@/components/animations/MotionElements";
-import heroImage from "@/assets/hero-living-room.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const trustBullets = [
   "No wearables",
@@ -11,7 +11,7 @@ const trustBullets = [
 
 export default function HeroSection() {
   return (
-    <section className="section">
+    <section className="section bg-warm-50">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
@@ -53,12 +53,15 @@ export default function HeroSection() {
             </HeroItem>
           </HeroAnimation>
 
-          {/* Hero Image */}
+          {/* Hero Video */}
           <ImageReveal className="order-1 lg:order-2" delay={0.3}>
-            <img
-              src={heroImage}
-              alt="Older adult comfortably reading on a cozy sofa in a warm, sunlit living room"
-              className="care-image"
+            <video
+              src={heroVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="care-image w-full rounded-2xl shadow-elegant"
             />
           </ImageReveal>
         </div>
