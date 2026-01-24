@@ -24,14 +24,14 @@ export default function ProblemSection() {
             </FadeInView>
             <FadeInView delay={0.1}>
               <p className="text-lg mb-6">
-                Caring for someone at home can feel like you're always on alert—especially 
+                Caring for someone at home can feel like you're always on alert, especially 
                 when you're not in the same room, or not in the same city.
               </p>
             </FadeInView>
             <FadeInView delay={0.2}>
               <p className="text-lg mb-8">
                 CareHalo360 reduces uncertainty by giving you calm awareness when something 
-                looks unusual—without turning your home into a surveillance zone.
+                looks unusual, without turning your home into a surveillance zone.
               </p>
             </FadeInView>
             
@@ -39,7 +39,7 @@ export default function ProblemSection() {
             <FadeInView delay={0.3}>
               <div className="bg-background rounded-xl p-4 border border-border">
                 <p className="text-sm text-muted-foreground italic">
-                  CareHalo360 supports caregivers and families. It doesn't replace them.
+                  CareHalo360 supports caregivers and families. It does not replace them.
                 </p>
               </div>
             </FadeInView>

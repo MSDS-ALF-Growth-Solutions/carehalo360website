@@ -18,7 +18,7 @@ const whatWeDont = [
 
 export default function PrivacySection() {
   return (
-    <section className="section">
+    <section className="section" id="privacy-section">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
@@ -30,7 +30,7 @@ export default function PrivacySection() {
               <p className="text-lg mb-8">
                 CareHalo360 focuses on movement patterns, not identities. Core processing 
                 happens on-device and is designed to minimize sensitive data exposure.
-                We built CareHalo360 around dignity—because safety should never come at 
+                We built CareHalo360 around dignity because safety should never come at 
                 the cost of privacy.
               </p>
             </FadeInView>

@@ -24,8 +24,8 @@ export default function HeroSection() {
             <HeroItem>
               <p className="text-lg md:text-xl max-w-xl mb-8">
                 Quiet, privacy-first safety monitoring that helps families care for
-                loved ones at home—without wearables, without constant checking, and
-                without compromising dignity.
+                loved ones at home. No wearables, no constant checking, and
+                no compromising dignity.
               </p>
             </HeroItem>
 
