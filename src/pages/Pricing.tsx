@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
 import {
@@ -12,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import { FadeInView, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
+import heroImage from "@/assets/heroes/pricing-hero.jpg";
 import premiumHomeImage from "@/assets/pricing/premium-home.jpg";
 import flexibleTrustImage from "@/assets/pricing/flexible-trust.jpg";
 
@@ -95,26 +97,12 @@ export default function Pricing() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="section">
-          <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <FadeInView>
-                <h1 className="mb-6">Simple pricing. No surprises.</h1>
-              </FadeInView>
-              <FadeInView delay={0.1}>
-                <p className="text-lg md:text-xl text-muted-foreground mb-4">
-                  CareHalo360 is offered as a single monthly subscription, designed to give families 
-                  peace of mind without long-term commitments or complicated plans.
-                </p>
-              </FadeInView>
-              <FadeInView delay={0.2}>
-                <p className="text-primary font-medium">
-                  Premium care support, thoughtfully designed, easy to trust.
-                </p>
-              </FadeInView>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title="Simple pricing. No surprises."
+          subtitle="CareHalo360 is offered as a single monthly subscription, designed to give families peace of mind without long-term commitments or complicated plans."
+          description="Premium care support, thoughtfully designed, easy to trust."
+          backgroundImage={heroImage}
+        />
 
         {/* One Simple Plan */}
         <section className="section section-warm">

@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
-import { FadeInView, HeroAnimation, HeroItem, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
+import { FadeInView, ImageReveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
+import heroImage from "@/assets/heroes/privacy-hero.jpg";
 import dignityImage from "@/assets/privacy/dignity-comfort.jpg";
 import abstractMotionImage from "@/assets/privacy/abstract-motion.jpg";
 import homeComfortImage from "@/assets/privacy/home-comfort.jpg";
@@ -28,30 +30,12 @@ export default function Privacy() {
         <Header />
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="section bg-secondary/30">
-            <div className="container">
-              <HeroAnimation className="max-w-3xl mx-auto text-center">
-                <HeroItem>
-                  <h1 className="mb-6">Privacy isn't a feature. It's the foundation.</h1>
-                </HeroItem>
-                <HeroItem>
-                  <p className="text-xl text-muted-foreground mb-4">
-                    CareHalo360 was built on a simple belief:
-                  </p>
-                </HeroItem>
-                <HeroItem>
-                  <p className="text-xl font-medium text-foreground">
-                    Safety should never come at the cost of dignity.
-                  </p>
-                </HeroItem>
-                <HeroItem>
-                  <p className="text-lg text-muted-foreground mt-6">
-                    That belief shapes every design decision we make, from how data is processed to what we intentionally choose not to collect.
-                  </p>
-                </HeroItem>
-              </HeroAnimation>
-            </div>
-          </section>
+          <PageHero
+            title="Privacy isn't a feature. It's the foundation."
+            subtitle="CareHalo360 was built on a simple belief:"
+            description="Safety should never come at the cost of dignity. That belief shapes every design decision we make, from how data is processed to what we intentionally choose not to collect."
+            backgroundImage={heroImage}
+          />
 
           {/* Philosophy Section */}
           <section className="section">
