@@ -11,7 +11,7 @@ export default function FinalCTASection() {
           {/* Content */}
           <div>
             <FadeInView>
-              <h2 className="mb-6">Care is being there—without hovering.</h2>
+              <h2 className="mb-6">Care is being there, without hovering.</h2>
             </FadeInView>
             <FadeInView delay={0.1}>
               <p className="text-lg mb-8">

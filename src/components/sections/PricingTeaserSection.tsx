@@ -20,7 +20,7 @@ export default function PricingTeaserSection() {
           </FadeInView>
           <FadeInView delay={0.1}>
             <p className="text-lg mb-10">
-              CareHalo360 is a monthly service designed for ongoing support—updates, 
+              CareHalo360 is a monthly service designed for ongoing support with updates, 
               reliability, and help when you need it. Hardware is included with your plan.
             </p>
           </FadeInView>
