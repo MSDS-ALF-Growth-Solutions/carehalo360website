@@ -11,7 +11,7 @@ const trustBullets = [
 
 export default function HeroSection() {
   return (
-    <section className="section bg-accent">
+    <section className="section bg-[hsl(35,35%,92%)]">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
