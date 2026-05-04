@@ -32,11 +32,15 @@ export default function Waitlist() {
       return;
     }
     setLoading(true);
-    const { error: dbError } = await supabase.from("waitlist_signups").insert({
+    const payload = {
       full_name: parsed.data.full_name,
       email: parsed.data.email,
       organization: parsed.data.organization || null,
-    });
+    };
+    const [{ error: dbError }] = await Promise.all([
+      supabase.from("waitlist_signups").insert(payload),
+      supabase.from("leads").insert({ ...payload, source: "waitlist" }),
+    ]);
     setLoading(false);
     if (dbError) {
       setError("Something went wrong. Please try again.");
