@@ -17,9 +17,14 @@ export default function HeroSection() {
           {/* Content */}
           <HeroAnimation className="order-2 lg:order-1">
             <HeroItem>
-              <h1 className="mb-6">
+              <h1 className="mb-4">
                 Peace of mind, without intrusion.
               </h1>
+            </HeroItem>
+            <HeroItem>
+              <p className="text-base md:text-lg text-foreground/80 mb-6">
+                Built on proprietary, <strong className="text-foreground font-semibold">patent-pending</strong> AI safety architecture.
+              </p>
             </HeroItem>
             <HeroItem>
               <p className="text-lg md:text-xl max-w-xl mb-8">
@@ -33,7 +38,7 @@ export default function HeroSection() {
             <HeroItem>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Button asChild variant="hero" size="xl">
-                  <Link to="/get-started">Get Started Now</Link>
+                  <Link to="/waitlist">Join Waitlist</Link>
                 </Button>
                 <Button asChild variant="link" size="lg">
                   <Link to="/how-it-works">See how it works →</Link>

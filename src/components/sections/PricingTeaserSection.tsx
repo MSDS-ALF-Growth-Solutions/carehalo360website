@@ -44,7 +44,7 @@ export default function PricingTeaserSection() {
           <FadeInView delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="lg">
-                <Link to="/get-started">Get Started Now</Link>
+                <Link to="/waitlist">Join Waitlist</Link>
               </Button>
               <Button asChild variant="link" size="lg">
                 <Link to="/pricing">View pricing →</Link>

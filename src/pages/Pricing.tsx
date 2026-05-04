@@ -328,7 +328,7 @@ export default function Pricing() {
                   Looking for support across multiple homes or care settings?
                 </p>
                 <Button asChild variant="outline" size="lg">
-                  <Link to="/get-started">Contact us</Link>
+                  <Link to="/contact">Contact us</Link>
                 </Button>
               </div>
             </FadeInView>
@@ -349,7 +349,7 @@ export default function Pricing() {
               </FadeInView>
               <FadeInView delay={0.2}>
                 <Button asChild variant="hero" size="xl">
-                  <Link to="/get-started">Get Started Now</Link>
+                  <Link to="/waitlist">Join Waitlist</Link>
                 </Button>
               </FadeInView>
             </div>

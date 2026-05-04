@@ -238,7 +238,7 @@ export default function FAQ() {
                 CareHalo360 is designed to support families with calm, privacy-first safety monitoring.
               </p>
               <Button asChild variant="hero" size="xl">
-                <Link to="/get-started">Get Started Now</Link>
+                <Link to="/waitlist">Join Waitlist</Link>
               </Button>
             </FadeInView>
           </div>

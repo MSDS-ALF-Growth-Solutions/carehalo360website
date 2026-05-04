@@ -225,7 +225,7 @@ export default function Privacy() {
                   CareHalo360 helps families stay aware while protecting privacy and independence.
                 </p>
                 <Button asChild variant="hero" size="xl">
-                  <Link to="/get-started">Get Started Now</Link>
+                  <Link to="/waitlist">Join Waitlist</Link>
                 </Button>
                 
                 <div className="flex flex-wrap justify-center gap-6 mt-12 text-sm">

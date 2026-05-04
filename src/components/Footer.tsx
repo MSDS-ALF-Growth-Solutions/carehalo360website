@@ -7,7 +7,8 @@ const footerLinks = [
   { href: "/pricing", label: "Pricing" },
   { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
-  { href: "/get-started", label: "Get Started" },
+  { href: "/waitlist", label: "Join Waitlist" },
+  { href: "/announcements", label: "Announcements" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -55,7 +56,7 @@ export default function Footer() {
         <div className="container py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <small className="text-muted-foreground">
-              © {new Date().getFullYear()} CareHalo360. All rights reserved.
+              © {new Date().getFullYear()} CareHalo360. Patent Pending. All rights reserved.
             </small>
             <small className="text-muted-foreground">
               A product of{" "}
