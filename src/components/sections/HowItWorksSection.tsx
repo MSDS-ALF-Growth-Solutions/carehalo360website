@@ -33,8 +33,11 @@ export default function HowItWorksSection() {
       <div className="container">
         <FadeInView className="text-center mb-12">
           <h2 className="mb-4">How CareHalo360 works</h2>
-          <p className="text-lg max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto mb-4">
             Simple, thoughtful technology that stays out of the way.
+          </p>
+          <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
+            CareHalo360 is built on a proprietary, patent-pending architecture combining deterministic state machines, edge AI processing, and human-authoritative incident resolution.
           </p>
         </FadeInView>
 

@@ -116,6 +116,11 @@ export default function About() {
                     path, one that provides awareness without intrusion.
                   </p>
                 </FadeInView>
+                <FadeInView delay={0.25}>
+                  <p className="text-muted-foreground mb-6">
+                    CareHalo360 is built on proprietary, patent-pending technology designed to improve safety outcomes while maintaining privacy and human control in assisted living and home care environments.
+                  </p>
+                </FadeInView>
                 <FadeInView delay={0.3}>
                   <p className="font-medium text-foreground mb-4">Our mission is simple:</p>
                   <ul className="space-y-2 text-muted-foreground">
