@@ -9,7 +9,8 @@ import Privacy from "./pages/Privacy";
 import Pricing from "./pages/Pricing";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
-import GetStarted from "./pages/GetStarted";
+import Waitlist from "./pages/Waitlist";
+import Announcements from "./pages/Announcements";
 import Cancel from "./pages/Cancel";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
@@ -34,7 +35,8 @@ const App = () => (
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/about" element={<About />} />
-          <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/waitlist" element={<Waitlist />} />
+          <Route path="/announcements" element={<Announcements />} />
           <Route path="/cancel" element={<Cancel />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
