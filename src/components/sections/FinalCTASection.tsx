@@ -21,7 +21,7 @@ export default function FinalCTASection() {
             </FadeInView>
             <FadeInView delay={0.2}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/get-started">Get Started Now</Link>
+                <Link to="/waitlist">Join Waitlist</Link>
               </Button>
             </FadeInView>
           </div>
