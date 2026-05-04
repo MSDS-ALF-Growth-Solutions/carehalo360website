@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/pricing", label: "Pricing" },
   { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
-  { href: "/get-started", label: "Get Started" },
+  { href: "/waitlist", label: "Join Waitlist" },
 ];
 
 export default function Header() {
@@ -41,7 +41,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button asChild variant="hero" size="default">
-              <Link to="/get-started">Get Started Now</Link>
+              <Link to="/waitlist">Join Waitlist</Link>
             </Button>
           </div>
 
@@ -74,7 +74,7 @@ export default function Header() {
                 </Link>
               ))}
               <Button asChild variant="hero" size="lg" className="mt-2">
-                <Link to="/get-started">Get Started Now</Link>
+                <Link to="/waitlist">Join Waitlist</Link>
               </Button>
             </div>
           </nav>
