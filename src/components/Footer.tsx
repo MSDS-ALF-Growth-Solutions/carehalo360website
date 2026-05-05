@@ -3,6 +3,9 @@ import logo from "@/assets/logo.png";
 
 const footerLinks = [
   { href: "/how-it-works", label: "How It Works" },
+  { href: "/for-families", label: "For Families" },
+  { href: "/for-facilities", label: "For Facilities" },
+  { href: "/features", label: "Features" },
   { href: "/privacy", label: "Privacy" },
   { href: "/pricing", label: "Pricing" },
   { href: "/faq", label: "FAQ" },

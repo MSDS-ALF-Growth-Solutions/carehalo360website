@@ -23,10 +23,10 @@ export default function Terms() {
             <div className="max-w-3xl mx-auto">
               <h1 className="mb-4">Terms of Service</h1>
               <p className="text-sm text-muted-foreground mb-2">
-                Effective date: [Date of launch]
+                Effective date: May 5, 2026
               </p>
               <p className="text-sm text-muted-foreground mb-6">
-                Last updated: [Date of launch]
+                Last updated: May 5, 2026
               </p>
               <div className="bg-secondary rounded-xl p-4 mb-12">
                 <p className="text-sm text-muted-foreground mb-0">
