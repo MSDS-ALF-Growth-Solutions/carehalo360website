@@ -37,8 +37,10 @@ export default function SmsTerms() {
                   <p className="text-muted-foreground">
                     CareHalo360 sends SMS/MMS emergency safety alerts to contacts
                     ("Notification Routes") who have been added by a verified account owner
-                    during onboarding. Messages relate to a specific monitored
-                    assisted-living resident.
+                    during onboarding. Messages relate to a specific elderly resident being
+                    monitored in their home by an in-home CareHalo360 AI safety camera, and
+                    may include incident notifications, snapshot images from the time of an
+                    event, escalation notices, and device-status updates.
                   </p>
                 </div>
 
@@ -72,9 +74,9 @@ export default function SmsTerms() {
                   <h2 className="text-2xl font-semibold mb-3">Sample first (welcome) message</h2>
                   <div className="bg-secondary rounded-xl p-5">
                     <p className="text-foreground mb-0">
-                      Welcome to CareHalo360 alerts for [Resident Name]. You will receive
-                      emergency safety notifications from this number. Reply STOP to opt
-                      out, HELP for help. Msg & data rates may apply.
+                      Welcome to CareHalo360 alerts for John D. You will receive
+                      emergency safety notifications from this number for John. Reply STOP
+                      to opt out, HELP for help. Msg & data rates may apply.
                     </p>
                   </div>
                 </div>
@@ -83,8 +85,9 @@ export default function SmsTerms() {
                   <h2 className="text-2xl font-semibold mb-3">Sample event message</h2>
                   <div className="bg-secondary rounded-xl p-5">
                     <p className="text-foreground mb-0">
-                      CareHalo360 alert for [Resident Name]: [event description]. Reply
-                      STOP to unsubscribe.
+                      CareHalo360 ALERT: A possible fall was detected for John D. at
+                      7:42 PM. Open the CareHalo360 app to acknowledge or call John. More
+                      info: https://carehalo360.com/contact Reply STOP to opt out.
                     </p>
                   </div>
                 </div>

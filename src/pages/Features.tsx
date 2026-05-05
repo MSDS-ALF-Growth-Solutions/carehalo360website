@@ -148,7 +148,7 @@ export default function Features() {
             <FadeInView>
               <h2 className="mb-4">See how it fits your community</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Pricing is straightforward and built for assisted living operators.
+                Pricing is straightforward — one simple monthly subscription, with families in mind.
               </p>
               <Button asChild variant="hero" size="lg">
                 <Link to="/pricing">View pricing</Link>
