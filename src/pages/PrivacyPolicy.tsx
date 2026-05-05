@@ -23,10 +23,10 @@ export default function PrivacyPolicy() {
             <div className="max-w-3xl mx-auto">
               <h1 className="mb-4">Privacy Policy</h1>
               <p className="text-sm text-muted-foreground mb-2">
-                Effective date: [Date of launch]
+                Effective date: May 5, 2026
               </p>
               <p className="text-sm text-muted-foreground mb-12">
-                Last updated: [Date of launch]
+                Last updated: May 5, 2026
               </p>
 
               <div className="prose prose-lg max-w-none space-y-10">
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
                     This Privacy Policy describes how MSDS ALF Growth Solutions Inc.
                     ("we," "us," "CareHalo360") collects, uses, and protects information
                     when you use the CareHalo360 service. CareHalo360 is operated by MSDS
-                    ALF Growth Solutions Inc., a [Texas corporation — confirm]. For
+                    ALF Growth Solutions Inc., a Texas corporation. For
                     corporate information see{" "}
                     <a
                       href="https://alfgrowth.com"
@@ -163,7 +163,7 @@ export default function PrivacyPolicy() {
                 <div>
                   <h2 className="text-2xl font-semibold mb-3">6. Data retention</h2>
                   <p className="text-muted-foreground">
-                    We retain message logs and consent records for [N years — confirm] for
+                    We retain message logs and consent records for 4 years for
                     compliance. Contact records are removed when a contact opts out or is
                     removed from a Notification Route, except for the minimum audit record
                     required by carrier rules.
