@@ -14,6 +14,7 @@ import Announcements from "./pages/Announcements";
 import Cancel from "./pages/Cancel";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import SmsTerms from "./pages/SmsTerms";
 import Contact from "./pages/Contact";
 import Disclaimer from "./pages/Disclaimer";
 import Accessibility from "./pages/Accessibility";
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/cancel" element={<Cancel />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/sms-terms" element={<SmsTerms />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/accessibility" element={<Accessibility />} />
