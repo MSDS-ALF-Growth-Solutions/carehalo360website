@@ -14,7 +14,6 @@ const navLinks = [
   { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
   { href: "/announcements", label: "Announcements" },
-  { href: "/waitlist", label: "Join Waitlist" },
 ];
 
 export default function Header() {
