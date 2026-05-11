@@ -11,6 +11,38 @@ const logStep = (step: string, details?: Record<string, unknown>) => {
   console.log(`[CREATE-CHECKOUT] ${step}${detailsStr}`);
 };
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function isValidEmail(value: unknown): value is string {
+  return typeof value === "string" && value.length <= 255 && EMAIL_REGEX.test(value.trim());
+}
+
+function sanitizeString(value: unknown, maxLength: number): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const trimmed = value.trim().slice(0, maxLength);
+  return trimmed.length > 0 ? trimmed : undefined;
+}
+
+function sanitizeAddress(input: unknown) {
+  if (!input || typeof input !== "object") return undefined;
+  const a = input as Record<string, unknown>;
+  const line1 = sanitizeString(a.line1, 200);
+  const line2 = sanitizeString(a.line2, 200);
+  const city = sanitizeString(a.city, 100);
+  const state = sanitizeString(a.state, 100);
+  const postalCode = sanitizeString(a.postalCode, 20);
+  const country = sanitizeString(a.country, 2) || "US";
+  if (!line1 && !city && !state && !postalCode) return undefined;
+  return { line1, line2, city, state, postal_code: postalCode, country };
+}
+
+function badRequest(message: string) {
+  return new Response(JSON.stringify({ error: message }), {
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+    status: 400,
+  });
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -23,39 +55,51 @@ serve(async (req) => {
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
     logStep("Stripe key verified");
 
-    const { email, name, address } = await req.json();
-    if (!email) throw new Error("Email is required");
-    logStep("Request data received", { email, name });
+    let body: unknown;
+    try {
+      body = await req.json();
+    } catch {
+      return badRequest("Invalid JSON body");
+    }
+    if (!body || typeof body !== "object") {
+      return badRequest("Invalid request body");
+    }
+
+    const { email, name, address } = body as Record<string, unknown>;
+
+    if (!isValidEmail(email)) {
+      return badRequest("Please provide a valid email address");
+    }
+    if (name !== undefined && name !== null && typeof name !== "string") {
+      return badRequest("Name must be a string");
+    }
+
+    const normalizedEmail = (email as string).toLowerCase().trim();
+    const sanitizedName = sanitizeString(name, 100);
+    const sanitizedAddress = sanitizeAddress(address);
+
+    logStep("Request data validated", { email: normalizedEmail });
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
-    // Check if customer exists
-    const customers = await stripe.customers.list({ email, limit: 1 });
+    const customers = await stripe.customers.list({ email: normalizedEmail, limit: 1 });
     let customerId: string | undefined;
 
     if (customers.data.length > 0) {
       customerId = customers.data[0].id;
       logStep("Existing customer found", { customerId });
     } else {
-      // Create new customer
       const customer = await stripe.customers.create({
-        email,
-        name,
-        address: address ? {
-          line1: address.line1,
-          line2: address.line2,
-          city: address.city,
-          state: address.state,
-          postal_code: address.postalCode,
-          country: address.country || "US",
-        } : undefined,
+        email: normalizedEmail,
+        name: sanitizedName,
+        address: sanitizedAddress,
       });
       customerId = customer.id;
       logStep("New customer created", { customerId });
     }
 
     const origin = req.headers.get("origin") || "https://carehalo360.com";
-    
+
     const session = await stripe.checkout.sessions.create({
       customer: customerId,
       line_items: [
@@ -80,9 +124,12 @@ serve(async (req) => {
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
     logStep("ERROR", { message: errorMessage });
-    return new Response(JSON.stringify({ error: errorMessage }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      status: 500,
-    });
+    return new Response(
+      JSON.stringify({ error: "Unable to start checkout. Please try again later." }),
+      {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 500,
+      }
+    );
   }
 });
