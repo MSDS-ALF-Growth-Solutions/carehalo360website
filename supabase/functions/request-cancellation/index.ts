@@ -12,6 +12,25 @@ const logStep = (step: string, details?: Record<string, unknown>) => {
   console.log(`[REQUEST-CANCELLATION] ${step}${detailsStr}`);
 };
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function isValidEmail(value: unknown): value is string {
+  return typeof value === "string" && value.length <= 255 && EMAIL_REGEX.test(value.trim());
+}
+
+function sanitizeString(value: unknown, maxLength: number): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim().slice(0, maxLength);
+  return trimmed.length > 0 ? trimmed : null;
+}
+
+function badRequest(message: string) {
+  return new Response(
+    JSON.stringify({ error: message }),
+    { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
+  );
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -33,29 +52,46 @@ serve(async (req) => {
       auth: { persistSession: false },
     });
 
-    const { email, name, reason } = await req.json();
-    
-    if (!email) {
-      return new Response(
-        JSON.stringify({ error: "Email is required" }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
-      );
+    let body: unknown;
+    try {
+      body = await req.json();
+    } catch {
+      return badRequest("Invalid JSON body");
     }
 
-    const normalizedEmail = email.toLowerCase().trim();
+    if (!body || typeof body !== "object") {
+      return badRequest("Invalid request body");
+    }
+
+    const { email, name, reason } = body as Record<string, unknown>;
+
+    if (!isValidEmail(email)) {
+      return badRequest("Please provide a valid email address");
+    }
+
+    if (name !== undefined && name !== null && typeof name !== "string") {
+      return badRequest("Name must be a string");
+    }
+    if (reason !== undefined && reason !== null && typeof reason !== "string") {
+      return badRequest("Reason must be a string");
+    }
+
+    const normalizedEmail = (email as string).toLowerCase().trim();
+    const sanitizedName = sanitizeString(name, 100);
+    const sanitizedReason = sanitizeString(reason, 1000);
+
     logStep("Checking for active subscription", { email: normalizedEmail });
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
-    
-    // Find customer by email
+
     const customers = await stripe.customers.list({ email: normalizedEmail, limit: 1 });
-    
+
     if (customers.data.length === 0) {
       logStep("No customer found", { email: normalizedEmail });
       return new Response(
-        JSON.stringify({ 
+        JSON.stringify({
           error: "We couldn't find a subscription with this email. Please check the confirmation email you received when subscribing and use that email address.",
-          found: false 
+          found: false,
         }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 404 }
       );
@@ -64,7 +100,6 @@ serve(async (req) => {
     const customerId = customers.data[0].id;
     logStep("Customer found", { customerId });
 
-    // Check for active subscription
     const subscriptions = await stripe.subscriptions.list({
       customer: customerId,
       status: "active",
@@ -74,9 +109,9 @@ serve(async (req) => {
     if (subscriptions.data.length === 0) {
       logStep("No active subscription found", { customerId });
       return new Response(
-        JSON.stringify({ 
+        JSON.stringify({
           error: "This email has no active subscription. It may have already been canceled. Please contact support if you need help.",
-          found: false 
+          found: false,
         }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 404 }
       );
@@ -84,13 +119,12 @@ serve(async (req) => {
 
     logStep("Active subscription found, storing cancellation request");
 
-    // Store the cancellation request
     const { error: insertError } = await supabase
       .from("cancellation_requests")
       .insert({
         email: normalizedEmail,
-        name: name || null,
-        reason: reason || null,
+        name: sanitizedName,
+        reason: sanitizedReason,
         status: "pending",
       });
 
@@ -102,18 +136,17 @@ serve(async (req) => {
     logStep("Cancellation request stored successfully");
 
     return new Response(
-      JSON.stringify({ 
+      JSON.stringify({
         success: true,
-        message: "Your cancellation request has been received. We'll process it shortly."
+        message: "Your cancellation request has been received. We'll process it shortly.",
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
     );
-
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
     logStep("ERROR", { message: errorMessage });
     return new Response(
-      JSON.stringify({ error: errorMessage }),
+      JSON.stringify({ error: "An unexpected error occurred. Please try again later." }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
     );
   }
