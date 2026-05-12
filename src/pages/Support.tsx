@@ -64,7 +64,7 @@ export default function Support() {
                   <address className="not-italic text-muted-foreground">
                     MSDS ALF Growth Solutions Inc.
                     <br />
-                    440 Cobia Dr, Unit 1101
+                    8202 Aleppo Pine Ln
                     <br />
                     Cypress, TX 77433
                     <br />
