@@ -21,6 +21,7 @@ import Security from "./pages/Security";
 import ForFamilies from "./pages/ForFamilies";
 import ForFacilities from "./pages/ForFacilities";
 import Features from "./pages/Features";
+import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
