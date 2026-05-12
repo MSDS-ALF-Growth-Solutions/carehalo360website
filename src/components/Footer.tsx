@@ -13,6 +13,7 @@ const footerLinks = [
   { href: "/waitlist", label: "Join Waitlist" },
   { href: "/announcements", label: "Announcements" },
   { href: "/contact", label: "Contact" },
+  { href: "/support", label: "Support" },
 ];
 
 const legalLinks = [
