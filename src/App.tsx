@@ -21,6 +21,7 @@ import Security from "./pages/Security";
 import ForFamilies from "./pages/ForFamilies";
 import ForFacilities from "./pages/ForFacilities";
 import Features from "./pages/Features";
+import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/for-families" element={<ForFamilies />} />
           <Route path="/for-facilities" element={<ForFacilities />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/support" element={<Support />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
