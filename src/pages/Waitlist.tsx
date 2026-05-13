@@ -46,6 +46,17 @@ export default function Waitlist() {
       setError("Something went wrong. Please try again.");
       return;
     }
+    // Fire-and-forget Slack notification (don't block UX on failure)
+    supabase.functions
+      .invoke("notify-slack-lead", {
+        body: {
+          source: "waitlist",
+          name: payload.full_name,
+          email: payload.email,
+          organization: payload.organization,
+        },
+      })
+      .catch(() => {});
     setSubmitted(true);
   };
 

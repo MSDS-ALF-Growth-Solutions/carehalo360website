@@ -45,6 +45,22 @@ export default function CheckoutForm() {
     setIsLoading(true);
 
     try {
+      // Fire-and-forget Slack lead notification
+      supabase.functions
+        .invoke("notify-slack-lead", {
+          body: {
+            source: "checkout",
+            name: `${formData.firstName} ${formData.lastName}`.trim(),
+            email: formData.email,
+            extra: {
+              phone: formData.phone || "—",
+              city: formData.city || "—",
+              state: formData.state || "—",
+            },
+          },
+        })
+        .catch(() => {});
+
       const { data, error: fnError } = await supabase.functions.invoke("create-checkout", {
         body: {
           email: formData.email,

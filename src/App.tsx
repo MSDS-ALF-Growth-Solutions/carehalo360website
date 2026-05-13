@@ -23,6 +23,7 @@ import ForFacilities from "./pages/ForFacilities";
 import Features from "./pages/Features";
 import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
+import SmoothScroll from "./components/animations/SmoothScroll";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <SmoothScroll />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
