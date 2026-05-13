@@ -1,0 +1,30 @@
+# CareHalo360
+
+> Privacy-first home safety monitoring for families caring for loved ones at home — no wearables, no constant watching, just peace of mind.
+
+CareHalo360 is a quiet, on-device safety monitoring service. It observes movement patterns to flag meaningful safety events (like falls or unusual inactivity) without recording video, using facial recognition, or requiring anything to be worn. Hardware is included in a single monthly subscription ($39–$49/mo), cancel anytime.
+
+## Pages
+
+- [Home](/): Overview of CareHalo360 and how it helps families.
+- [How It Works](/how-it-works): The privacy-first monitoring approach explained.
+- [Features](/features): What CareHalo360 detects and how alerts work.
+- [For Families](/for-families): Use cases for families caring for aging loved ones.
+- [For Facilities](/for-facilities): Multi-home and care-facility deployments.
+- [Pricing](/pricing): Single monthly subscription, hardware included.
+- [Waitlist](/waitlist): Join the waitlist for early access.
+- [FAQ](/faq): Common questions on privacy, setup, alerts, and pricing.
+- [About](/about): Mission and team behind CareHalo360.
+- [Contact](/contact): Get in touch with the team.
+- [Announcements](/announcements): Company news and milestones.
+- [Security](/security): How customer data is protected.
+- [Privacy Policy](/privacy-policy): Full privacy policy.
+- [Terms](/terms): Terms of service.
+- [SMS Terms](/sms-terms): SMS messaging terms.
+- [Accessibility](/accessibility): Accessibility commitment.
+- [Disclaimer](/disclaimer): Service disclaimer (not a medical device).
+
+## Optional
+
+- [Support](/support): Customer support resources.
+- [Cancel](/cancel): Cancellation request flow.
