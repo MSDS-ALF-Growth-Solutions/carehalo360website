@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { Home, Shield, Zap } from "lucide-react";
 import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 

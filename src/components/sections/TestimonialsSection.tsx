@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { ImageReveal, FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 import familyImage from "@/assets/family-peace-of-mind.jpg";
 

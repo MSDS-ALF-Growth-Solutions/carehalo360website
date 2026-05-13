@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { ShieldCheck } from "lucide-react";
 import { FadeInView } from "@/components/animations/MotionElements";
 

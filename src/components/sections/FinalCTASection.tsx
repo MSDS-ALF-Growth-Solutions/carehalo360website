@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FadeInView, ImageReveal } from "@/components/animations/MotionElements";

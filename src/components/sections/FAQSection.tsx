@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import {
   Accordion,
   AccordionContent,

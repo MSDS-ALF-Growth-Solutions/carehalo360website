@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { FadeInView, ImageReveal } from "@/components/animations/MotionElements";
 import careMomentImage from "@/assets/care-moment.jpg";
 
