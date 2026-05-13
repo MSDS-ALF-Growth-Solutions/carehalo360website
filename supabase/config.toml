@@ -1,1 +1,7 @@
 project_id = "kslhxofcuipccfhgpord"
+
+[functions.process-email-queue]
+verify_jwt = true
+
+[functions.notify-slack-lead]
+verify_jwt = false
