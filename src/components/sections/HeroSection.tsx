@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { HeroAnimation, HeroItem, ImageReveal } from "@/components/animations/MotionElements";
+import SlideUpText from "@/components/animations/SlideUpText";
 import heroVideo from "@/assets/hero-video.mp4";
 
 const trustBullets = [
@@ -17,9 +18,9 @@ export default function HeroSection() {
           {/* Content */}
           <HeroAnimation className="order-2 lg:order-1">
             <HeroItem>
-              <h1 className="mb-4">
+              <SlideUpText as="h1" className="mb-6" inView={false} stagger={0.06}>
                 Peace of mind, without intrusion.
-              </h1>
+              </SlideUpText>
             </HeroItem>
             <HeroItem>
               <p className="text-base md:text-lg text-foreground/80 mb-6">
