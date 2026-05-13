@@ -23,6 +23,7 @@ import ForFacilities from "./pages/ForFacilities";
 import Features from "./pages/Features";
 import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
+import Unsubscribe from "./pages/Unsubscribe";
 import SmoothScroll from "./components/animations/SmoothScroll";
 
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/for-facilities" element={<ForFacilities />} />
           <Route path="/features" element={<Features />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
