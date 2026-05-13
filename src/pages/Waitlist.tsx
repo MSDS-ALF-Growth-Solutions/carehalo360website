@@ -94,6 +94,16 @@ export default function Waitlist() {
       return;
     }
     supabase.functions
+      .invoke("send-transactional-email", {
+        body: {
+          templateName: "waitlist-confirmation",
+          recipientEmail: payload.email,
+          idempotencyKey: `waitlist-confirm-${payload.email}-${Date.now()}`,
+          templateData: { name: payload.full_name },
+        },
+      })
+      .catch(() => {});
+    supabase.functions
       .invoke("notify-slack-lead", {
         body: {
           source: "waitlist",
