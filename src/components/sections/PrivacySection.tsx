@@ -24,7 +24,7 @@ export default function PrivacySection() {
           {/* Content */}
           <div>
             <FadeInView>
-              <h2 className="mb-6">Privacy is the foundation.</h2>
+              <SlideUpText as="h2" className="mb-6">Privacy is the foundation.</SlideUpText>
             </FadeInView>
             <FadeInView delay={0.1}>
               <p className="text-lg mb-8">

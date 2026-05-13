@@ -33,7 +33,7 @@ export default function WhoItsForSection() {
     <section className="section">
       <div className="container">
         <FadeInView className="text-center mb-12">
-          <h2 className="mb-4">Made for families supporting care at home.</h2>
+          <SlideUpText as="h2" className="mb-4">Made for families supporting care at home.</SlideUpText>
         </FadeInView>
 
         <StaggerContainer className="card-grid-4" staggerDelay={0.1}>

@@ -16,7 +16,7 @@ export default function PricingTeaserSection() {
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
           <FadeInView>
-            <h2 className="mb-4">Simple pricing. No surprises.</h2>
+            <SlideUpText as="h2" className="mb-4">Simple pricing. No surprises.</SlideUpText>
           </FadeInView>
           <FadeInView delay={0.1}>
             <p className="text-lg mb-10">

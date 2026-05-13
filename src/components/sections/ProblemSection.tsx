@@ -18,9 +18,7 @@ export default function ProblemSection() {
           {/* Content */}
           <div>
             <FadeInView>
-              <h2 className="mb-6">
-                Caring is love. Worry is the part nobody talks about.
-              </h2>
+              <SlideUpText as="h2" className="mb-6">Caring is love. Worry is the part nobody talks about.</SlideUpText>
             </FadeInView>
             <FadeInView delay={0.1}>
               <p className="text-lg mb-6">

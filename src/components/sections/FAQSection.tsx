@@ -39,7 +39,7 @@ export default function FAQSection() {
       <div className="container">
         <div className="max-w-3xl mx-auto">
           <FadeInView>
-            <h2 className="text-center mb-10">Frequently asked questions</h2>
+            <SlideUpText as="h2" className="text-center mb-10 block">Frequently asked questions</SlideUpText>
           </FadeInView>
 
           <FadeInView delay={0.1}>

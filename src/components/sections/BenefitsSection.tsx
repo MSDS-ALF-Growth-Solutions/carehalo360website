@@ -24,7 +24,7 @@ export default function BenefitsSection() {
     <section className="section section-light">
       <div className="container">
         <FadeInView className="text-center mb-12">
-          <h2 className="mb-4">Built for real homes. Built for trust.</h2>
+          <SlideUpText as="h2" className="mb-4">Built for real homes. Built for trust.</SlideUpText>
         </FadeInView>
 
         <StaggerContainer className="card-grid" staggerDelay={0.15}>

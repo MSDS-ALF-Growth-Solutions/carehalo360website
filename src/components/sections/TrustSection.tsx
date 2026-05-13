@@ -9,7 +9,7 @@ export default function TrustSection() {
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-6">
             <ShieldCheck className="w-6 h-6 text-primary" />
           </div>
-          <h2 className="mb-4">Trusted & Built for Real-World Care</h2>
+          <SlideUpText as="h2" className="mb-4">Trusted & Built for Real-World Care</SlideUpText>
           <p className="text-muted-foreground">
             CareHalo360's core safety system is protected under a U.S. patent-pending application, reinforcing reliability, auditability, and long-term regulatory alignment for assisted living and home care environments.
           </p>
