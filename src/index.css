@@ -9,46 +9,46 @@
 
 @layer base {
   :root {
-    /* Core Brand Colors - Warm Neutrals */
-    --background: 40 20% 99%;
-    --foreground: 220 9% 11%;
+    /* Yucca-inspired warm beige */
+    --background: 33 25% 88%;
+    --foreground: 220 12% 10%;
 
-    --card: 40 20% 99%;
-    --card-foreground: 220 9% 11%;
+    --card: 33 25% 92%;
+    --card-foreground: 220 12% 10%;
 
-    --popover: 40 20% 99%;
-    --popover-foreground: 220 9% 11%;
+    --popover: 33 25% 92%;
+    --popover-foreground: 220 12% 10%;
 
     /* Trust Blue Accent */
     --primary: 214 60% 52%;
     --primary-foreground: 0 0% 100%;
 
     /* Warm Surface */
-    --secondary: 40 15% 96%;
-    --secondary-foreground: 220 9% 11%;
+    --secondary: 33 22% 84%;
+    --secondary-foreground: 220 12% 10%;
 
-    --muted: 40 15% 96%;
-    --muted-foreground: 220 6% 44%;
+    --muted: 33 22% 84%;
+    --muted-foreground: 220 8% 35%;
 
-    --accent: 35 25% 94%;
-    --accent-foreground: 220 9% 11%;
+    --accent: 33 28% 92%;
+    --accent-foreground: 220 12% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 10% 90%;
-    --input: 40 10% 90%;
+    --border: 33 15% 78%;
+    --input: 33 15% 78%;
     --ring: 214 60% 52%;
 
     --radius: 0.75rem;
 
     /* Extended Palette */
-    --warm-beige: 35 30% 93%;
-    --warm-cream: 40 25% 97%;
+    --warm-beige: 33 25% 88%;
+    --warm-cream: 33 25% 92%;
     --trust-blue: 214 60% 52%;
     --trust-blue-hover: 214 60% 45%;
-    --text-primary: 220 9% 11%;
-    --text-secondary: 220 6% 44%;
+    --text-primary: 220 12% 10%;
+    --text-secondary: 220 8% 35%;
 
     /* Layout */
     --max-width: 1200px;
@@ -147,23 +147,26 @@
     letter-spacing: -0.025em;
   }
 
-  /* Yucca-inspired editorial display scale */
+  /* Yucca-inspired editorial display scale — bigger, tighter */
   h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem];
-    line-height: 1.02;
-    letter-spacing: -0.035em;
+    @apply text-6xl md:text-7xl lg:text-8xl xl:text-[7.5rem];
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    font-weight: 500;
   }
 
   h2 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    @apply text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem];
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    font-weight: 500;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl lg:text-4xl;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    @apply text-3xl md:text-4xl lg:text-5xl;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 500;
   }
 
   p {
