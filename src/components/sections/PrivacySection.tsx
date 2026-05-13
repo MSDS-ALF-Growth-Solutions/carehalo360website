@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
@@ -24,7 +25,7 @@ export default function PrivacySection() {
           {/* Content */}
           <div>
             <FadeInView>
-              <h2 className="mb-6">Privacy is the foundation.</h2>
+              <SlideUpText as="h2" className="mb-6">Privacy is the foundation.</SlideUpText>
             </FadeInView>
             <FadeInView delay={0.1}>
               <p className="text-lg mb-8">

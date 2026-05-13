@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Settings, Eye, Cpu, Bell } from "lucide-react";
@@ -32,7 +33,7 @@ export default function HowItWorksSection() {
     <section className="section">
       <div className="container">
         <FadeInView className="text-center mb-12">
-          <h2 className="mb-4">How CareHalo360 works</h2>
+          <SlideUpText as="h2" className="mb-4">How CareHalo360 works</SlideUpText>
           <p className="text-lg max-w-2xl mx-auto mb-4">
             Simple, thoughtful technology that stays out of the way.
           </p>

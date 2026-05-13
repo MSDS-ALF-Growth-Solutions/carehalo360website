@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FadeInView, ImageReveal } from "@/components/animations/MotionElements";
@@ -11,7 +12,7 @@ export default function FinalCTASection() {
           {/* Content */}
           <div>
             <FadeInView>
-              <h2 className="mb-6">Care is being there, without hovering.</h2>
+              <SlideUpText as="h2" className="mb-6">Care is being there, without hovering.</SlideUpText>
             </FadeInView>
             <FadeInView delay={0.1}>
               <p className="text-lg mb-8">

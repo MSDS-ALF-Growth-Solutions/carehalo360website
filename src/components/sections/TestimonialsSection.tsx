@@ -1,3 +1,4 @@
+import SlideUpText from "@/components/animations/SlideUpText";
 import { ImageReveal, FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 import familyImage from "@/assets/family-peace-of-mind.jpg";
 
@@ -36,7 +37,7 @@ export default function TestimonialsSection() {
           {/* Content */}
           <div>
             <FadeInView>
-              <h2 className="mb-8">Trust grows from consistency.</h2>
+              <SlideUpText as="h2" className="mb-8">Trust grows from consistency.</SlideUpText>
             </FadeInView>
 
             <StaggerContainer className="space-y-6" staggerDelay={0.15}>
