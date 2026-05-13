@@ -139,27 +139,42 @@ export type Database = {
       }
       leads: {
         Row: {
+          caring_for: string | null
           created_at: string
           email: string
           full_name: string
           id: string
+          location: string | null
+          notes: string | null
           organization: string | null
+          phone: string | null
+          role: string | null
           source: string
         }
         Insert: {
+          caring_for?: string | null
           created_at?: string
           email: string
           full_name: string
           id?: string
+          location?: string | null
+          notes?: string | null
           organization?: string | null
+          phone?: string | null
+          role?: string | null
           source?: string
         }
         Update: {
+          caring_for?: string | null
           created_at?: string
           email?: string
           full_name?: string
           id?: string
+          location?: string | null
+          notes?: string | null
           organization?: string | null
+          phone?: string | null
+          role?: string | null
           source?: string
         }
         Relationships: []
@@ -190,25 +205,40 @@ export type Database = {
       }
       waitlist_signups: {
         Row: {
+          caring_for: string | null
           created_at: string
           email: string
           full_name: string
           id: string
+          location: string | null
+          notes: string | null
           organization: string | null
+          phone: string | null
+          role: string | null
         }
         Insert: {
+          caring_for?: string | null
           created_at?: string
           email: string
           full_name: string
           id?: string
+          location?: string | null
+          notes?: string | null
           organization?: string | null
+          phone?: string | null
+          role?: string | null
         }
         Update: {
+          caring_for?: string | null
           created_at?: string
           email?: string
           full_name?: string
           id?: string
+          location?: string | null
+          notes?: string | null
           organization?: string | null
+          phone?: string | null
+          role?: string | null
         }
         Relationships: []
       }
