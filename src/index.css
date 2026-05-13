@@ -138,7 +138,7 @@
     @apply bg-background text-foreground antialiased;
     font-family: "Hanken Grotesk", -apple-system, BlinkMacSystemFont,
                  "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     color: #1D1D1B;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -150,31 +150,31 @@
     letter-spacing: -0.035em;
   }
 
-  /* Yucca/Magnetik-inspired editorial display scale — light weight, tight tracking */
+  /* Yucca/Magnetik-inspired editorial display scale */
   h1 {
     @apply text-6xl md:text-7xl lg:text-8xl xl:text-[5.7rem];
     line-height: 1.05;
     letter-spacing: -0.035em;
-    font-weight: 200;
+    font-weight: 500;
   }
 
   h2 {
     @apply text-5xl md:text-6xl lg:text-7xl xl:text-[4.5rem];
     line-height: 1.05;
     letter-spacing: -0.03em;
-    font-weight: 200;
+    font-weight: 500;
   }
 
   h3 {
     @apply text-2xl md:text-3xl lg:text-[1.75rem];
     line-height: 1.2;
     letter-spacing: -0.02em;
-    font-weight: 300;
+    font-weight: 500;
   }
 
   p {
-    @apply text-muted-foreground leading-relaxed;
-    font-weight: 300;
+    @apply text-foreground/80 leading-relaxed;
+    font-weight: 400;
   }
 }
 
