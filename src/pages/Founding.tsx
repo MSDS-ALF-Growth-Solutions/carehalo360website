@@ -186,26 +186,17 @@ export default function Founding() {
 
       {/* 2. FOUNDER QUOTE */}
       <section id="why" className="py-16 md:py-32 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <motion.div {...fadeIn}>
-            <div
-              className="w-full max-w-[400px] aspect-[4/5] rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 text-sm"
-              role="img"
-              aria-label="Photo of Dawood Kokawala, founder of CareHalo360"
-            >
-              Founder photo
-            </div>
-          </motion.div>
+        <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div {...fadeIn}>
             <blockquote
-              className="text-2xl md:text-3xl leading-snug italic text-slate-900"
+              className="text-3xl md:text-4xl leading-snug italic text-slate-900"
               style={{ fontFamily: "Lora, Georgia, serif" }}
             >
               "My grandfather had a serious fall in his care facility. It
               wasn't just the injury — it was knowing it could have been
               prevented. That moment became CareHalo360."
             </blockquote>
-            <p className="mt-6 text-sm font-semibold tracking-wide text-slate-600">
+            <p className="mt-8 text-sm font-semibold tracking-wide text-slate-600">
               — Dawood Kokawala, Founder
             </p>
           </motion.div>
