@@ -157,23 +157,22 @@ export default function Founding() {
             "linear-gradient(to bottom, #F8FAFC 0%, #FFFFFF 70%)",
         }}
       >
-        <div className="max-w-6xl mx-auto px-6 py-24 w-full">
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 w-full">
           <motion.div {...fadeIn} className="max-w-4xl">
             <h1
-              className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.02]"
+              className="text-3xl sm:text-6xl font-extrabold leading-[1.02] md:text-[80px] md:leading-[0.98]"
               style={{ letterSpacing: "-0.02em", fontWeight: 800 }}
             >
               Dad won't wear the pendant.
             </h1>
-            <p className="mt-8 text-lg md:text-xl max-w-2xl text-slate-900/70 leading-relaxed">
-              CareHalo360 watches for falls without a wearable, without
-              continuous video, without surveillance. Founding-family pilot
-              now open.
+            <p className="mt-6 md:mt-8 text-lg md:text-xl max-w-2xl text-slate-900/70 leading-relaxed">
+              Founding-family pilot now open.
             </p>
-            <div className="mt-10">
+            <div className="mt-8 md:mt-10">
               <a
                 href="#apply"
-                className="inline-flex items-center justify-center px-8 h-14 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white text-base font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2"
+                style={{ fontSize: "1.5rem", padding: "1rem 2rem" }}
               >
                 Apply for a founding spot
               </a>
@@ -186,7 +185,7 @@ export default function Founding() {
       </section>
 
       {/* 2. FOUNDER QUOTE */}
-      <section id="why" className="py-24 md:py-32 bg-white">
+      <section id="why" className="py-16 md:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <motion.div {...fadeIn}>
             <div
@@ -214,7 +213,7 @@ export default function Founding() {
       </section>
 
       {/* 3. PROBLEM */}
-      <section id="problem" className="py-24 md:py-32 bg-white border-t border-slate-100">
+      <section id="problem" className="py-16 md:py-32 bg-white border-t border-slate-100">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
@@ -258,7 +257,7 @@ export default function Founding() {
       </section>
 
       {/* 4. PRODUCT (dark) */}
-      <section id="product" className="py-24 md:py-32 bg-[#0a0a0a] text-white">
+      <section id="product" className="py-16 md:py-32 bg-[#0a0a0a] text-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
@@ -268,7 +267,7 @@ export default function Founding() {
             Three states. Three images. Three channels.
           </motion.h2>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
+          <div className="mt-16 flex flex-col items-center gap-8 sm:grid sm:grid-cols-3 sm:gap-8">
             {[
               { color: "#10B981", label: "Watching, not recording" },
               { color: "#F59E0B", label: "3 images to your phone. Ack or escalate." },
@@ -281,7 +280,7 @@ export default function Founding() {
                 className="flex flex-col items-center text-center"
               >
                 <div
-                  className="w-40 h-40 rounded-full shadow-2xl"
+                  className="w-[80vw] max-w-[280px] aspect-square sm:w-40 sm:h-40 sm:max-w-none sm:aspect-auto rounded-full shadow-2xl"
                   style={{
                     background: `radial-gradient(circle at 35% 30%, ${s.color}, ${s.color}cc 60%, ${s.color}66)`,
                     boxShadow: `0 0 60px ${s.color}55`,
@@ -315,7 +314,7 @@ export default function Founding() {
       </section>
 
       {/* 5. WHAT WE ARE NOT */}
-      <section id="dignity" className="py-24 md:py-32 bg-white">
+      <section id="dignity" className="py-16 md:py-32 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
@@ -367,7 +366,7 @@ export default function Founding() {
       </section>
 
       {/* 6. FOUNDING OFFER */}
-      <section id="pricing" className="py-24 md:py-32 bg-[#F8FAFC]">
+      <section id="pricing" className="py-16 md:py-32 bg-[#F8FAFC]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div {...fadeIn} className="flex justify-center mb-6">
             <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-amber-500 text-white text-xs font-bold tracking-wider uppercase">
@@ -376,22 +375,32 @@ export default function Founding() {
           </motion.div>
           <motion.div
             {...fadeIn}
-            className="mx-auto max-w-[520px] bg-white rounded-2xl border-2 border-cyan-500 shadow-2xl p-8 md:p-10"
+            className="relative mx-auto max-w-[520px] rounded-2xl border-2 border-cyan-500 shadow-2xl p-8 md:p-10 overflow-hidden"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 0%, #ecfeff 0%, #ffffff 70%)",
+            }}
           >
             <p className="text-xs uppercase tracking-widest text-slate-500 font-semibold">
               CareHalo360 Device · one-time
             </p>
             <p
-              className="mt-3 text-6xl md:text-7xl font-extrabold text-cyan-500"
+              className="mt-2 text-4xl md:text-5xl font-extrabold text-cyan-500"
               style={{ letterSpacing: "-0.03em" }}
             >
               $249
             </p>
-            <div className="my-7 border-t border-dashed border-slate-300" />
-            <p className="text-2xl font-bold text-amber-500">
-              $0 / month for the first 3 months
+            <div className="my-6 border-t border-dashed border-slate-300" />
+            <p
+              className="text-4xl md:text-5xl font-extrabold text-amber-500 leading-tight"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              $0 / month
             </p>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-1 text-base font-semibold text-slate-700">
+              for the first 3 months
+            </p>
+            <p className="mt-3 text-slate-600">
               Then $39 / month, locked forever for founding members.
             </p>
             <ul className="mt-7 space-y-3">
@@ -409,7 +418,14 @@ export default function Founding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-7 text-sm italic text-slate-500 leading-relaxed">
+            <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-amber-600">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+              </span>
+              48 of 50 founding spots remaining
+            </div>
+            <p className="mt-6 text-sm italic text-slate-500 leading-relaxed">
               In exchange: honest feedback + a 60-second video review at day 30.
             </p>
           </motion.div>
@@ -417,7 +433,7 @@ export default function Founding() {
       </section>
 
       {/* 7. HOW IT STARTS */}
-      <section id="how" className="py-24 md:py-32 bg-white">
+      <section id="how" className="py-16 md:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
@@ -453,8 +469,26 @@ export default function Founding() {
         </div>
       </section>
 
+      {/* 7b. DOCTOR REFERRAL */}
+      <section className="py-10 md:py-14 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <motion.h3
+            {...fadeIn}
+            className="text-2xl md:text-3xl font-extrabold text-slate-900"
+            style={{ letterSpacing: "-0.02em" }}
+          >
+            Referred by a doctor?
+          </motion.h3>
+          <motion.p {...fadeIn} className="mt-4 text-slate-600 max-w-xl mx-auto leading-relaxed">
+            Mention their name in the form below. We'll send them a thank-you
+            and a monthly note of which patients enrolled — no PHI shared,
+            just the count.
+          </motion.p>
+        </div>
+      </section>
+
       {/* 8. APPLY FORM (dark) */}
-      <section id="apply" className="py-24 md:py-32 bg-[#0a0a0a] text-white">
+      <section id="apply" className="py-16 md:py-32 bg-[#0a0a0a] text-white">
         <div className="max-w-3xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
