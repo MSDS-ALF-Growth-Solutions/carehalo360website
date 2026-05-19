@@ -603,10 +603,13 @@ export default function Founding() {
       <footer className="bg-[#0a0a0a] text-white/70 border-t border-white/10 py-12">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 text-sm">
           <div>
-            <p className="font-semibold text-white">
-              CareHalo360 by MSDS ALF Growth Solutions Inc.
-            </p>
-            <p className="mt-2">
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="CareHalo360 logo" className="h-10 w-10 object-contain" />
+              <p className="font-semibold text-white">
+                CareHalo360 by MSDS ALF Growth Solutions Inc.
+              </p>
+            </div>
+            <p className="mt-3">
               USPTO 64/055,823 · Patent Pending · Houston, TX
             </p>
           </div>
