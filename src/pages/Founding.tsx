@@ -375,22 +375,32 @@ export default function Founding() {
           </motion.div>
           <motion.div
             {...fadeIn}
-            className="mx-auto max-w-[520px] bg-white rounded-2xl border-2 border-cyan-500 shadow-2xl p-8 md:p-10"
+            className="relative mx-auto max-w-[520px] rounded-2xl border-2 border-cyan-500 shadow-2xl p-8 md:p-10 overflow-hidden"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 0%, #ecfeff 0%, #ffffff 70%)",
+            }}
           >
             <p className="text-xs uppercase tracking-widest text-slate-500 font-semibold">
               CareHalo360 Device · one-time
             </p>
             <p
-              className="mt-3 text-6xl md:text-7xl font-extrabold text-cyan-500"
+              className="mt-2 text-4xl md:text-5xl font-extrabold text-cyan-500"
               style={{ letterSpacing: "-0.03em" }}
             >
               $249
             </p>
-            <div className="my-7 border-t border-dashed border-slate-300" />
-            <p className="text-2xl font-bold text-amber-500">
-              $0 / month for the first 3 months
+            <div className="my-6 border-t border-dashed border-slate-300" />
+            <p
+              className="text-4xl md:text-5xl font-extrabold text-amber-500 leading-tight"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              $0 / month
             </p>
-            <p className="mt-2 text-slate-600">
+            <p className="mt-1 text-base font-semibold text-slate-700">
+              for the first 3 months
+            </p>
+            <p className="mt-3 text-slate-600">
               Then $39 / month, locked forever for founding members.
             </p>
             <ul className="mt-7 space-y-3">
@@ -408,7 +418,14 @@ export default function Founding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-7 text-sm italic text-slate-500 leading-relaxed">
+            <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-amber-600">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+              </span>
+              48 of 50 founding spots remaining
+            </div>
+            <p className="mt-6 text-sm italic text-slate-500 leading-relaxed">
               In exchange: honest feedback + a 60-second video review at day 30.
             </p>
           </motion.div>
