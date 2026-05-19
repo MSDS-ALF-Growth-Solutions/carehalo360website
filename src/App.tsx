@@ -22,6 +22,7 @@ import ForFamilies from "./pages/ForFamilies";
 import ForFacilities from "./pages/ForFacilities";
 import Features from "./pages/Features";
 import Support from "./pages/Support";
+import Founding from "./pages/Founding";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
 import SmoothScroll from "./components/animations/SmoothScroll";
