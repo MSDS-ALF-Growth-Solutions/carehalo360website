@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Check, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import logo from "@/assets/carehalo-logo.png";
 
 const fadeIn = {
   initial: { opacity: 0, y: 24 },
@@ -127,8 +128,9 @@ export default function Founding() {
       {/* Sticky anchor nav */}
       <nav className="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <a href="#top" className="font-extrabold tracking-tight text-lg">
-            CareHalo<span className="text-cyan-500">360</span>
+          <a href="#top" className="flex items-center gap-2 font-extrabold tracking-tight text-lg">
+            <img src={logo} alt="CareHalo360 logo" className="h-9 w-9 object-contain" />
+            <span>CareHalo<span className="text-cyan-500">360</span></span>
           </a>
           <ul className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
             {navLinks.map((l) => (
@@ -601,10 +603,13 @@ export default function Founding() {
       <footer className="bg-[#0a0a0a] text-white/70 border-t border-white/10 py-12">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 text-sm">
           <div>
-            <p className="font-semibold text-white">
-              CareHalo360 by MSDS ALF Growth Solutions Inc.
-            </p>
-            <p className="mt-2">
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="CareHalo360 logo" className="h-10 w-10 object-contain" />
+              <p className="font-semibold text-white">
+                CareHalo360 by MSDS ALF Growth Solutions Inc.
+              </p>
+            </div>
+            <p className="mt-3">
               USPTO 64/055,823 · Patent Pending · Houston, TX
             </p>
           </div>
