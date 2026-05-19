@@ -600,15 +600,15 @@ export default function Founding() {
       </section>
 
       {/* 9. FOOTER */}
-      <footer className="bg-[#0a0a0a] text-white/70 border-t border-white/10 pt-14 pb-10">
+      <footer className="bg-[#0a0a0a] border-t border-white/10 pt-14 pb-10" style={{ color: "rgba(255,255,255,0.75)" }}>
         <div className="max-w-6xl mx-auto px-6">
           {/* 911 disclaimer banner */}
-          <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-100">
-            <p>
-              <span className="font-semibold text-amber-300">Important:</span>{" "}
+          <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-4 text-sm">
+            <p style={{ color: "#fde68a" }}>
+              <span className="font-semibold" style={{ color: "#fcd34d" }}>Important:</span>{" "}
               CareHalo360 is not a medical device and is not a substitute for
               emergency services. In a life-threatening emergency, always call{" "}
-              <a href="tel:911" className="underline font-semibold">911</a>.
+              <a href="tel:911" className="underline font-semibold" style={{ color: "#fef3c7" }}>911</a>.
             </p>
           </div>
 
@@ -617,31 +617,31 @@ export default function Founding() {
             <div className="md:col-span-2">
               <div className="flex items-center gap-3">
                 <img src={logo} alt="CareHalo360 logo" className="h-10 w-10 object-contain" />
-                <p className="font-semibold text-white">
+                <p className="font-semibold" style={{ color: "#ffffff" }}>
                   CareHalo360 by MSDS ALF Growth Solutions Inc.
                 </p>
               </div>
-              <p className="mt-4 leading-relaxed">
+              <p className="mt-4 leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
                 MSDS ALF Growth Solutions Inc.
                 <br />
                 Houston, TX 77001
               </p>
-              <p className="mt-3 text-xs text-white/50">
+              <p className="mt-3 text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>
                 USPTO 64/055,823 · Patent Pending
               </p>
             </div>
 
             {/* Contact */}
             <div className="space-y-2">
-              <p className="font-semibold text-white">Contact</p>
+              <p className="font-semibold" style={{ color: "#ffffff" }}>Contact</p>
               <p>
-                <a href="tel:+18324977844" className="hover:text-white">
+                <a href="tel:+18324977844" className="hover:text-white" style={{ color: "rgba(255,255,255,0.85)" }}>
                   832-497-7844
                 </a>
               </p>
-              <p className="text-xs text-white/50">Mon–Fri, 9am–6pm CT</p>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>Mon–Fri, 9am–6pm CT</p>
               <p>
-                <a href="mailto:dawoodk@carehalo360.com" className="hover:text-white break-all">
+                <a href="mailto:dawoodk@carehalo360.com" className="hover:text-white break-all" style={{ color: "rgba(255,255,255,0.85)" }}>
                   dawoodk@carehalo360.com
                 </a>
               </p>
@@ -651,6 +651,7 @@ export default function Founding() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"
+                  style={{ color: "rgba(255,255,255,0.85)" }}
                 >
                   LinkedIn ↗
                 </a>
@@ -659,21 +660,29 @@ export default function Founding() {
 
             {/* Legal */}
             <div className="space-y-2">
-              <p className="font-semibold text-white">Legal</p>
+              <p className="font-semibold" style={{ color: "#ffffff" }}>Legal</p>
               <ul className="space-y-2">
-                <li><a href="/privacy-policy" className="hover:text-white">Privacy Policy</a></li>
-                <li><a href="/terms" className="hover:text-white">Terms</a></li>
-                <li><a href="/sms-terms" className="hover:text-white">SMS Terms</a></li>
-                <li><a href="/accessibility" className="hover:text-white">Accessibility</a></li>
-                <li><a href="/disclaimer" className="hover:text-white">Disclaimer</a></li>
-                <li><a href="/support" className="hover:text-white">Support</a></li>
+                {[
+                  { href: "/privacy-policy", label: "Privacy Policy" },
+                  { href: "/terms", label: "Terms" },
+                  { href: "/sms-terms", label: "SMS Terms" },
+                  { href: "/accessibility", label: "Accessibility" },
+                  { href: "/disclaimer", label: "Disclaimer" },
+                  { href: "/support", label: "Support" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <a href={l.href} className="hover:text-white" style={{ color: "rgba(255,255,255,0.85)" }}>
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
-          <div className="mt-10 pt-6 border-t border-white/10 text-xs text-white/50 flex flex-col md:flex-row md:justify-between gap-2">
-            <p>© 2026 MSDS ALF Growth Solutions Inc. All rights reserved.</p>
-            <p>Made in Houston, TX</p>
+          <div className="mt-10 pt-6 border-t border-white/10 text-xs flex flex-col md:flex-row md:justify-between gap-2" style={{ color: "rgba(255,255,255,0.55)" }}>
+            <p style={{ color: "rgba(255,255,255,0.55)" }}>© 2026 MSDS ALF Growth Solutions Inc. All rights reserved.</p>
+            <p style={{ color: "rgba(255,255,255,0.55)" }}>Made in Houston, TX</p>
           </div>
         </div>
       </footer>
