@@ -483,8 +483,8 @@ export default function Founding() {
         <div className="max-w-3xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
-            className="text-4xl md:text-5xl font-extrabold"
-            style={{ letterSpacing: "-0.02em" }}
+            className="text-4xl md:text-5xl font-extrabold text-white"
+            style={{ letterSpacing: "-0.02em", color: "#ffffff" }}
           >
             Apply for a founding spot
           </motion.h2>
