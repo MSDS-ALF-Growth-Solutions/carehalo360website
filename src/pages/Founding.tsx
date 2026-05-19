@@ -185,7 +185,7 @@ export default function Founding() {
       </section>
 
       {/* 2. FOUNDER QUOTE */}
-      <section id="why" className="py-24 md:py-32 bg-white">
+      <section id="why" className="py-16 md:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <motion.div {...fadeIn}>
             <div
@@ -213,7 +213,7 @@ export default function Founding() {
       </section>
 
       {/* 3. PROBLEM */}
-      <section id="problem" className="py-24 md:py-32 bg-white border-t border-slate-100">
+      <section id="problem" className="py-16 md:py-32 bg-white border-t border-slate-100">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
@@ -257,7 +257,7 @@ export default function Founding() {
       </section>
 
       {/* 4. PRODUCT (dark) */}
-      <section id="product" className="py-24 md:py-32 bg-[#0a0a0a] text-white">
+      <section id="product" className="py-16 md:py-32 bg-[#0a0a0a] text-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
@@ -314,7 +314,7 @@ export default function Founding() {
       </section>
 
       {/* 5. WHAT WE ARE NOT */}
-      <section id="dignity" className="py-24 md:py-32 bg-white">
+      <section id="dignity" className="py-16 md:py-32 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
@@ -366,7 +366,7 @@ export default function Founding() {
       </section>
 
       {/* 6. FOUNDING OFFER */}
-      <section id="pricing" className="py-24 md:py-32 bg-[#F8FAFC]">
+      <section id="pricing" className="py-16 md:py-32 bg-[#F8FAFC]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div {...fadeIn} className="flex justify-center mb-6">
             <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-amber-500 text-white text-xs font-bold tracking-wider uppercase">
@@ -416,7 +416,7 @@ export default function Founding() {
       </section>
 
       {/* 7. HOW IT STARTS */}
-      <section id="how" className="py-24 md:py-32 bg-white">
+      <section id="how" className="py-16 md:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
@@ -453,7 +453,7 @@ export default function Founding() {
       </section>
 
       {/* 8. APPLY FORM (dark) */}
-      <section id="apply" className="py-24 md:py-32 bg-[#0a0a0a] text-white">
+      <section id="apply" className="py-16 md:py-32 bg-[#0a0a0a] text-white">
         <div className="max-w-3xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
