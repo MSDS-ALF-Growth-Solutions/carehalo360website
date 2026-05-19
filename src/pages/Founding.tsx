@@ -600,36 +600,81 @@ export default function Founding() {
       </section>
 
       {/* 9. FOOTER */}
-      <footer className="bg-[#0a0a0a] text-white/70 border-t border-white/10 py-12">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 text-sm">
-          <div>
-            <div className="flex items-center gap-3">
-              <img src={logo} alt="CareHalo360 logo" className="h-10 w-10 object-contain" />
-              <p className="font-semibold text-white">
-                CareHalo360 by MSDS ALF Growth Solutions Inc.
+      <footer className="bg-[#0a0a0a] text-white/70 border-t border-white/10 pt-14 pb-10">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* 911 disclaimer banner */}
+          <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-100">
+            <p>
+              <span className="font-semibold text-amber-300">Important:</span>{" "}
+              CareHalo360 is not a medical device and is not a substitute for
+              emergency services. In a life-threatening emergency, always call{" "}
+              <a href="tel:911" className="underline font-semibold">911</a>.
+            </p>
+          </div>
+
+          <div className="mt-10 grid md:grid-cols-4 gap-10 text-sm">
+            {/* Brand */}
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3">
+                <img src={logo} alt="CareHalo360 logo" className="h-10 w-10 object-contain" />
+                <p className="font-semibold text-white">
+                  CareHalo360 by MSDS ALF Growth Solutions Inc.
+                </p>
+              </div>
+              <p className="mt-4 leading-relaxed">
+                MSDS ALF Growth Solutions Inc.
+                <br />
+                Houston, TX 77001
+              </p>
+              <p className="mt-3 text-xs text-white/50">
+                USPTO 64/055,823 · Patent Pending
               </p>
             </div>
-            <p className="mt-3">
-              USPTO 64/055,823 · Patent Pending · Houston, TX
-            </p>
+
+            {/* Contact */}
+            <div className="space-y-2">
+              <p className="font-semibold text-white">Contact</p>
+              <p>
+                <a href="tel:+18324977844" className="hover:text-white">
+                  832-497-7844
+                </a>
+              </p>
+              <p className="text-xs text-white/50">Mon–Fri, 9am–6pm CT</p>
+              <p>
+                <a href="mailto:dawoodk@carehalo360.com" className="hover:text-white break-all">
+                  dawoodk@carehalo360.com
+                </a>
+              </p>
+              <p className="pt-2">
+                <a
+                  href="https://www.linkedin.com/company/carehalo360"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
+                  LinkedIn ↗
+                </a>
+              </p>
+            </div>
+
+            {/* Legal */}
+            <div className="space-y-2">
+              <p className="font-semibold text-white">Legal</p>
+              <ul className="space-y-2">
+                <li><a href="/privacy-policy" className="hover:text-white">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-white">Terms</a></li>
+                <li><a href="/sms-terms" className="hover:text-white">SMS Terms</a></li>
+                <li><a href="/accessibility" className="hover:text-white">Accessibility</a></li>
+                <li><a href="/disclaimer" className="hover:text-white">Disclaimer</a></li>
+                <li><a href="/support" className="hover:text-white">Support</a></li>
+              </ul>
+            </div>
           </div>
-          <div className="md:text-right space-y-1">
-            <p>
-              <span aria-hidden="true">📱</span>{" "}
-              <a href="tel:+18324977844" className="hover:text-white">
-                832-497-7844
-              </a>
-            </p>
-            <p>
-              <span aria-hidden="true">✉️</span>{" "}
-              <a href="mailto:dawoodk@carehalo360.com" className="hover:text-white">
-                dawoodk@carehalo360.com
-              </a>
-            </p>
+
+          <div className="mt-10 pt-6 border-t border-white/10 text-xs text-white/50 flex flex-col md:flex-row md:justify-between gap-2">
+            <p>© 2026 MSDS ALF Growth Solutions Inc. All rights reserved.</p>
+            <p>Made in Houston, TX</p>
           </div>
-        </div>
-        <div className="max-w-6xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/50">
-          © 2026 MSDS ALF Growth Solutions Inc.
         </div>
       </footer>
     </div>
