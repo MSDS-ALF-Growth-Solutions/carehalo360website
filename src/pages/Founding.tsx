@@ -252,8 +252,8 @@ export default function Founding() {
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             {...fadeIn}
-            className="text-4xl md:text-5xl font-extrabold max-w-3xl"
-            style={{ letterSpacing: "-0.02em" }}
+            className="text-4xl md:text-5xl font-extrabold max-w-3xl text-white"
+            style={{ letterSpacing: "-0.02em", color: "#ffffff" }}
           >
             Three states. Three images. Three channels.
           </motion.h2>
