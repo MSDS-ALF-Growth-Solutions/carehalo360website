@@ -280,7 +280,7 @@ export default function Founding() {
                 className="flex flex-col items-center text-center"
               >
                 <div
-                  className="w-40 h-40 rounded-full shadow-2xl"
+                  className="w-[80vw] max-w-[280px] aspect-square sm:w-40 sm:h-40 sm:max-w-none sm:aspect-auto rounded-full shadow-2xl"
                   style={{
                     background: `radial-gradient(circle at 35% 30%, ${s.color}, ${s.color}cc 60%, ${s.color}66)`,
                     boxShadow: `0 0 60px ${s.color}55`,
