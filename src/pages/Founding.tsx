@@ -157,23 +157,22 @@ export default function Founding() {
             "linear-gradient(to bottom, #F8FAFC 0%, #FFFFFF 70%)",
         }}
       >
-        <div className="max-w-6xl mx-auto px-6 py-24 w-full">
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 w-full">
           <motion.div {...fadeIn} className="max-w-4xl">
             <h1
-              className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.02]"
+              className="text-3xl sm:text-6xl font-extrabold leading-[1.02] md:text-[80px] md:leading-[0.98]"
               style={{ letterSpacing: "-0.02em", fontWeight: 800 }}
             >
               Dad won't wear the pendant.
             </h1>
-            <p className="mt-8 text-lg md:text-xl max-w-2xl text-slate-900/70 leading-relaxed">
-              CareHalo360 watches for falls without a wearable, without
-              continuous video, without surveillance. Founding-family pilot
-              now open.
+            <p className="mt-6 md:mt-8 text-lg md:text-xl max-w-2xl text-slate-900/70 leading-relaxed">
+              Founding-family pilot now open.
             </p>
-            <div className="mt-10">
+            <div className="mt-8 md:mt-10">
               <a
                 href="#apply"
-                className="inline-flex items-center justify-center px-8 h-14 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white text-base font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2"
+                style={{ fontSize: "1.5rem", padding: "1rem 2rem" }}
               >
                 Apply for a founding spot
               </a>
