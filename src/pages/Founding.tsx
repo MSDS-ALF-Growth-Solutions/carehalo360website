@@ -267,7 +267,7 @@ export default function Founding() {
             Three states. Three images. Three channels.
           </motion.h2>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
+          <div className="mt-16 flex flex-col items-center gap-8 sm:grid sm:grid-cols-3 sm:gap-8">
             {[
               { color: "#10B981", label: "Watching, not recording" },
               { color: "#F59E0B", label: "3 images to your phone. Ack or escalate." },
