@@ -469,6 +469,24 @@ export default function Founding() {
         </div>
       </section>
 
+      {/* 7b. DOCTOR REFERRAL */}
+      <section className="py-10 md:py-14 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <motion.h3
+            {...fadeIn}
+            className="text-2xl md:text-3xl font-extrabold text-slate-900"
+            style={{ letterSpacing: "-0.02em" }}
+          >
+            Referred by a doctor?
+          </motion.h3>
+          <motion.p {...fadeIn} className="mt-4 text-slate-600 max-w-xl mx-auto leading-relaxed">
+            Mention their name in the form below. We'll send them a thank-you
+            and a monthly note of which patients enrolled — no PHI shared,
+            just the count.
+          </motion.p>
+        </div>
+      </section>
+
       {/* 8. APPLY FORM (dark) */}
       <section id="apply" className="py-16 md:py-32 bg-[#0a0a0a] text-white">
         <div className="max-w-3xl mx-auto px-6">
