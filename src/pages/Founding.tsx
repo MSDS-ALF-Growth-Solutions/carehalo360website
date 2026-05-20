@@ -292,9 +292,9 @@ export default function Founding() {
               <video
                 src="/demo.mp4"
                 autoPlay
-                loop
                 muted
                 playsInline
+                controls
                 className="w-full h-full object-contain"
                 aria-label="CareHalo360 demo video showing a fall detection and notification"
               />
