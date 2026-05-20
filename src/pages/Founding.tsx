@@ -287,15 +287,15 @@ export default function Founding() {
             ))}
           </div>
 
-          <motion.div {...fadeIn} className="mt-20 max-w-[720px] mx-auto">
-            <div className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-black ring-1 ring-white/10">
+          <motion.div {...fadeIn} className="mt-20 max-w-[360px] mx-auto">
+            <div className="aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black ring-1 ring-white/10">
               <video
                 src="/demo.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 aria-label="CareHalo360 demo video showing a fall detection and notification"
               />
             </div>
