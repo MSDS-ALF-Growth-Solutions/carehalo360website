@@ -260,14 +260,26 @@ export default function Founding() {
             Three states. Three images. Three channels.
           </motion.h2>
 
-          <div className="mt-16 flex flex-col items-center gap-8 sm:grid sm:grid-cols-3 sm:gap-8">
+          <div className="mt-16 flex flex-col items-center gap-10 sm:grid sm:grid-cols-3 sm:gap-8">
             {[
-              { color: "#10B981", label: "Watching, not recording" },
-              { color: "#F59E0B", label: "3 images to your phone. Ack or escalate." },
-              { color: "#EF4444", label: "Push, voice, and SMS — all three at once." },
+              {
+                color: "#10B981",
+                tag: "GREEN",
+                label: "Dad's moving normally. We're watching, not recording.",
+              },
+              {
+                color: "#F59E0B",
+                tag: "YELLOW",
+                label: "Something unusual. AI confirming before alerting. No false alarms.",
+              },
+              {
+                color: "#EF4444",
+                tag: "RED",
+                label: "Confirmed fall. 3 still images sent. Push notification, phone call, and SMS — all fire together.",
+              },
             ].map((s, i) => (
               <motion.div
-                key={s.label}
+                key={s.tag}
                 {...fadeIn}
                 transition={{ ...fadeIn.transition, delay: i * 0.1 }}
                 className="flex flex-col items-center text-center"
@@ -280,12 +292,19 @@ export default function Founding() {
                   }}
                   aria-hidden="true"
                 />
-                <p className="mt-6 text-base md:text-lg font-semibold max-w-[260px] text-white/90">
+                <p
+                  className="mt-6 text-sm font-bold tracking-widest"
+                  style={{ color: s.color, letterSpacing: "0.15em" }}
+                >
+                  {s.tag}
+                </p>
+                <p className="mt-2 text-base md:text-lg font-medium max-w-[280px] text-white/90">
                   {s.label}
                 </p>
               </motion.div>
             ))}
           </div>
+
 
           <motion.div {...fadeIn} className="mt-20 max-w-[360px] mx-auto">
             <div className="aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black ring-1 ring-white/10">
