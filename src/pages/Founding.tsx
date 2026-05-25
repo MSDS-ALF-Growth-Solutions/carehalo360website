@@ -126,10 +126,10 @@ export default function Founding() {
       }}
     >
       <Helmet>
-        <title>CareHalo360 — Founding Family Waitlist (Texas, 20 spots)</title>
+        <title>CareHalo360 Founding Family Waitlist (Texas, 20 spots)</title>
         <meta
           name="description"
-          content="She falls. You know in seconds. CareHalo360 is a small wall-mounted fall detector — no wearable, no recorded video. Apply for one of 20 Texas Founding Family spots."
+          content="She falls. You know in seconds. CareHalo360 is a small wall-mounted fall detector. No wearable, no recorded video. Apply for one of 20 Texas Founding Family spots."
         />
         <link rel="canonical" href="https://carehalo360.com/founding" />
       </Helmet>
@@ -175,7 +175,7 @@ export default function Founding() {
             </h1>
             <p className="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed">
               CareHalo360 is a small wall-mounted device that watches the room your parent
-              spends the most time in — and alerts you within seconds of a fall. No wearable.
+              spends the most time in, and alerts you within seconds of a fall. No wearable.
               No button. Nothing she has to remember.
             </p>
 
@@ -191,7 +191,7 @@ export default function Founding() {
                 className="inline-flex items-center justify-center rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold shadow-lg shadow-teal-600/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
                 style={{ fontSize: "1.125rem", padding: "0.95rem 1.75rem" }}
               >
-                Reserve Your Founding Spot — Texas Only
+                Reserve Your Founding Spot, Texas Only
               </a>
             </div>
             <p className="mt-4 text-xs text-slate-500">
@@ -230,7 +230,7 @@ export default function Founding() {
             <p>
               The AI runs <strong>on the device itself.</strong> Nothing is recorded. Nothing
               is streamed. The only data that ever leaves Mom's house is <strong>3 blurred
-              snapshots at the exact moment a fall is detected</strong> — so you can see how
+              snapshots at the exact moment a fall is detected</strong>, so you can see how
               serious it looks and decide what to do next.
             </p>
             <p>Those 3 images are <strong>auto-deleted after 7 days.</strong> That's it. Nothing else is captured. Ever.</p>
@@ -274,7 +274,7 @@ export default function Founding() {
             {[
               { color: "#10B981", tag: "GREEN", label: "Dad's moving normally. We're watching, not recording." },
               { color: "#F59E0B", tag: "YELLOW", label: "Something unusual. AI confirming before alerting. No false alarms." },
-              { color: "#EF4444", tag: "RED", label: "Confirmed fall. 3 still images sent. Push notification, phone call, and SMS — all fire together." },
+              { color: "#EF4444", tag: "RED", label: "Confirmed fall. 3 still images sent. Push notification, phone call, and SMS all fire together." },
             ].map((s, i) => (
               <motion.div
                 key={s.tag}
@@ -335,7 +335,7 @@ export default function Founding() {
             {[
               "Lives alone (or with a spouse who can't physically help in an emergency)",
               "Had a recent fall, hospital stay, or new diagnosis",
-              "Refuses to wear a Lifeline pendant — or wears it but never charges it",
+              "Refuses to wear a Lifeline pendant, or wears it but never charges it",
               "Lives more than 20 minutes from you",
             ].map((b) => (
               <li key={b} className="flex gap-3">
@@ -345,7 +345,7 @@ export default function Founding() {
             ))}
           </motion.ul>
           <motion.p {...fadeIn} className="mt-8 text-lg text-slate-700">
-            …and if you've ever lain awake wondering <em>"what if she fell tonight and I didn't know"</em> —
+            …and if you've ever lain awake wondering <em>"what if she fell tonight and I didn't know"</em>,
           </motion.p>
           <motion.p {...fadeIn} className="mt-3 text-xl font-bold text-slate-900">
             This is what we built. For you.
@@ -358,7 +358,7 @@ export default function Founding() {
           >
             "I worry 24/7 and can't enjoy myself because I'm preoccupied with how to handle her issues."
             <footer className="mt-3 text-sm not-italic text-slate-500 font-sans">
-              — Adult caregiver, AgingCare.com forum
+              Adult caregiver, AgingCare.com forum
             </footer>
           </motion.blockquote>
         </div>
@@ -389,7 +389,7 @@ export default function Founding() {
               {
                 n: "3",
                 t: "You go home and sleep",
-                b: "If she falls, you get an alert within seconds — phone call, text, and email. Tap to acknowledge. Decide what to do next. We never call 911 on our own.",
+                b: "If she falls, you get an alert within seconds: phone call, text, and email. Tap to acknowledge. Decide what to do next. We never call 911 on our own.",
               },
             ].map((s, i) => (
               <motion.div
@@ -425,7 +425,7 @@ export default function Founding() {
             className="text-3xl md:text-5xl font-extrabold text-center max-w-3xl mx-auto"
             style={{ letterSpacing: "-0.02em" }}
           >
-            The Founding Family Program — for the first 20 Texas families.
+            The Founding Family Program. For the first 20 Texas families.
           </motion.h2>
 
           <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -483,7 +483,7 @@ export default function Founding() {
                 "Weekly 15-min check-in call with the founder for 60 days",
                 "Direct text-line to the founder during founding period",
                 "All future software updates, free, forever",
-                "Founding price locked permanently — never increases",
+                "Founding price locked permanently. Never increases",
               ].map((i) => (
                 <li key={i} className="flex gap-2 text-slate-800">
                   <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
@@ -530,7 +530,7 @@ export default function Founding() {
           </motion.h2>
           <motion.div {...fadeIn} className="mt-6 space-y-4 text-lg leading-relaxed">
             <p className="text-slate-200">
-              We chose 20 because that's how many families our founder can personally onboard — with a white-glove
+              We chose 20 because that's how many families our founder can personally onboard, with a white-glove
               install walkthrough and weekly check-in calls for the full 60-day beta.
             </p>
             <p className="text-slate-200">
@@ -553,13 +553,13 @@ export default function Founding() {
           <div className="mt-12 space-y-6">
             {[
               { q: "Is the camera always watching her?", a: "The AI is always processing what it sees — but nothing is ever recorded or streamed. The only data that ever leaves the device is 3 blurred snapshots at the moment of a fall. Those 3 images auto-delete after 7 days. That's the entire data footprint." },
-              { q: "What if my mom doesn't have good Wi-Fi?", a: "CareHalo360 requires Wi-Fi to send alerts. If your parent's Wi-Fi is unreliable, get on a call with us before you order — we'll walk through your options (mesh router, T-Mobile/Verizon Home Internet, or a small puck we recommend). We'd rather pause your order than ship a device that won't work in her home." },
-              { q: "It only covers one room. What about the bathroom?", a: "True. One device covers one room. Most falls happen in the bathroom, bedroom, or kitchen. Start with the room she spends 80% of her time in — usually the living room or bedroom — and add a second device for the bathroom after. Founding Families get $100 off the second device anytime in Year 1." },
-              { q: "Does it call 911?", a: "No — by design. Most 'automatic 911' devices have public records of false dispatches that cost families thousands. CareHalo360 alerts you (and any other caregivers you've set up) within seconds. You decide what to do next. You stay in control. Always." },
-              { q: "Will my mom feel like she's being spied on?", a: "There's no video — nothing is recorded or watched. You can show her the system: there's literally no feed to look at. It's a fall detector, not a surveillance camera." },
-              { q: "Why is it Texas-only?", a: "We're a Texas company. Our founder can drive to any beta customer in the state if something needs to be fixed in person. Once we've worked with the first 20 families and refined everything, we'll expand to neighboring states — but the Founding Family price ends when we open to a second state." },
+              { q: "What if my mom doesn't have good Wi-Fi?", a: "CareHalo360 requires Wi-Fi to send alerts. If your parent's Wi-Fi is unreliable, get on a call with us before you order. We'll walk through your options (mesh router, T-Mobile/Verizon Home Internet, or a small puck we recommend). We'd rather pause your order than ship a device that won't work in her home." },
+              { q: "It only covers one room. What about the bathroom?", a: "True. One device covers one room. Most falls happen in the bathroom, bedroom, or kitchen. Start with the room she spends 80% of her time in (usually the living room or bedroom), and add a second device for the bathroom after. Founding Families get $100 off the second device anytime in Year 1." },
+              { q: "Does it call 911?", a: "No, by design. Most 'automatic 911' devices have public records of false dispatches that cost families thousands. CareHalo360 alerts you (and any other caregivers you've set up) within seconds. You decide what to do next. You stay in control. Always." },
+              { q: "Will my mom feel like she's being spied on?", a: "There's no video. Nothing is recorded or watched. You can show her the system: there's literally no feed to look at. It's a fall detector, not a surveillance camera." },
+              { q: "Why is it Texas-only?", a: "We're a Texas company. Our founder can drive to any beta customer in the state if something needs to be fixed in person. Once we've worked with the first 20 families and refined everything, we'll expand to neighboring states. The Founding Family price ends when we open to a second state." },
               { q: "What happens after the beta?", a: "Founding Family pricing is locked permanently. You will NEVER pay more than $299/year ($45/month if you chose monthly), for as long as you stay subscribed. Even if you cancel and come back later, your founding price is reinstated." },
-              { q: "How accurate is the fall detection?", a: "CareHalo360 is designed to detect falls within its line-of-sight zone using computer vision, with typical detection times of 2–5 seconds in normal indoor lighting. No fall-detection system is 100% perfect. CareHalo360 is designed to work alongside — not replace — phones, in-person check-ins, and other safety systems. It is not a medical device and does not call emergency services on your behalf." },
+              { q: "How accurate is the fall detection?", a: "CareHalo360 is designed to detect falls within its line-of-sight zone using computer vision, with typical detection times of 2 to 5 seconds in normal indoor lighting. No fall-detection system is 100% perfect. CareHalo360 is designed to work alongside, not replace, phones, in-person check-ins, and other safety systems. It is not a medical device and does not call emergency services on your behalf." },
             ].map((f, i) => (
               <motion.details
                 key={f.q}
@@ -586,7 +586,7 @@ export default function Founding() {
           </motion.h2>
           <motion.p {...fadeIn} className="mt-5 text-white/70 max-w-xl">
             Three quick qualifying questions, then we'll book a 15-minute call with the founder.
-            <strong className="text-white"> No payment on this page</strong> — billing happens after we confirm fit on the call.
+            <strong className="text-white"> No payment on this page.</strong> Billing happens after we confirm fit on the call.
           </motion.p>
 
           <motion.div {...fadeIn} className="mt-12 max-w-[560px]">
@@ -693,7 +693,7 @@ export default function Founding() {
                   disabled={submitting}
                   className="w-full h-12 rounded-xl bg-teal-500 hover:bg-teal-700 disabled:opacity-60 text-white font-semibold transition-colors"
                 >
-                  {submitting ? "Sending…" : "Apply now — no payment today"}
+                  {submitting ? "Sending…" : "Apply now"}
                 </button>
                 <p className="text-xs text-slate-500 text-center">
                   We don't charge anything on this page. Payment is collected only after a qualifying call.
@@ -753,7 +753,7 @@ export default function Founding() {
                   832-497-7844
                 </a>
               </p>
-              <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>Mon–Fri, 9am–6pm CT</p>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>Mon to Fri, 9am to 6pm CT</p>
               <p>
                 <a href="mailto:dawoodk@carehalo360.com" className="hover:text-white break-all" style={{ color: "rgba(255,255,255,0.85)" }}>
                   dawoodk@carehalo360.com
