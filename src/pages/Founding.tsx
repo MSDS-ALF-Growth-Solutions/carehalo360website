@@ -707,12 +707,12 @@ export default function Founding() {
       {/* 10. FOOTER */}
       <footer className="bg-[#0a0a0a] border-t border-white/10 pt-14 pb-10" style={{ color: "rgba(255,255,255,0.75)" }}>
         <div className="max-w-6xl mx-auto px-6">
-          <div className="rounded-xl border border-teal-600/40 bg-teal-600/10 p-4 text-sm">
-            <p style={{ color: "#fde68a" }}>
-              <span className="font-semibold" style={{ color: "#fcd34d" }}>Important:</span>{" "}
+          <div className="rounded-xl border border-white/15 bg-white/5 p-4 text-sm">
+            <p style={{ color: "rgba(255,255,255,0.85)" }}>
+              <span className="font-semibold" style={{ color: "#ffffff" }}>Important:</span>{" "}
               CareHalo360 is not a medical device and is not a substitute for emergency services. In a
               life-threatening emergency, always call{" "}
-              <a href="tel:911" className="underline font-semibold" style={{ color: "#fef3c7" }}>911</a>.
+              <a href="tel:911" className="underline font-semibold" style={{ color: "#ffffff" }}>911</a>.
             </p>
           </div>
 
