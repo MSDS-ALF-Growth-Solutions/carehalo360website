@@ -98,7 +98,17 @@ serve(async (req) => {
       logStep("New customer created", { customerId });
     }
 
-    const origin = req.headers.get("origin") || "https://carehalo360.com";
+    // Open-redirect protection: never trust the caller's Origin header.
+    // Only echo it back into Stripe success/cancel URLs when it matches our allow-list.
+    const ALLOWED_ORIGINS = new Set([
+      "https://carehalo360.com",
+      "https://www.carehalo360.com",
+      "https://carehalo360website.lovable.app",
+    ]);
+    const requestOrigin = req.headers.get("origin") ?? "";
+    const origin = ALLOWED_ORIGINS.has(requestOrigin)
+      ? requestOrigin
+      : "https://carehalo360.com";
 
     const session = await stripe.checkout.sessions.create({
       customer: customerId,

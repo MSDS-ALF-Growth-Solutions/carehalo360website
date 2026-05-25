@@ -120,8 +120,51 @@ Deno.serve(async (req) => {
   // Create Supabase client with service role (bypasses RLS)
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
-  // 2. Check suppression list (fail-closed: if we can't verify, don't send)
-  const { data: suppressed, error: suppressionError } = await supabase
+  // Anti-abuse: the anon key is public, so any caller can mint a valid JWT.
+  // Unless the caller is the service role, only allow sending to a recipient
+  // that was just submitted via one of our public forms within the last
+  // 5 minutes. This blocks attackers from blasting branded emails to
+  // arbitrary addresses while still allowing legitimate confirmation sends.
+  const authHeader = req.headers.get('Authorization') ?? ''
+  const bearer = authHeader.toLowerCase().startsWith('bearer ')
+    ? authHeader.slice(7).trim()
+    : ''
+  const isServiceRole = !!bearer && bearer === supabaseServiceKey
+
+  if (!isServiceRole) {
+    const sinceIso = new Date(Date.now() - 5 * 60 * 1000).toISOString()
+    const normalizedRecipient = effectiveRecipient.toLowerCase().trim()
+
+    const [waitlistRes, leadsRes] = await Promise.all([
+      supabase
+        .from('waitlist_signups')
+        .select('id', { head: true, count: 'exact' })
+        .ilike('email', normalizedRecipient)
+        .gte('created_at', sinceIso),
+      supabase
+        .from('leads')
+        .select('id', { head: true, count: 'exact' })
+        .ilike('email', normalizedRecipient)
+        .gte('created_at', sinceIso),
+    ])
+
+    const recentlySubmitted =
+      (waitlistRes.count ?? 0) > 0 || (leadsRes.count ?? 0) > 0
+
+    if (!recentlySubmitted) {
+      console.warn('Rejecting transactional email — recipient not in a recent submission', {
+        templateName,
+        effectiveRecipient,
+      })
+      return new Response(
+        JSON.stringify({ error: 'Recipient is not eligible for this email.' }),
+        {
+          status: 403,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      )
+    }
+  }
     .from('suppressed_emails')
     .select('id')
     .eq('email', effectiveRecipient.toLowerCase())

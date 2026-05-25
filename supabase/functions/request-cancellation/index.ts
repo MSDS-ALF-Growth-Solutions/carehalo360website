@@ -84,17 +84,24 @@ serve(async (req) => {
 
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
+    // Generic response shared by every "not eligible" branch — prevents
+    // attackers from enumerating which emails are Stripe customers.
+    const GENERIC_NOT_FOUND = {
+      error:
+        "We could not process your request. Please check the email you used at signup or contact support if you need help.",
+      found: false,
+    };
+    const notFoundResponse = () =>
+      new Response(JSON.stringify(GENERIC_NOT_FOUND), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 404,
+      });
+
     const customers = await stripe.customers.list({ email: normalizedEmail, limit: 1 });
 
     if (customers.data.length === 0) {
       logStep("No customer found", { email: normalizedEmail });
-      return new Response(
-        JSON.stringify({
-          error: "We couldn't find a subscription with this email. Please check the confirmation email you received when subscribing and use that email address.",
-          found: false,
-        }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 404 }
-      );
+      return notFoundResponse();
     }
 
     const customerId = customers.data[0].id;
@@ -108,13 +115,7 @@ serve(async (req) => {
 
     if (subscriptions.data.length === 0) {
       logStep("No active subscription found", { customerId });
-      return new Response(
-        JSON.stringify({
-          error: "This email has no active subscription. It may have already been canceled. Please contact support if you need help.",
-          found: false,
-        }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 404 }
-      );
+      return notFoundResponse();
     }
 
     logStep("Active subscription found, storing cancellation request");
