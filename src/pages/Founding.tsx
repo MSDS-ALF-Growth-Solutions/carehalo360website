@@ -761,7 +761,7 @@ export default function Founding() {
               </p>
               <p className="pt-2">
                 <a
-                  href="https://www.linkedin.com/company/carehalo360"
+                  href="https://www.linkedin.com/company/alf-growth-solutions/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"
