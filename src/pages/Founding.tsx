@@ -464,7 +464,7 @@ export default function Founding() {
                 $45<span className="text-2xl text-slate-500 font-bold">/mo</span>
               </p>
               <p className="mt-2 text-sm text-slate-600">
-                No long-term commitment. Cancel in one tap, anytime.
+                No long-term commitment. Email us anytime to cancel.
               </p>
               <p className="mt-1 text-sm text-slate-500">
                 Public launch: $79/mo. You save $34/mo forever.
@@ -498,7 +498,7 @@ export default function Founding() {
             {[
               { t: "14-Day Sleep-Better Guarantee", b: "If you don't feel a shift in how you're sleeping within 14 days, full refund. Keep the device." },
               { t: "Multi-Channel Alert Guarantee", b: "If our system ever fails to notify you of a confirmed fall during your first year, full year refunded." },
-              { t: "Cancel-in-One-Tap Promise", b: "Monthly plans cancel from inside the app in one tap. No phone calls. No retention scripts." },
+              { t: "Easy Cancellation Promise", b: "Cancel anytime by emailing support@carehalo360.com. No phone calls. No retention scripts. We'll confirm within one business day." },
             ].map((g) => (
               <div key={g.t} className="rounded-xl border border-slate-200 p-6 bg-white">
                 <p className="text-sm font-bold text-teal-700 uppercase tracking-wider">{g.t}</p>
@@ -528,12 +528,12 @@ export default function Founding() {
           <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-extrabold text-white" style={{ letterSpacing: "-0.02em", color: "#ffffff" }}>
             20 spots. Texas only.
           </motion.h2>
-          <motion.div {...fadeIn} className="mt-6 space-y-4 text-white/80 text-lg leading-relaxed">
-            <p>
+          <motion.div {...fadeIn} className="mt-6 space-y-4 text-lg leading-relaxed">
+            <p className="text-slate-200">
               We chose 20 because that's how many families our founder can personally onboard — with a white-glove
               install walkthrough and weekly check-in calls for the full 60-day beta.
             </p>
-            <p>
+            <p className="text-slate-200">
               Once those 20 spots are taken, the founding price (and the founder-led support) goes away forever.
               After that, the public waitlist opens at $79/month.
             </p>
