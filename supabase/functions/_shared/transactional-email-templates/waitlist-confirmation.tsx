@@ -13,26 +13,27 @@ interface WaitlistConfirmationProps {
 const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>You're on the {SITE_NAME} waitlist</Preview>
+    <Preview>Thanks for contacting {SITE_NAME}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>
-          {name ? `Thank you, ${name}.` : 'Thank you for joining.'}
+          {name ? `Thank you, ${name}.` : 'Thank you for reaching out.'}
         </Heading>
         <Text style={text}>
-          You're on the {SITE_NAME} waitlist. We'll be in touch soon with next
-          steps and early access details.
+          We received your message and a team member will get back to you within
+          24 hours.
         </Text>
         <Section style={card}>
           <Text style={cardText}>
             CareHalo360 is a calm, privacy-first companion that helps families
-            and caregivers stay connected — without surveillance or stored video.
+            and caregivers stay connected, without surveillance or stored video.
           </Text>
         </Section>
         <Text style={text}>
-          If you have questions in the meantime, just reply to this email.
+          If anything is urgent in the meantime, just reply to this email or
+          text us at 713-517-6792.
         </Text>
-        <Text style={footer}>— The {SITE_NAME} team</Text>
+        <Text style={footer}>The {SITE_NAME} team</Text>
       </Container>
     </Body>
   </Html>
@@ -40,8 +41,8 @@ const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationProps) => (
 
 export const template = {
   component: WaitlistConfirmationEmail,
-  subject: "You're on the CareHalo360 waitlist",
-  displayName: 'Waitlist confirmation',
+  subject: 'Thanks for contacting CareHalo360',
+  displayName: 'Waitlist / contact confirmation',
   previewData: { name: 'Jane' },
 } satisfies TemplateEntry
 
