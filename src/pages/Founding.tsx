@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Check, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/carehalo-logo.png";
+import heroImage from "@/assets/founding-hero.jpg";
 
 const fadeIn = {
   initial: { opacity: 0, y: 24 },
@@ -138,7 +139,7 @@ export default function Founding() {
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2 font-extrabold tracking-tight text-lg">
             <img src={logo} alt="CareHalo360 logo" className="h-9 w-9 object-contain" />
-            <span>CareHalo<span className="text-cyan-500">360</span></span>
+            <span>CareHalo<span className="text-teal-500">360</span></span>
           </a>
           <ul className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
             {navLinks.map((l) => (
@@ -151,7 +152,7 @@ export default function Founding() {
           </ul>
           <a
             href="#apply"
-            className="hidden sm:inline-flex items-center px-4 h-10 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold text-sm transition-colors"
+            className="hidden sm:inline-flex items-center px-4 h-10 rounded-xl bg-teal-500 hover:bg-teal-700 text-white font-semibold text-sm transition-colors"
           >
             Apply
           </a>
@@ -161,41 +162,54 @@ export default function Founding() {
       {/* 1. HERO */}
       <section
         id="top"
-        className="relative min-h-[80svh] flex items-center"
-        style={{ background: "linear-gradient(to bottom, #F8FAFC 0%, #FFFFFF 70%)" }}
+        className="relative min-h-[80svh] flex items-center overflow-hidden"
+        style={{ background: "linear-gradient(to bottom, #F1F5F9 0%, #FFFFFF 100%)" }}
       >
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 w-full">
-          <motion.div {...fadeIn} className="max-w-4xl">
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 w-full grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div {...fadeIn} className="max-w-2xl">
             <h1
-              className="text-4xl sm:text-6xl font-extrabold leading-[1.02] md:text-[80px] md:leading-[0.98]"
-              style={{ letterSpacing: "-0.02em", fontWeight: 800 }}
+              className="text-4xl sm:text-5xl font-extrabold leading-[1.05] md:text-[68px] md:leading-[1.0]"
+              style={{ letterSpacing: "-0.02em", fontWeight: 800, color: "#0f172a" }}
             >
               She falls. You know in seconds. Even at 3am.
             </h1>
-            <p className="mt-6 md:mt-8 text-lg md:text-xl max-w-2xl text-slate-900/70 leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed">
               CareHalo360 is a small wall-mounted device that watches the room your parent
               spends the most time in — and alerts you within seconds of a fall. No wearable.
               No button. Nothing she has to remember.
             </p>
 
             <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-700">
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500" /> Detects falls in seconds</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500" /> No video stored. Ever.</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500" /> Built in Texas — launching with 20 families first</li>
+              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-teal-600" /> Detects falls in seconds</li>
+              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-teal-600" /> No video stored. Ever.</li>
+              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-teal-600" /> Built in Texas</li>
             </ul>
 
-            <div className="mt-8 md:mt-10">
+            <div className="mt-8">
               <a
                 href="#apply"
-                className="inline-flex items-center justify-center rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
-                style={{ fontSize: "1.25rem", padding: "1rem 2rem" }}
+                className="inline-flex items-center justify-center rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold shadow-lg shadow-teal-600/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                style={{ fontSize: "1.125rem", padding: "0.95rem 1.75rem" }}
               >
                 Reserve Your Founding Spot — Texas Only
               </a>
             </div>
-            <p className="mt-4 text-xs text-slate-900/60">
-              20 spots. Founding price locked forever ($299/yr or $45/mo, vs. $79/mo public launch).
+            <p className="mt-4 text-xs text-slate-500">
+              20 spots. Founding price locked forever ($299/yr or $45/mo, vs. $79/mo at public launch).
             </p>
+          </motion.div>
+
+          <motion.div {...fadeIn} className="relative">
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl ring-1 ring-slate-200">
+              <img
+                src={heroImage}
+                alt="A daughter sitting at her kitchen table on a quiet morning, calmly checking her phone."
+                width={1536}
+                height={1024}
+                fetchPriority="high"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -226,14 +240,14 @@ export default function Founding() {
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <p className="text-xs uppercase tracking-widest font-bold text-slate-500">Traditional cameras</p>
               <ul className="mt-4 space-y-3 text-slate-700">
-                <li className="flex gap-2"><X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" /> Streams video 24/7</li>
-                <li className="flex gap-2"><X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" /> Stores recordings indefinitely</li>
-                <li className="flex gap-2"><X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" /> Anyone with login can watch</li>
-                <li className="flex gap-2"><X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" /> Cloud-processed AI</li>
+                <li className="flex gap-2"><X className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" /> Streams video 24/7</li>
+                <li className="flex gap-2"><X className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" /> Stores recordings indefinitely</li>
+                <li className="flex gap-2"><X className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" /> Anyone with login can watch</li>
+                <li className="flex gap-2"><X className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" /> Cloud-processed AI</li>
               </ul>
             </div>
-            <div className="rounded-2xl border-2 border-cyan-500 bg-cyan-50/40 p-6">
-              <p className="text-xs uppercase tracking-widest font-bold text-cyan-700">CareHalo360</p>
+            <div className="rounded-2xl border-2 border-teal-500 bg-teal-50/40 p-6">
+              <p className="text-xs uppercase tracking-widest font-bold text-teal-800">CareHalo360</p>
               <ul className="mt-4 space-y-3 text-slate-800">
                 <li className="flex gap-2"><Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" /> Streams NOTHING in normal use</li>
                 <li className="flex gap-2"><Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" /> Only 3 blurred frames at moment of fall</li>
@@ -325,7 +339,7 @@ export default function Founding() {
               "Lives more than 20 minutes from you",
             ].map((b) => (
               <li key={b} className="flex gap-3">
-                <Check className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-1.5" />
+                <Check className="w-5 h-5 text-teal-500 flex-shrink-0 mt-1.5" />
                 <span>{b}</span>
               </li>
             ))}
@@ -339,7 +353,7 @@ export default function Founding() {
 
           <motion.blockquote
             {...fadeIn}
-            className="mt-14 border-l-4 border-cyan-500 pl-6 text-xl md:text-2xl italic text-slate-800"
+            className="mt-14 border-l-4 border-teal-500 pl-6 text-xl md:text-2xl italic text-slate-800"
             style={{ fontFamily: "Lora, Georgia, serif" }}
           >
             "I worry 24/7 and can't enjoy myself because I'm preoccupied with how to handle her issues."
@@ -384,7 +398,7 @@ export default function Founding() {
                 transition={{ ...fadeIn.transition, delay: i * 0.08 }}
                 className="rounded-2xl border border-slate-200 p-7 bg-white"
               >
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-cyan-50 text-cyan-600 font-bold">
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-teal-50 text-teal-700 font-bold">
                   {s.n}
                 </span>
                 <h3 className="mt-5 text-xl font-bold">{s.t}</h3>
@@ -402,7 +416,7 @@ export default function Founding() {
       <section id="offer" className="py-12 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div {...fadeIn} className="flex justify-center mb-6">
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-amber-500 text-white text-xs font-bold tracking-wider uppercase">
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-teal-600 text-white text-xs font-bold tracking-wider uppercase">
               Founding Family Program · 20 Texas Families
             </span>
           </motion.div>
@@ -418,16 +432,16 @@ export default function Founding() {
             {/* PIF */}
             <motion.div
               {...fadeIn}
-              className="relative rounded-2xl border-2 border-cyan-500 shadow-xl p-8 bg-white"
-              style={{ background: "radial-gradient(circle at 50% 0%, #ecfeff 0%, #ffffff 70%)" }}
+              className="relative rounded-2xl border-2 border-teal-500 shadow-xl p-8 bg-white"
+              style={{ background: "radial-gradient(circle at 50% 0%, #f0fdfa 0%, #ffffff 70%)" }}
             >
-              <span className="absolute -top-3 right-6 inline-flex items-center px-3 py-1 rounded-full bg-cyan-500 text-white text-[11px] font-bold tracking-wider uppercase">
+              <span className="absolute -top-3 right-6 inline-flex items-center px-3 py-1 rounded-full bg-teal-500 text-white text-[11px] font-bold tracking-wider uppercase">
                 Most Popular
               </span>
               <p className="text-xs uppercase tracking-widest text-slate-500 font-semibold">
                 Paid in full
               </p>
-              <p className="mt-2 text-5xl font-extrabold text-cyan-600" style={{ letterSpacing: "-0.03em" }}>
+              <p className="mt-2 text-5xl font-extrabold text-teal-700" style={{ letterSpacing: "-0.03em" }}>
                 $299<span className="text-2xl text-slate-500 font-bold">/year</span>
               </p>
               <p className="mt-2 text-sm text-slate-600">
@@ -487,7 +501,7 @@ export default function Founding() {
               { t: "Cancel-in-One-Tap Promise", b: "Monthly plans cancel from inside the app in one tap. No phone calls. No retention scripts." },
             ].map((g) => (
               <div key={g.t} className="rounded-xl border border-slate-200 p-6 bg-white">
-                <p className="text-sm font-bold text-cyan-600 uppercase tracking-wider">{g.t}</p>
+                <p className="text-sm font-bold text-teal-700 uppercase tracking-wider">{g.t}</p>
                 <p className="mt-3 text-slate-700 text-sm leading-relaxed">{g.b}</p>
               </div>
             ))}
@@ -496,7 +510,7 @@ export default function Founding() {
           <motion.div {...fadeIn} className="mt-12 text-center">
             <a
               href="#apply"
-              className="inline-flex items-center justify-center rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center justify-center rounded-xl bg-teal-500 hover:bg-teal-700 text-white font-semibold shadow-lg shadow-teal-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
               style={{ fontSize: "1.25rem", padding: "1rem 2rem" }}
             >
               Apply for a Founding Spot →
@@ -555,7 +569,7 @@ export default function Founding() {
               >
                 <summary className="cursor-pointer list-none flex items-start justify-between gap-4 font-semibold text-slate-900 text-lg">
                   <span>{f.q}</span>
-                  <span className="text-cyan-500 text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-teal-500 text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
                 </summary>
                 <p className="mt-3 text-slate-600 leading-relaxed">{f.a}</p>
               </motion.details>
@@ -637,9 +651,9 @@ export default function Founding() {
                     {["Parent", "Spouse", "Myself", "Other"].map((opt) => (
                       <label
                         key={opt}
-                        className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 has-[:checked]:bg-cyan-50 has-[:checked]:border-cyan-500 transition-colors"
+                        className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 has-[:checked]:bg-teal-50 has-[:checked]:border-teal-500 transition-colors"
                       >
-                        <input type="radio" name="who" value={opt} className="accent-cyan-500" />
+                        <input type="radio" name="who" value={opt} className="accent-teal-500" />
                         <span className="text-sm font-medium">{opt}</span>
                       </label>
                     ))}
@@ -655,7 +669,7 @@ export default function Founding() {
                     id="worry"
                     name="worry"
                     rows={3}
-                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                    className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                   />
                 </div>
 
@@ -677,7 +691,7 @@ export default function Founding() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full h-12 rounded-xl bg-cyan-500 hover:bg-cyan-600 disabled:opacity-60 text-white font-semibold transition-colors"
+                  className="w-full h-12 rounded-xl bg-teal-500 hover:bg-teal-700 disabled:opacity-60 text-white font-semibold transition-colors"
                 >
                   {submitting ? "Sending…" : "Apply now — no payment today"}
                 </button>
@@ -690,15 +704,27 @@ export default function Founding() {
         </div>
       </section>
 
+      {/* Sticky mobile CTA */}
+      {!submitted && (
+        <div className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-t border-slate-200 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.06)]">
+          <a
+            href="#apply"
+            className="flex items-center justify-center w-full rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold h-12 text-base"
+          >
+            Reserve My Spot
+          </a>
+        </div>
+      )}
+
       {/* 10. FOOTER */}
-      <footer className="bg-[#0a0a0a] border-t border-white/10 pt-14 pb-10" style={{ color: "rgba(255,255,255,0.75)" }}>
+      <footer className="bg-[#0a0a0a] border-t border-white/10 pt-14 pb-24 md:pb-10" style={{ color: "rgba(255,255,255,0.75)" }}>
         <div className="max-w-6xl mx-auto px-6">
-          <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-4 text-sm">
-            <p style={{ color: "#fde68a" }}>
-              <span className="font-semibold" style={{ color: "#fcd34d" }}>Important:</span>{" "}
+          <div className="rounded-xl border border-white/15 bg-white/5 p-4 text-sm">
+            <p style={{ color: "rgba(255,255,255,0.85)" }}>
+              <span className="font-semibold" style={{ color: "#ffffff" }}>Important:</span>{" "}
               CareHalo360 is not a medical device and is not a substitute for emergency services. In a
               life-threatening emergency, always call{" "}
-              <a href="tel:911" className="underline font-semibold" style={{ color: "#fef3c7" }}>911</a>.
+              <a href="tel:911" className="underline font-semibold" style={{ color: "#ffffff" }}>911</a>.
             </p>
           </div>
 
@@ -820,7 +846,7 @@ function Field({
         pattern={pattern}
         maxLength={maxLength}
         placeholder={placeholder}
-        className="w-full h-11 rounded-lg border border-slate-300 bg-white px-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+        className="w-full h-11 rounded-lg border border-slate-300 bg-white px-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
       />
     </div>
   );
@@ -843,9 +869,9 @@ function RadioGroup({ name, legend, options, required }: RadioGroupProps) {
         {options.map((opt) => (
           <label
             key={opt}
-            className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 has-[:checked]:bg-cyan-50 has-[:checked]:border-cyan-500 transition-colors"
+            className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 has-[:checked]:bg-teal-50 has-[:checked]:border-teal-500 transition-colors"
           >
-            <input type="radio" name={name} value={opt} required={required} className="accent-cyan-500" />
+            <input type="radio" name={name} value={opt} required={required} className="accent-teal-500" />
             <span className="text-sm font-medium">{opt}</span>
           </label>
         ))}
