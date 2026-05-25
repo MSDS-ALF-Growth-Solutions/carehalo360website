@@ -162,41 +162,54 @@ export default function Founding() {
       {/* 1. HERO */}
       <section
         id="top"
-        className="relative min-h-[80svh] flex items-center"
-        style={{ background: "linear-gradient(to bottom, #F8FAFC 0%, #FFFFFF 70%)" }}
+        className="relative min-h-[80svh] flex items-center overflow-hidden"
+        style={{ background: "linear-gradient(to bottom, #F1F5F9 0%, #FFFFFF 100%)" }}
       >
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 w-full">
-          <motion.div {...fadeIn} className="max-w-4xl">
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20 w-full grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div {...fadeIn} className="max-w-2xl">
             <h1
-              className="text-4xl sm:text-6xl font-extrabold leading-[1.02] md:text-[80px] md:leading-[0.98]"
-              style={{ letterSpacing: "-0.02em", fontWeight: 800 }}
+              className="text-4xl sm:text-5xl font-extrabold leading-[1.05] md:text-[68px] md:leading-[1.0]"
+              style={{ letterSpacing: "-0.02em", fontWeight: 800, color: "#0f172a" }}
             >
               She falls. You know in seconds. Even at 3am.
             </h1>
-            <p className="mt-6 md:mt-8 text-lg md:text-xl max-w-2xl text-slate-900/70 leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed">
               CareHalo360 is a small wall-mounted device that watches the room your parent
               spends the most time in — and alerts you within seconds of a fall. No wearable.
               No button. Nothing she has to remember.
             </p>
 
             <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-700">
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500" /> Detects falls in seconds</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500" /> No video stored. Ever.</li>
-              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500" /> Built in Texas — launching with 20 families first</li>
+              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-teal-600" /> Detects falls in seconds</li>
+              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-teal-600" /> No video stored. Ever.</li>
+              <li className="flex items-center gap-2"><Check className="w-4 h-4 text-teal-600" /> Built in Texas</li>
             </ul>
 
-            <div className="mt-8 md:mt-10">
+            <div className="mt-8">
               <a
                 href="#apply"
-                className="inline-flex items-center justify-center rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
-                style={{ fontSize: "1.25rem", padding: "1rem 2rem" }}
+                className="inline-flex items-center justify-center rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold shadow-lg shadow-teal-600/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+                style={{ fontSize: "1.125rem", padding: "0.95rem 1.75rem" }}
               >
                 Reserve Your Founding Spot — Texas Only
               </a>
             </div>
-            <p className="mt-4 text-xs text-slate-900/60">
-              20 spots. Founding price locked forever ($299/yr or $45/mo, vs. $79/mo public launch).
+            <p className="mt-4 text-xs text-slate-500">
+              20 spots. Founding price locked forever ($299/yr or $45/mo, vs. $79/mo at public launch).
             </p>
+          </motion.div>
+
+          <motion.div {...fadeIn} className="relative">
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl ring-1 ring-slate-200">
+              <img
+                src={heroImage}
+                alt="A daughter sitting at her kitchen table on a quiet morning, calmly checking her phone."
+                width={1536}
+                height={1024}
+                fetchPriority="high"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
         </div>
       </section>
