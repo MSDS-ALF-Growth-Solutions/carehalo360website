@@ -704,8 +704,20 @@ export default function Founding() {
         </div>
       </section>
 
+      {/* Sticky mobile CTA */}
+      {!submitted && (
+        <div className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-t border-slate-200 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.06)]">
+          <a
+            href="#apply"
+            className="flex items-center justify-center w-full rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold h-12 text-base"
+          >
+            Reserve My Spot
+          </a>
+        </div>
+      )}
+
       {/* 10. FOOTER */}
-      <footer className="bg-[#0a0a0a] border-t border-white/10 pt-14 pb-10" style={{ color: "rgba(255,255,255,0.75)" }}>
+      <footer className="bg-[#0a0a0a] border-t border-white/10 pt-14 pb-24 md:pb-10" style={{ color: "rgba(255,255,255,0.75)" }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="rounded-xl border border-white/15 bg-white/5 p-4 text-sm">
             <p style={{ color: "rgba(255,255,255,0.85)" }}>
