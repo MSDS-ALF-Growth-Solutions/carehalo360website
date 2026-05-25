@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Check, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/carehalo-logo.png";
+import heroImage from "@/assets/founding-hero.jpg";
 
 const fadeIn = {
   initial: { opacity: 0, y: 24 },
