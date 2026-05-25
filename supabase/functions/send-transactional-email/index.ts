@@ -165,6 +165,9 @@ Deno.serve(async (req) => {
       )
     }
   }
+
+  // 2. Check suppression list
+  const { data: suppressed, error: suppressionError } = await supabase
     .from('suppressed_emails')
     .select('id')
     .eq('email', effectiveRecipient.toLowerCase())

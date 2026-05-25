@@ -92,7 +92,7 @@ export default function Founding() {
 
     if (error) {
       setSubmitting(false);
-      setErrorMsg("Something went wrong. Please try again or text 832-497-7844.");
+      setErrorMsg("Something went wrong. Please try again or text 713-517-6792.");
       return;
     }
 
@@ -303,7 +303,7 @@ export default function Founding() {
           <motion.div {...fadeIn} className="mt-20 max-w-[360px] mx-auto">
             <div className="aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black ring-1 ring-white/10">
               <video
-                src="/demo.mp4"
+                src="/carehalo360-demo-final-music.mp4"
                 muted
                 playsInline
                 controls
@@ -749,14 +749,14 @@ export default function Founding() {
             <div className="space-y-2">
               <p className="font-semibold" style={{ color: "#ffffff" }}>Contact</p>
               <p>
-                <a href="tel:+18324977844" className="hover:text-white" style={{ color: "rgba(255,255,255,0.85)" }}>
-                  832-497-7844
+                <a href="tel:+17135176792" className="hover:text-white" style={{ color: "rgba(255,255,255,0.85)" }}>
+                  713-517-6792
                 </a>
               </p>
               <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>Mon to Fri, 9am to 6pm CT</p>
               <p>
-                <a href="mailto:dawoodk@carehalo360.com" className="hover:text-white break-all" style={{ color: "rgba(255,255,255,0.85)" }}>
-                  dawoodk@carehalo360.com
+                <a href="mailto:support@carehalo360.com" className="hover:text-white break-all" style={{ color: "rgba(255,255,255,0.85)" }}>
+                  support@carehalo360.com
                 </a>
               </p>
               <p className="pt-2">
