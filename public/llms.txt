@@ -7,6 +7,7 @@ CareHalo360 is a quiet, on-device safety monitoring service. It observes movemen
 ## Pages
 
 - [Home](/): Overview of CareHalo360 and how it helps families.
+- [Founding Family Waitlist (Texas)](/founding): Apply for one of 20 Texas Founding Family spots. Founding pricing $299/yr or $45/mo (vs $79/mo public launch).
 - [How It Works](/how-it-works): The privacy-first monitoring approach explained.
 - [Features](/features): What CareHalo360 detects and how alerts work.
 - [For Families](/for-families): Use cases for families caring for aging loved ones.
