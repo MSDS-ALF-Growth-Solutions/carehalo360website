@@ -65,8 +65,8 @@ export default function Pricing() {
     "offers": {
       "@type": "Offer",
       "priceCurrency": "USD",
-      "price": "39.00",
-      "priceValidUntil": "2026-12-31",
+      "price": "79.00",
+      "priceValidUntil": "2027-12-31",
       "availability": "https://schema.org/InStock",
       "url": "https://carehalo360.com/pricing"
     }
@@ -117,11 +117,11 @@ export default function Pricing() {
                   <div className="care-card mb-8">
                     <div className="text-center mb-6">
                       <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
-                        $39–$49
+                        $79
                         <span className="text-xl font-normal text-muted-foreground"> / month</span>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Final price shown at checkout based on home setup.
+                        Or $790/year — save $158. Hardware and updates included. Cancel anytime.
                       </p>
                     </div>
 
@@ -137,6 +137,15 @@ export default function Pricing() {
                           </StaggerItem>
                         ))}
                       </StaggerContainer>
+                    </div>
+
+                    <div className="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/20">
+                      <p className="text-sm font-semibold text-foreground mb-1">
+                        Founding Family pricing — Texas, first 20 families
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Apply via the waitlist to lock <span className="font-medium text-foreground">$45/month or $299/year</span> — permanently. Same product. Lower price for early supporters.
+                      </p>
                     </div>
                   </div>
                 </FadeInView>
