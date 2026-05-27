@@ -5,10 +5,10 @@ import { Check } from "lucide-react";
 import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
 const features = [
-  "Monthly subscription",
-  "Hardware included",
-  "Software updates included",
-  "Cancel anytime",
+  "$299/year — Founding Family (best value, save $241)",
+  "$45/month — Founding Family monthly",
+  "Hardware + software updates included",
+  "Cancel anytime in the app",
 ];
 
 export default function PricingTeaserSection() {
@@ -17,12 +17,12 @@ export default function PricingTeaserSection() {
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
           <FadeInView>
-            <SlideUpText as="h2" className="mb-4">Simple pricing. No surprises.</SlideUpText>
+            <SlideUpText as="h2" className="mb-4">Founding Family pricing. Locked forever.</SlideUpText>
           </FadeInView>
           <FadeInView delay={0.1}>
             <p className="text-lg mb-10">
-              CareHalo360 is a monthly service designed for ongoing support with updates, 
-              reliability, and help when you need it. Hardware is included with your plan.
+              For the first 20 Texas families joining the beta. Pay annually or monthly — 
+              your founding price never increases.
             </p>
           </FadeInView>
 
@@ -45,7 +45,7 @@ export default function PricingTeaserSection() {
           <FadeInView delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="lg">
-                <Link to="/waitlist">Join Waitlist</Link>
+                <Link to="/waitlist">Reserve My Founding Spot</Link>
               </Button>
               <Button asChild variant="link" size="lg">
                 <Link to="/pricing">View pricing →</Link>

@@ -57,7 +57,7 @@ export default function Pricing() {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "CareHalo360",
-    "description": "Privacy-first home safety monitoring for families caring for loved ones at home.",
+    "description": "Privacy-first home safety monitoring for families supporting someone at home.",
     "brand": {
       "@type": "Brand",
       "name": "CareHalo360"
@@ -99,7 +99,7 @@ export default function Pricing() {
         {/* Hero Section */}
         <PageHero
           title="Simple pricing. No surprises."
-          subtitle="CareHalo360 is offered as a single monthly subscription, designed to give families peace of mind without long-term commitments or complicated plans."
+          subtitle="CareHalo360 is offered as a single monthly subscription, designed to give families quiet certainty without long-term commitments or complicated plans."
           description="Premium care support, thoughtfully designed, easy to trust."
           backgroundImage={heroImage}
         />

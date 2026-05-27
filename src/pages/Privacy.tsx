@@ -184,7 +184,7 @@ export default function Privacy() {
                     It doesn't ask people to change their behavior, wear devices, or feel watched. It simply stays present in the background, ready when needed.
                   </p>
                   <p className="text-muted-foreground">
-                    This approach helps families support independence while maintaining peace of mind.
+                    This approach helps families support independence while staying calmly informed.
                   </p>
                 </FadeInView>
                 <ImageReveal>

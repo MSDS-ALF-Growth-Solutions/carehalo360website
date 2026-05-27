@@ -17,15 +17,15 @@ const audiences = [
   },
   {
     icon: Stethoscope,
-    title: "Recovery after surgery or hospitalization",
-    pain: "Need extra support during healing.",
-    benefit: "Gentle monitoring during the critical transition home.",
+    title: "Adjusting to a new normal at home",
+    pain: "The first weeks back can feel uncertain.",
+    benefit: "Calm awareness during the days that need it most.",
   },
   {
     icon: Brain,
-    title: "Early cognitive support",
-    pain: "Changes can be subtle and gradual.",
-    benefit: "Pattern awareness that helps spot changes early.",
+    title: "When routines start to drift",
+    pain: "Small shifts in daily patterns can matter.",
+    benefit: "Gentle awareness without becoming overbearing.",
   },
 ];
 

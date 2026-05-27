@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "Do I need to wear anything?",
-    answer: "No wearables required. CareHalo360 uses passive monitoring that works in the background. Your loved one doesn't need to remember to wear or charge anything.",
+    answer: "No wearables required. CareHalo360 uses passive monitoring that works in the background. The person you're supporting doesn't need to remember to wear or charge anything.",
   },
   {
     question: "Does it replace a caregiver?",
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     question: "Does it work if I'm away from home?",
-    answer: "Yes. CareHalo360 sends notifications to your phone wherever you are, so you can stay aware even when you're not in the same city as your loved one.",
+    answer: "Yes. CareHalo360 sends notifications to your phone wherever you are, so you can stay aware even when you're not in the same city as your parent.",
   },
   {
     question: "Is it hard to set up?",

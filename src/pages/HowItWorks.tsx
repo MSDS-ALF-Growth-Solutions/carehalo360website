@@ -64,7 +64,7 @@ export default function HowItWorks() {
                     CareHalo360 arrives ready to go. There's no complex installation and no technical expertise required.
                   </p>
                   <p className="text-muted-foreground mb-8">
-                    Once placed in the home, the system begins working quietly without changing how your loved one lives day to day.
+                    Once placed in the home, the system begins working quietly without changing how the person at home lives day to day.
                   </p>
                   <div className="space-y-3">
                     <p className="text-sm font-medium text-foreground">Why families appreciate this:</p>
@@ -234,7 +234,7 @@ export default function HowItWorks() {
                     CareHalo360 is built for homes, not hospitals or clinical environments.
                   </p>
                   <p className="text-muted-foreground mb-8">
-                    It adapts to normal daily activity and supports independence, helping families stay aware while loved ones continue living comfortably at home.
+                    It adapts to normal daily activity and supports independence, helping families stay aware while family members continue living comfortably at home.
                   </p>
                   <div className="space-y-3">
                     <p className="text-sm font-medium text-foreground">Care that respects dignity:</p>
@@ -326,7 +326,7 @@ export default function HowItWorks() {
               <FadeInView className="max-w-2xl mx-auto text-center">
                 <h2 className="mb-4">Care should feel supportive, not invasive.</h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                  CareHalo360 helps families stay aware while loved ones keep their independence.
+                  CareHalo360 helps families stay aware while family members keep their independence.
                 </p>
                 <Button asChild variant="hero" size="xl">
                   <Link to="/waitlist">Join Waitlist</Link>

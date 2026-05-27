@@ -24,7 +24,7 @@ const faqSections = [
       },
       {
         question: "Who is CareHalo360 for?",
-        answer: "CareHalo360 is designed for families caring for aging parents living independently, loved ones recovering at home, individuals with elevated fall risk, and families providing care remotely."
+        answer: "CareHalo360 is designed for families caring for aging parents living independently, family members recovering at home, individuals with elevated fall risk, and families providing care remotely."
       }
     ]
   },
@@ -40,7 +40,7 @@ const faqSections = [
         answer: "No. Facial recognition and identity tracking are intentionally excluded from the system. Privacy is a foundation, not a feature."
       },
       {
-        question: "Will my loved one feel watched?",
+        question: "Will the person at home feel watched?",
         answer: "CareHalo360 is designed to avoid a surveillance feeling. There are no screens, no constant video feeds, and no interaction required. Most people forget it's even there."
       }
     ]
@@ -156,7 +156,7 @@ export default function FAQ() {
         <meta property="og:title" content="CareHalo360 FAQ — Your Questions, Answered" />
         <meta 
           property="og:description" 
-          content="Clear answers about CareHalo360 pricing, privacy, setup, alerts, and support. Built for families caring for loved ones at home." 
+          content="Clear answers about CareHalo360 pricing, privacy, setup, alerts, and support. Built for families supporting someone at home." 
         />
         <meta property="og:type" content="website" />
         <meta name="keywords" content="home safety monitoring FAQ, elderly care monitoring questions, caregiving technology FAQ, privacy-first home monitoring, senior safety at home, fall detection alternative, non-intrusive home monitoring, care for aging parents, home care safety system" />

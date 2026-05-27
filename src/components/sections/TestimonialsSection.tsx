@@ -4,19 +4,19 @@ import familyImage from "@/assets/family-peace-of-mind.jpg";
 
 const testimonials = [
   {
-    quote: "I used to call my mom three times a day just to make sure she was okay. Now I have peace of mind without being intrusive.",
+    quote: "I used to call my mom three times a day just to make sure she was okay. Now I sleep through the night and she keeps her independence.",
     author: "Early pilot family",
-    location: "California",
+    location: "Houston, TX",
   },
   {
     quote: "What I appreciate most is how it respects my dad's privacy. He feels independent, and I feel informed.",
     author: "Early pilot family",
-    location: "Texas",
+    location: "Austin, TX",
   },
   {
     quote: "The setup was surprisingly simple. It just works quietly in the background, exactly as promised.",
     author: "Early pilot family",
-    location: "Florida",
+    location: "Dallas, TX",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
           <ImageReveal>
             <img
               src={familyImage}
-              alt="Adult daughter calmly checking phone notification in her kitchen, representing family peace of mind"
+              alt="Adult daughter calmly checking phone notification in her kitchen, representing quiet family awareness"
               className="care-image"
             />
           </ImageReveal>

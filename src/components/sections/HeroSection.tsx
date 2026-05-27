@@ -19,7 +19,7 @@ export default function HeroSection() {
           <HeroAnimation className="order-2 lg:order-1">
             <HeroItem>
               <SlideUpText as="h1" className="mb-6" inView={false} stagger={0.06}>
-                Peace of mind, without intrusion.
+                Quiet awareness. Without intrusion.
               </SlideUpText>
             </HeroItem>
             <HeroItem>
@@ -29,8 +29,8 @@ export default function HeroSection() {
             </HeroItem>
             <HeroItem>
               <p className="text-lg md:text-xl max-w-xl mb-8">
-                Quiet, privacy-first safety monitoring that helps families care for
-                loved ones at home. No wearables, no constant checking, and
+                Quiet, privacy-first safety awareness that helps families support
+                someone at home. No wearables, no constant checking, and
                 no compromising dignity.
               </p>
             </HeroItem>

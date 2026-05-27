@@ -90,7 +90,7 @@ export default function About() {
         {/* Hero Section */}
         <PageHero
           title="Care starts with trust."
-          subtitle="CareHalo360 was created to support families caring for loved ones at home without turning homes into surveillance spaces or asking people to sacrifice dignity for safety."
+          subtitle="CareHalo360 was created to support families supporting someone at home without turning homes into surveillance spaces or asking people to sacrifice dignity for safety."
           description="Everything we build starts with one guiding belief: Care should feel supportive, respectful, and human."
           backgroundImage={heroImage}
         />
@@ -105,7 +105,7 @@ export default function About() {
                 </FadeInView>
                 <FadeInView delay={0.1}>
                   <p className="text-muted-foreground mb-6">
-                    As more families choose to care for loved ones at home, the need for 
+                    As more families choose to support family members at home, the need for 
                     better safety support has never been clearer.
                   </p>
                 </FadeInView>

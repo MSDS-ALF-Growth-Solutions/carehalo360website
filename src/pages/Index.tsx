@@ -40,7 +40,7 @@ const Index = () => {
             "@type": "Organization",
             name: "CareHalo360",
             url: "https://carehalo360.com",
-            description: "Privacy-first home safety monitoring for families caring for loved ones at home.",
+            description: "Privacy-first home safety monitoring for families supporting someone at home.",
             sameAs: [],
           }),
         }}

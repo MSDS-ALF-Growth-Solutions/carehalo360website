@@ -22,12 +22,12 @@ export default function ForFamilies() {
         <title>For Families | CareHalo360</title>
         <meta
           name="description"
-          content="CareHalo360 keeps families informed about loved ones through plain text safety alerts. No app to install, no surveillance — just timely, opt-in messages when something matters."
+          content="CareHalo360 keeps families informed about family members through plain text safety alerts. No app to install, no surveillance — just timely, opt-in messages when something matters."
         />
         <meta property="og:title" content="For Families — CareHalo360" />
         <meta
           property="og:description"
-          content="Plain-text safety alerts for family members of loved ones in care. Opt-in, opt-out anytime, never sold or shared."
+          content="Plain-text safety alerts for family members supporting someone in care. Opt-in, opt-out anytime, never sold or shared."
         />
         <link rel="canonical" href="https://carehalo360.com/for-families" />
       </Helmet>
@@ -38,7 +38,7 @@ export default function ForFamilies() {
         <PageHero
           title="When something happens with Mom or Dad, you'll be the first to know."
           subtitle="CareHalo360 keeps families informed."
-          description="Plain text messages — not another app to manage — let you stay close without intruding on a loved one's daily life."
+          description="Plain text messages — not another app to manage — let you stay close without intruding on a parent's daily life."
           backgroundImage={heroImage}
         />
 

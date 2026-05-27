@@ -12,12 +12,12 @@ export default function FinalCTASection() {
           {/* Content */}
           <div>
             <FadeInView>
-              <SlideUpText as="h2" className="mb-6">Care is being there, without hovering.</SlideUpText>
+              <SlideUpText as="h2" className="mb-6">Care is being there. Without hovering.</SlideUpText>
             </FadeInView>
             <FadeInView delay={0.1}>
               <p className="text-lg mb-8">
-                CareHalo360 helps you stay aware of what matters, while your loved one 
-                keeps their independence and dignity.
+                CareHalo360 helps you stay aware of what matters — while the person you're 
+                supporting keeps their independence and dignity.
               </p>
             </FadeInView>
             <FadeInView delay={0.2}>
