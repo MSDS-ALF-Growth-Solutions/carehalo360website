@@ -763,7 +763,7 @@ export default function Founding() {
           <div className="mt-10 grid md:grid-cols-4 gap-10 text-sm">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3">
-                <img src={logo} alt="CareHalo360 logo" className="h-10 w-10 object-contain" />
+                <img src={logo} alt="CareHalo360 logo" className="h-14 w-14 object-contain" />
                 <p className="font-semibold" style={{ color: "#ffffff" }}>
                   CareHalo360 by MSDS ALF Growth Solutions Inc.
                 </p>
