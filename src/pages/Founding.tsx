@@ -138,7 +138,7 @@ export default function Founding() {
       <nav className="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2 font-extrabold tracking-tight text-lg">
-            <img src={logo} alt="CareHalo360 logo" className="h-9 w-9 object-contain" />
+            <img src={logo} alt="CareHalo360 logo" className="h-12 w-12 object-contain" />
             <span>CareHalo<span className="text-teal-500">360</span></span>
           </a>
           <ul className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
