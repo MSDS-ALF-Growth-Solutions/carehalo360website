@@ -215,15 +215,36 @@ export default function Founding() {
       </section>
 
       {/* 2. PRIVACY PROOF */}
-      <section id="privacy" className="py-12 md:py-20 bg-white border-t border-slate-100">
-        <div className="max-w-4xl mx-auto px-6">
+      <section
+        id="privacy"
+        className="relative py-16 md:py-28 border-y border-teal-100 overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse at top, rgba(20,184,166,0.08), transparent 60%), linear-gradient(180deg, #f8fbfa 0%, #ffffff 100%)",
+        }}
+      >
+        {/* Decorative accent rail */}
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-teal-400 via-emerald-400 to-teal-500 hidden md:block" />
+
+        <div className="max-w-4xl mx-auto px-6 relative">
+          <motion.div
+            {...fadeIn}
+            className="inline-flex items-center gap-2 rounded-full bg-teal-600/10 border border-teal-600/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-teal-800"
+          >
+            <ShieldCheck className="w-4 h-4" />
+            Our Privacy Promise
+          </motion.div>
+
           <motion.h2
             {...fadeIn}
-            className="text-4xl md:text-5xl font-extrabold"
+            className="mt-5 text-4xl md:text-5xl font-extrabold"
             style={{ letterSpacing: "-0.02em" }}
           >
             A camera that respects her dignity.
           </motion.h2>
+
+          <motion.div {...fadeIn} className="mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-teal-500 to-emerald-400" />
+
           <motion.div {...fadeIn} className="mt-8 space-y-5 text-lg text-slate-700 leading-relaxed max-w-3xl">
             <p>Every other home camera on the market streams video to the cloud, all day, every day.</p>
             <p className="font-semibold text-slate-900">CareHalo360 doesn't.</p>
@@ -236,8 +257,8 @@ export default function Founding() {
             <p>Those 3 images are <strong>auto-deleted after 7 days.</strong> That's it. Nothing else is captured. Ever.</p>
           </motion.div>
 
-          <motion.div {...fadeIn} className="mt-12 grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <motion.div {...fadeIn} className="mt-12 grid md:grid-cols-2 gap-6 items-stretch">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:opacity-80">
               <p className="text-xs uppercase tracking-widest font-bold text-slate-500">Traditional cameras</p>
               <ul className="mt-4 space-y-3 text-slate-700">
                 <li className="flex gap-2"><X className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" /> Streams video 24/7</li>
@@ -246,7 +267,13 @@ export default function Founding() {
                 <li className="flex gap-2"><X className="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" /> Cloud-processed AI</li>
               </ul>
             </div>
-            <div className="rounded-2xl border-2 border-teal-500 bg-teal-50/40 p-6">
+            <div
+              className="relative rounded-2xl border-2 border-teal-500 bg-white p-6 md:-translate-y-2 transition-transform"
+              style={{ boxShadow: "0 20px 50px -20px rgba(20,184,166,0.45), 0 0 0 4px rgba(20,184,166,0.08)" }}
+            >
+              <span className="absolute -top-3 right-4 inline-flex items-center gap-1 rounded-full bg-teal-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 shadow">
+                <Lock className="w-3 h-3" /> Private by design
+              </span>
               <p className="text-xs uppercase tracking-widest font-bold text-teal-800">CareHalo360</p>
               <ul className="mt-4 space-y-3 text-slate-800">
                 <li className="flex gap-2"><Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" /> Streams NOTHING in normal use</li>
@@ -256,8 +283,13 @@ export default function Founding() {
               </ul>
             </div>
           </motion.div>
+
+          <motion.p {...fadeIn} className="mt-10 text-center text-sm text-slate-500 italic">
+            Built around dignity. Because safety should never cost privacy.
+          </motion.p>
         </div>
       </section>
+
 
       {/* 3. PRODUCT — three states + demo */}
       <section className="py-12 md:py-20 bg-[#0a0a0a] text-white">
