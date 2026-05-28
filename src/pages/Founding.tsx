@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Check, X, ShieldCheck, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/carehalo-logo.png";
+import logo from "@/assets/carehalo-mark.png";
 import heroImage from "@/assets/founding-hero.jpg";
 
 const fadeIn = {
@@ -136,9 +136,9 @@ export default function Founding() {
 
       {/* Sticky anchor nav */}
       <nav className="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2 font-extrabold tracking-tight text-lg">
-            <img src={logo} alt="CareHalo360 logo" className="h-9 w-9 object-contain" />
+            <img src={logo} alt="CareHalo360 logo" className="h-12 w-12 object-contain" />
             <span>CareHalo<span className="text-teal-500">360</span></span>
           </a>
           <ul className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
@@ -763,7 +763,7 @@ export default function Founding() {
           <div className="mt-10 grid md:grid-cols-4 gap-10 text-sm">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3">
-                <img src={logo} alt="CareHalo360 logo" className="h-10 w-10 object-contain" />
+                <img src={logo} alt="CareHalo360 logo" className="h-14 w-14 object-contain" />
                 <p className="font-semibold" style={{ color: "#ffffff" }}>
                   CareHalo360 by MSDS ALF Growth Solutions Inc.
                 </p>
