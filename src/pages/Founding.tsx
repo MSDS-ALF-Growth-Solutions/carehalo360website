@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Check, X, ShieldCheck, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/carehalo-logo.png";
+import logo from "@/assets/carehalo-mark.png";
 import heroImage from "@/assets/founding-hero.jpg";
 
 const fadeIn = {
