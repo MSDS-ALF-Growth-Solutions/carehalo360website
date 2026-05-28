@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Check, X } from "lucide-react";
+import { Check, X, ShieldCheck, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/carehalo-logo.png";
 import heroImage from "@/assets/founding-hero.jpg";
