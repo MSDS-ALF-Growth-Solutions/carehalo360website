@@ -332,20 +332,8 @@ export default function Founding() {
             ))}
           </div>
 
-          <motion.div {...fadeIn} className="mt-20 max-w-[360px] mx-auto">
-            <div className="aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black ring-1 ring-white/10">
-              <video
-                src="/carehalo360-demo-final-music.mp4"
-                muted
-                playsInline
-                controls
-                className="w-full h-full object-contain"
-                aria-label="CareHalo360 demo video showing a fall detection and notification"
-              />
-            </div>
-            <p className="mt-4 text-center text-sm text-white/60">
-              Real demo. Real call. Real SMS. 30 seconds.
-            </p>
+          <motion.div {...fadeIn} className="mt-20 max-w-md mx-auto">
+            <DemoRequestForm />
           </motion.div>
         </div>
       </section>
