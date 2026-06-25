@@ -332,20 +332,8 @@ export default function Founding() {
             ))}
           </div>
 
-          <motion.div {...fadeIn} className="mt-20 max-w-[360px] mx-auto">
-            <div className="aspect-[9/16] rounded-xl overflow-hidden shadow-2xl bg-black ring-1 ring-white/10">
-              <video
-                src="/carehalo360-demo-final-music.mp4"
-                muted
-                playsInline
-                controls
-                className="w-full h-full object-contain"
-                aria-label="CareHalo360 demo video showing a fall detection and notification"
-              />
-            </div>
-            <p className="mt-4 text-center text-sm text-white/60">
-              Real demo. Real call. Real SMS. 30 seconds.
-            </p>
+          <motion.div {...fadeIn} className="mt-20 max-w-md mx-auto">
+            <DemoRequestForm />
           </motion.div>
         </div>
       </section>
@@ -909,5 +897,107 @@ function RadioGroup({ name, legend, options, required }: RadioGroupProps) {
         ))}
       </div>
     </fieldset>
+  );
+}
+
+function DemoRequestForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErr(null);
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    if (!trimmedName || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      setErr("Please enter your name and a valid email.");
+      return;
+    }
+    setLoading(true);
+    try {
+      await supabase.from("leads").insert({
+        full_name: trimmedName,
+        email: trimmedEmail,
+        source: "demo-request",
+      });
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "demo-video",
+          recipientEmail: trimmedEmail,
+          idempotencyKey: `demo-video-${trimmedEmail}-${Date.now()}`,
+          templateData: { name: trimmedName },
+        },
+      });
+      supabase.functions
+        .invoke("notify-slack-lead", {
+          body: {
+            source: "demo-request",
+            name: trimmedName,
+            email: trimmedEmail,
+          },
+        })
+        .catch(() => {});
+      setSent(true);
+    } catch {
+      setErr("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (sent) {
+    return (
+      <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 text-center">
+        <h3 className="text-xl font-semibold text-white">Check your inbox.</h3>
+        <p className="mt-2 text-sm text-white/70">
+          We just emailed you the 30-second CareHalo360 demo.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={onSubmit}
+      className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 backdrop-blur-sm"
+    >
+      <h3 className="text-xl font-semibold text-white text-center">
+        See the 30-second demo
+      </h3>
+      <p className="mt-1 text-sm text-white/60 text-center">
+        Real fall. Real call. Real SMS. We'll email it to you now.
+      </p>
+      <div className="mt-5 space-y-3">
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your name"
+          maxLength={100}
+          required
+          className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-teal-400"
+        />
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email address"
+          maxLength={255}
+          required
+          className="w-full rounded-lg bg-white/10 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-teal-400"
+        />
+        {err && <p className="text-sm text-red-300">{err}</p>}
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full rounded-lg bg-teal-500 hover:bg-teal-400 text-white font-semibold py-3 transition-colors disabled:opacity-60"
+        >
+          {loading ? "Sending..." : "Ask us for demo"}
+        </button>
+      </div>
+    </form>
   );
 }

@@ -11,8 +11,10 @@ export interface TemplateEntry {
 
 import { template as waitlistConfirmation } from './waitlist-confirmation.tsx'
 import { template as leadNotification } from './lead-notification.tsx'
+import { template as demoVideo } from './demo-video.tsx'
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'waitlist-confirmation': waitlistConfirmation,
   'lead-notification': leadNotification,
+  'demo-video': demoVideo,
 }
