@@ -4,7 +4,10 @@ project_id = "kslhxofcuipccfhgpord"
 verify_jwt = true
 
 [functions.notify-slack-lead]
-verify_jwt = false
+# Was false, which left this publicly callable with no auth at all. The frontend
+# invokes it via supabase.functions.invoke, which already attaches the anon JWT,
+# so requiring verification needs no client change.
+verify_jwt = true
 
 [functions.send-transactional-email]
 verify_jwt = true
