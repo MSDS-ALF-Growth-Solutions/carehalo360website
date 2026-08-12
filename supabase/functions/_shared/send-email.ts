@@ -74,7 +74,13 @@ export async function sendEmail(
   }
 
   const body: Record<string, unknown> = {
-    from: payload.from ?? defaultFrom,
+    // defaultFrom (EMAIL_FROM) deliberately wins over any `from` baked into the
+    // queued payload. The sending identity must match a Resend-verified domain,
+    // which is an ops concern that changes independently of whatever enqueued
+    // the message. Preferring payload.from meant messages queued against an
+    // unverified sender hard-failed 403 and dead-lettered, with no way to
+    // recover them by fixing configuration.
+    from: defaultFrom || payload.from,
     to: [payload.to],
     subject: payload.subject,
   };

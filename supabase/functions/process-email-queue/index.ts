@@ -1,7 +1,10 @@
 import { sendEmail } from '../_shared/send-email.ts'
 import { createClient } from 'npm:@supabase/supabase-js@2'
 
-const DEFAULT_FROM = 'CareHalo360 <noreply@carehalo360.com>'
+// Must be a Resend-verified sending domain. send.carehalo360.com is used as a
+// subdomain so the root domain's Outlook SPF (which hard-fails with -all) is
+// left untouched.
+const DEFAULT_FROM = 'CareHalo360 <noreply@send.carehalo360.com>'
 
 const MAX_RETRIES = 5
 const DEFAULT_BATCH_SIZE = 10
