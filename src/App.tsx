@@ -23,6 +23,7 @@ import ForFacilities from "./pages/ForFacilities";
 import Features from "./pages/Features";
 import Support from "./pages/Support";
 import Founding from "./pages/Founding";
+import GetStarted from "./pages/GetStarted";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
 import SmoothScroll from "./components/animations/SmoothScroll";
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/features" element={<Features />} />
           <Route path="/support" element={<Support />} />
           <Route path="/founding" element={<Founding />} />
+          <Route path="/get-started" element={<GetStarted />} />
           <Route path="/unsubscribe" element={<Unsubscribe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

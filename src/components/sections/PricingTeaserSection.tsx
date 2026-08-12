@@ -5,8 +5,8 @@ import { Check } from "lucide-react";
 import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/MotionElements";
 
 const features = [
-  "$299/year — Founding Family (best value, save $241)",
-  "$45/month — Founding Family monthly",
+  "$79/month — the public price. No contract, no install fee",
+  "$299/year or $45/month — the founding rate, given by request",
   "Hardware + software updates included",
   "Cancel anytime in the app",
 ];
@@ -17,12 +17,17 @@ export default function PricingTeaserSection() {
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
           <FadeInView>
-            <SlideUpText as="h2" className="mb-4">Founding Family pricing. Locked forever.</SlideUpText>
+            <SlideUpText as="h2" className="mb-4">Our first twenty families are placed.</SlideUpText>
           </FadeInView>
           <FadeInView delay={0.1}>
+            <p className="text-lg mb-4">
+              We capped the founding cohort at twenty because that's how many homes one founder can
+              personally drive to. That cohort is closed. Their price is locked for life.
+            </p>
             <p className="text-lg mb-10">
-              For the first 20 Texas families joining the beta. Pay annually or monthly — 
-              your founding price never increases.
+              The founding rate didn't disappear, though — it just stopped being a button. Spots
+              reopen quietly, and when they do they go to whoever asked. So ask. You'll get a real
+              answer, including when the answer is no.
             </p>
           </FadeInView>
 
@@ -45,7 +50,7 @@ export default function PricingTeaserSection() {
           <FadeInView delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="lg">
-                <Link to="/waitlist">Reserve My Founding Spot</Link>
+                <Link to="/founding">Ask If the Founding Rate Is Still Open</Link>
               </Button>
               <Button asChild variant="link" size="lg">
                 <Link to="/pricing">View pricing →</Link>

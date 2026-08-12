@@ -1,33 +1,166 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "npm:@supabase/supabase-js@2";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+// Origins allowed to call this function from a browser. Anything else gets no
+// CORS grant, so the browser drops the response.
+const ALLOWED_ORIGINS = [
+  "https://carehalo360.com",
+  "https://www.carehalo360.com",
+  "https://carehalo360website.vercel.app",
+  "http://localhost:8080",
+  "http://localhost:5173",
+];
 
-const OWNER_EMAIL = "dawoodshabbir734@gmail.com";
+// Per-caller and blast-radius budgets. A real family fills one form once; these
+// ceilings are far above legitimate use and far below what makes abuse worthwhile.
+const PER_IP_LIMIT = 5;
+const PER_IP_WINDOW_SECONDS = 600; // 5 submissions / 10 min / IP
+const GLOBAL_LIMIT = 60;
+const GLOBAL_WINDOW_SECONDS = 3600; // 60 submissions / hour, all callers
+
+const DEFAULT_OWNER_EMAIL = "dawoodshabbir734@gmail.com";
+
+function corsHeadersFor(origin: string | null): Record<string, string> {
+  const allowed = origin && ALLOWED_ORIGINS.includes(origin);
+  return {
+    // Echo only a vetted origin; never reflect an arbitrary one.
+    "Access-Control-Allow-Origin": allowed ? origin : ALLOWED_ORIGINS[0],
+    "Access-Control-Allow-Headers":
+      "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    Vary: "Origin",
+  };
+}
+
+// Slack mrkdwn treats <...|...> as a link and <!channel> as a mention. Escaping
+// the three reserved characters neutralises both, so attacker-supplied text can
+// never render as a clickable link or ping the channel.
+function slackEscape(value: string): string {
+  return value
+    // Strip C0 and DEL control characters; keep normal whitespace.
+    // deno-lint-ignore no-control-regex
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// Single-line by default: newlines are collapsed so a caller cannot inject
+// extra "*Email:* ..." lines and forge fields in the rendered Slack message.
+// Only the free-form notes block opts into keeping its line breaks.
+function field(raw: unknown, maxLength: number, multiline = false): string {
+  if (raw === null || raw === undefined) return "";
+  const escaped = slackEscape(String(raw));
+  const normalised = multiline ? escaped : escaped.replace(/[\r\n]+/g, " ");
+  return normalised.slice(0, maxLength).trim();
+}
+
+function jsonResponse(
+  data: Record<string, unknown>,
+  status: number,
+  cors: Record<string, string>,
+): Response {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { ...cors, "Content-Type": "application/json" },
+  });
+}
+
+function clientIp(req: Request): string {
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) {
+    // Left-most entry is the original client as seen by Supabase's edge.
+    const first = forwarded.split(",")[0]?.trim();
+    if (first) return first.slice(0, 64);
+  }
+  return req.headers.get("cf-connecting-ip")?.slice(0, 64) ?? "unknown";
+}
 
 serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
+  const origin = req.headers.get("origin");
+  const cors = corsHeadersFor(origin);
+
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers: cors });
+  }
+
+  if (req.method !== "POST") {
+    return jsonResponse({ ok: false, error: "Method not allowed" }, 405, cors);
+  }
 
   try {
     const webhook = Deno.env.get("SLACK_LEADS_WEBHOOK_URL");
-    if (!webhook) {
-      return new Response(JSON.stringify({ ok: false, error: "Webhook not configured" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+
+    if (!webhook || !supabaseUrl || !serviceKey) {
+      console.error("notify-slack-lead: missing required environment variables");
+      return jsonResponse(
+        { ok: false, error: "Server configuration error" },
+        500,
+        cors,
+      );
+    }
+
+    const supabase = createClient(supabaseUrl, serviceKey);
+
+    // Rate limit before doing any outbound work. Fail CLOSED: if the limiter is
+    // unavailable we refuse rather than fall back to the old unbounded path.
+    // The lead row itself is already persisted by the caller before this runs,
+    // so a refusal here costs a notification, never a lead.
+    const ip = clientIp(req);
+    const buckets: Array<[string, number, number]> = [
+      [`slack-lead:ip:${ip}`, PER_IP_LIMIT, PER_IP_WINDOW_SECONDS],
+      ["slack-lead:global", GLOBAL_LIMIT, GLOBAL_WINDOW_SECONDS],
+    ];
+
+    for (const [bucket, limit, windowSeconds] of buckets) {
+      const { data: withinBudget, error } = await supabase.rpc(
+        "check_rate_limit",
+        {
+          p_bucket: bucket,
+          p_limit: limit,
+          p_window_seconds: windowSeconds,
+        },
+      );
+
+      if (error) {
+        console.error("notify-slack-lead: rate limiter unavailable", {
+          bucket,
+          error,
+        });
+        return jsonResponse(
+          { ok: false, error: "Service unavailable" },
+          503,
+          cors,
+        );
+      }
+
+      if (withinBudget !== true) {
+        console.warn("notify-slack-lead: rate limited", { bucket });
+        return jsonResponse(
+          { ok: false, error: "Too many requests" },
+          429,
+          cors,
+        );
+      }
     }
 
     const body = await req.json().catch(() => ({} as Record<string, unknown>));
-    const source = String(body.source ?? "unknown").slice(0, 40);
-    const name = body.name || body.full_name ? String(body.name ?? body.full_name).slice(0, 120) : "";
-    const email = body.email ? String(body.email).slice(0, 200) : "";
-    const phone = body.phone ? String(body.phone).slice(0, 60) : "";
-    const location = body.location ? String(body.location).slice(0, 200) : "";
-    const organization = body.organization ? String(body.organization).slice(0, 200) : "";
-    const notes = body.notes ? String(body.notes).slice(0, 2000) : "";
-    const extra = body.extra && typeof body.extra === "object" ? body.extra as Record<string, unknown> : {};
+
+    const source = field(body.source ?? "unknown", 40) || "unknown";
+    const name = field(body.name ?? body.full_name, 120);
+    const email = field(body.email, 200);
+    const phone = field(body.phone, 60);
+    const location = field(body.location, 200);
+    const organization = field(body.organization, 200);
+    const notes = field(body.notes, 2000, true);
+
+    // Cap the number of free-form extras so a caller cannot pad the message.
+    const extraSource = body.extra && typeof body.extra === "object"
+      ? body.extra as Record<string, unknown>
+      : {};
+    const extra = Object.entries(extraSource).slice(0, 12);
 
     const lines = [
       `*New ${source} lead* :wave:`,
@@ -37,7 +170,7 @@ serve(async (req) => {
       location && `*Location:* ${location}`,
       organization && `*Org:* ${organization}`,
       notes && `*Notes:*\n${notes}`,
-      ...Object.entries(extra).map(([k, v]) => `*${k}:* ${String(v).slice(0, 200)}`),
+      ...extra.map(([k, v]) => `*${field(k, 60)}:* ${field(v, 200)}`),
     ].filter(Boolean);
 
     const slackRes = await fetch(webhook, {
@@ -51,41 +184,38 @@ serve(async (req) => {
       console.error("Slack webhook error:", slackRes.status, errText);
     }
 
-    // Also send a lead-notification email to the owner via the transactional pipeline.
-    // Uses the service-role bearer so the anti-abuse "recipient must be in a recent
-    // submission" check is bypassed.
+    // Owner notification via the transactional pipeline. Still uses the
+    // service-role bearer to clear send-transactional-email's "recipient must be
+    // a recent submitter" check — the owner never submits a form. That bypass is
+    // now reachable only behind JWT verification and the budgets above.
     try {
-      const supabaseUrl = Deno.env.get("SUPABASE_URL");
-      const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-      if (supabaseUrl && serviceKey) {
-        await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${serviceKey}`,
-            apikey: serviceKey,
-          },
-          body: JSON.stringify({
-            templateName: "lead-notification",
-            recipientEmail: OWNER_EMAIL,
-            idempotencyKey: `lead-${source}-${email}-${Date.now()}`,
-            templateData: { source, name, email, phone, location, notes },
-          }),
-        }).catch((e) => console.error("lead-notification email error:", e));
-      }
+      const ownerEmail = Deno.env.get("LEAD_OWNER_EMAIL") ?? DEFAULT_OWNER_EMAIL;
+
+      // Hour-granular key: retries of the same submission collapse, while a
+      // genuine second enquiry later in the day still sends.
+      const hourBucket = new Date().toISOString().slice(0, 13);
+
+      await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${serviceKey}`,
+          apikey: serviceKey,
+        },
+        body: JSON.stringify({
+          templateName: "lead-notification",
+          recipientEmail: ownerEmail,
+          idempotencyKey: `lead-${source}-${email}-${hourBucket}`,
+          templateData: { source, name, email, phone, location, notes },
+        }),
+      }).catch((e) => console.error("lead-notification email error:", e));
     } catch (e) {
       console.error("owner email dispatch failed:", e);
     }
 
-    return new Response(JSON.stringify({ ok: true }), {
-      status: 200,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return jsonResponse({ ok: true }, 200, cors);
   } catch (err) {
     console.error("notify-slack-lead error:", err);
-    return new Response(JSON.stringify({ ok: false, error: "Server error" }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+    return jsonResponse({ ok: false, error: "Server error" }, 500, cors);
   }
 });

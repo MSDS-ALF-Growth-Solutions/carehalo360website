@@ -1,18 +1,19 @@
 # CareHalo360
 
-> Privacy-first home safety monitoring for families caring for loved ones at home — no wearables, no constant watching, just peace of mind.
+> Privacy-first home safety monitoring for families caring for an aging parent at home — no wearables, no constant watching, no recorded video.
 
-CareHalo360 is a quiet, on-device safety monitoring service. It observes movement patterns to flag meaningful safety events (like falls or unusual inactivity) without recording video, using facial recognition, or requiring anything to be worn. Hardware is included in a single monthly subscription ($39–$49/mo), cancel anytime.
+CareHalo360 is a quiet, on-device safety monitoring service. It observes movement patterns to flag meaningful safety events (like falls or unusual inactivity) without recording video, using facial recognition, or requiring anything to be worn. Hardware is included in a single subscription ($79/mo public price), cancel anytime.
 
 ## Pages
 
 - [Home](/): Overview of CareHalo360 and how it helps families.
-- [Founding Family Waitlist (Texas)](/founding): Apply for one of 20 Texas Founding Family spots. Founding pricing $299/yr or $45/mo (vs $79/mo public launch).
+- [Founding Rate (Texas)](/founding): The first 20 Texas founding families are placed and that cohort is closed. The founding rate ($299/yr or $45/mo, vs $79/mo public) is now given by request — apply to find out whether it is still open for your family.
 - [How It Works](/how-it-works): The privacy-first monitoring approach explained.
 - [Features](/features): What CareHalo360 detects and how alerts work.
-- [For Families](/for-families): Use cases for families caring for aging loved ones.
+- [For Families](/for-families): Use cases for families caring for an aging parent at home.
 - [For Facilities](/for-facilities): Multi-home and care-facility deployments.
-- [Pricing](/pricing): Single monthly subscription, hardware included.
+- [Pricing](/pricing): Single subscription, hardware included.
+- [Get Started](/get-started): There is no self-serve checkout. Request a secure payment link and the founder replies within one business day with the exact price before anything is charged.
 - [Waitlist](/waitlist): Join the waitlist for early access.
 - [FAQ](/faq): Common questions on privacy, setup, alerts, and pricing.
 - [About](/about): Mission and team behind CareHalo360.

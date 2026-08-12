@@ -126,10 +126,10 @@ export default function Founding() {
       }}
     >
       <Helmet>
-        <title>CareHalo360 Founding Family Waitlist (Texas, 20 spots)</title>
+        <title>CareHalo360 Founding Rate — Ask If It's Still Open for You</title>
         <meta
           name="description"
-          content="She falls. You know in seconds. CareHalo360 is a small wall-mounted fall detector. No wearable, no recorded video. Apply for one of 20 Texas Founding Family spots."
+          content="She falls. You know in seconds. A small wall-mounted fall detector. No wearable, no recorded video. Our first 20 Texas founding families are placed — ask us whether the founding rate is still open for yours."
         />
         <link rel="canonical" href="https://carehalo360.com/founding" />
       </Helmet>
@@ -154,7 +154,7 @@ export default function Founding() {
             href="#apply"
             className="hidden sm:inline-flex items-center px-4 h-10 rounded-xl bg-teal-500 hover:bg-teal-700 text-white font-semibold text-sm transition-colors"
           >
-            Apply
+            Ask
           </a>
         </div>
       </nav>
@@ -191,11 +191,12 @@ export default function Founding() {
                 className="inline-flex items-center justify-center rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold shadow-lg shadow-teal-600/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
                 style={{ fontSize: "1.125rem", padding: "0.95rem 1.75rem" }}
               >
-                Reserve Your Founding Spot, Texas Only
+                Ask If the Founding Rate Is Still Open
               </a>
             </div>
             <p className="mt-4 text-xs text-slate-500">
-              20 spots. Founding price locked forever ($299/yr or $45/mo, vs. $79/mo at public launch).
+              Our first 20 Texas families are placed. The founding rate ($299/yr or $45/mo, against
+              $79/mo public) is now given by request. Ask, and we'll tell you straight.
             </p>
           </motion.div>
 
@@ -437,7 +438,7 @@ export default function Founding() {
         <div className="max-w-6xl mx-auto px-6">
           <motion.div {...fadeIn} className="flex justify-center mb-6">
             <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-teal-600 text-white text-xs font-bold tracking-wider uppercase">
-              Founding Family Program · 20 Texas Families
+              Founding Rate · First 20 Placed · Now By Request
             </span>
           </motion.div>
           <motion.h2
@@ -445,8 +446,16 @@ export default function Founding() {
             className="text-3xl md:text-5xl font-extrabold text-center max-w-3xl mx-auto"
             style={{ letterSpacing: "-0.02em" }}
           >
-            The Founding Family Program. For the first 20 Texas families.
+            The founding rate is no longer a button. It's a question.
           </motion.h2>
+          <motion.p
+            {...fadeIn}
+            className="mt-6 text-lg text-slate-600 text-center max-w-2xl mx-auto leading-relaxed"
+          >
+            The first twenty Texas families are placed. Their price is locked for life, exactly as
+            promised. What's left is the part nobody puts on a pricing page: sometimes there's still
+            room, and sometimes there isn't. Ask, and you'll get the real answer.
+          </motion.p>
 
           <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* PIF */}
@@ -456,19 +465,19 @@ export default function Founding() {
               style={{ background: "radial-gradient(circle at 50% 0%, #f0fdfa 0%, #ffffff 70%)" }}
             >
               <span className="absolute -top-3 right-6 inline-flex items-center px-3 py-1 rounded-full bg-teal-500 text-white text-[11px] font-bold tracking-wider uppercase">
-                Most Popular
+                By request
               </span>
               <p className="text-xs uppercase tracking-widest text-slate-500 font-semibold">
-                Paid in full
+                Founding rate · Paid in full
               </p>
               <p className="mt-2 text-5xl font-extrabold text-teal-700" style={{ letterSpacing: "-0.03em" }}>
                 $299<span className="text-2xl text-slate-500 font-bold">/year</span>
               </p>
               <p className="mt-2 text-sm text-slate-600">
-                Save $241 vs. monthly. Founding price locked forever.
+                What the first twenty pay. Locked for as long as they stay.
               </p>
               <p className="mt-1 text-sm text-slate-500">
-                Public launch: $948/yr. You save $649.
+                Public price: $948/yr. Ask whether this one is still open for you.
               </p>
             </motion.div>
 
@@ -478,7 +487,7 @@ export default function Founding() {
               className="rounded-2xl border border-slate-200 shadow-sm p-8 bg-white"
             >
               <p className="text-xs uppercase tracking-widest text-slate-500 font-semibold">
-                Monthly
+                Founding rate · Monthly
               </p>
               <p className="mt-2 text-5xl font-extrabold text-slate-900" style={{ letterSpacing: "-0.03em" }}>
                 $45<span className="text-2xl text-slate-500 font-bold">/mo</span>
@@ -487,7 +496,7 @@ export default function Founding() {
                 No long-term commitment. Email us anytime to cancel.
               </p>
               <p className="mt-1 text-sm text-slate-500">
-                Public launch: $79/mo. You save $34/mo forever.
+                Public price: $79/mo. Ask whether this one is still open for you.
               </p>
             </motion.div>
           </div>
@@ -501,9 +510,9 @@ export default function Founding() {
                 "Multi-channel alerts (phone, text, email)",
                 "White-glove installation video walkthrough",
                 "Weekly 15-min check-in call with the founder for 60 days",
-                "Direct text-line to the founder during founding period",
+                "Direct text line to the founder through your first 60 days",
                 "All future software updates, free, forever",
-                "Founding price locked permanently. Never increases",
+                "Whatever rate you start at is the rate you keep. It never increases",
               ].map((i) => (
                 <li key={i} className="flex gap-2 text-slate-800">
                   <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
@@ -533,32 +542,51 @@ export default function Founding() {
               className="inline-flex items-center justify-center rounded-xl bg-teal-500 hover:bg-teal-700 text-white font-semibold shadow-lg shadow-teal-500/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
               style={{ fontSize: "1.25rem", padding: "1rem 2rem" }}
             >
-              Apply for a Founding Spot →
+              Ask If the Founding Rate Is Still Open →
             </a>
             <p className="mt-3 text-xs text-slate-500">
-              No payment on this page. We'll qualify you on a quick call first.
+              No payment on this page. You'll get a straight yes or no on a short call.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* 7. SCARCITY */}
+      {/* 7. THE HONEST STATUS OF THE OFFER */}
       <section className="py-12 md:py-20 bg-[#0a0a0a] text-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.h2 {...fadeIn} className="text-3xl md:text-5xl font-extrabold text-white" style={{ letterSpacing: "-0.02em", color: "#ffffff" }}>
-            20 spots. Texas only.
+            The first twenty are gone. The door isn't.
           </motion.h2>
-          <motion.div {...fadeIn} className="mt-6 space-y-4 text-lg leading-relaxed">
+          <motion.div {...fadeIn} className="mt-8 space-y-5 text-lg leading-relaxed text-left">
             <p className="text-slate-200">
-              We chose 20 because that's how many families our founder can personally onboard, with a white-glove
-              install walkthrough and weekly check-in calls for the full 60-day beta.
+              Twenty was never a marketing number. It was a calendar. Twenty is how many homes one
+              founder can drive to, mount a device in, and call every week without the promise
+              getting thin.
             </p>
             <p className="text-slate-200">
-              Once those 20 spots are taken, the founding price (and the founder-led support) goes away forever.
-              After that, the public waitlist opens at $79/month.
+              Those twenty are placed. Installed. Being watched over tonight.
+            </p>
+            <p className="text-slate-200">
+              Here's the part where most companies stamp <span className="italic">OFFER ENDED</span> across
+              the page, raise the price, and hope you feel bad about being late. Then they quietly
+              run the same offer again next month under a different name.
+            </p>
+            <p className="text-white font-semibold text-xl">
+              We're not going to do that to you.
+            </p>
+            <p className="text-slate-200">
+              The founding rate still exists. It just stopped being a button. Families move. A device
+              comes back. A week opens up that we didn't expect. When that happens, the founding rate
+              goes to whoever asked — not to whoever happened to be on the site that afternoon.
+            </p>
+            <p className="text-slate-200">
+              So ask. Tell us about your parent, the house, the stairs, the thing that woke you up at
+              2am last Tuesday. We'll tell you what's actually open.
             </p>
             <p className="text-white font-semibold">
-              If you're in Texas and your parent's situation makes you nervous, claim a spot now.
+              And if the answer is no, you'll hear that too — plainly, in one sentence, with the real
+              price next to it. A company that won't tell you no isn't a company you want listening
+              to your mother's house.
             </p>
           </motion.div>
         </div>
@@ -574,11 +602,12 @@ export default function Founding() {
             {[
               { q: "Is the camera always watching her?", a: "The AI is always processing what it sees, but nothing is ever recorded or streamed. The only data that ever leaves the device is 3 blurred snapshots at the moment of a fall. Those 3 images auto-delete after 7 days. That's the entire data footprint." },
               { q: "What if my mom doesn't have good Wi-Fi?", a: "CareHalo360 requires Wi-Fi to send alerts. If your parent's Wi-Fi is unreliable, get on a call with us before you order. We'll walk through your options (mesh router, T-Mobile/Verizon Home Internet, or a small puck we recommend). We'd rather pause your order than ship a device that won't work in her home." },
-              { q: "It only covers one room. What about the bathroom?", a: "True. One device covers one room. Most falls happen in the bathroom, bedroom, or kitchen. Start with the room she spends 80% of her time in (usually the living room or bedroom), and add a second device for the bathroom after. Founding Families get $100 off the second device anytime in Year 1." },
+              { q: "Is the founding rate still available?", a: "Sometimes. The first twenty Texas families filled the founding cohort and that cohort is closed — their price is locked for life, exactly as promised. But the rate itself hasn't vanished. Spots reopen: a family relocates, a device comes back, our install calendar loosens. When one opens, it goes to whoever asked first. Apply below and we'll tell you honestly whether the founding rate is on the table for you, or whether you'd be starting at $79/month. You'll get a real answer either way. No countdown clock, no fake deadline." },
+              { q: "It only covers one room. What about the bathroom?", a: "True. One device covers one room. Most falls happen in the bathroom, bedroom, or kitchen. Start with the room she spends 80% of her time in (usually the living room or bedroom), and add a second device for the bathroom after. Anyone on the founding rate gets $100 off the second device anytime in Year 1." },
               { q: "Does it call 911?", a: "No, by design. Most 'automatic 911' devices have public records of false dispatches that cost families thousands. CareHalo360 alerts you (and any other caregivers you've set up) within seconds. You decide what to do next. You stay in control. Always." },
               { q: "Will my mom feel like she's being spied on?", a: "There's no video. Nothing is recorded or watched. You can show her the system: there's literally no feed to look at. It's a fall detector, not a surveillance camera." },
-              { q: "Why is it Texas-only?", a: "We're a Texas company. Our founder can drive to any beta customer in the state if something needs to be fixed in person. Once we've worked with the first 20 families and refined everything, we'll expand to neighboring states. The Founding Family price ends when we open to a second state." },
-              { q: "What happens after the beta?", a: "Founding Family pricing is locked permanently. You will NEVER pay more than $299/year ($45/month if you chose monthly), for as long as you stay subscribed. Even if you cancel and come back later, your founding price is reinstated." },
+              { q: "Why is it Texas-only?", a: "We're a Texas company. Our founder can drive to any customer in the state if something needs to be fixed in person — and that promise is the entire reason we cap how many families we take at once. We're refining everything with the first cohort before expanding to neighboring states. If you're outside Texas, tell us anyway. We'd rather know where you are than pretend you don't exist." },
+              { q: "If I get the founding rate, can it go up later?", a: "No. Whatever rate you start at is the rate you keep, for as long as you stay subscribed. That was true for the first twenty and it's true for anyone we let in after them. Even if you cancel and come back later, your original rate is reinstated. We put that in writing before you pay anything." },
               { q: "How accurate is the fall detection?", a: "CareHalo360 is designed to detect falls within its line-of-sight zone using computer vision, with typical detection times of 2 to 5 seconds in normal indoor lighting. No fall-detection system is 100% perfect. CareHalo360 is designed to work alongside, not replace, phones, in-person check-ins, and other safety systems. It is not a medical device and does not call emergency services on your behalf." },
             ].map((f, i) => (
               <motion.details
@@ -602,11 +631,12 @@ export default function Founding() {
       <section id="apply" className="py-12 md:py-20 bg-[#0a0a0a] text-white">
         <div className="max-w-3xl mx-auto px-6">
           <motion.h2 {...fadeIn} className="text-4xl md:text-5xl font-extrabold text-white" style={{ letterSpacing: "-0.02em", color: "#ffffff" }}>
-            Apply for a Founding Spot
+            Ask if the founding rate is still open for you
           </motion.h2>
           <motion.p {...fadeIn} className="mt-5 text-white/70 max-w-xl">
-            Three quick qualifying questions, then we'll book a 15-minute call with the founder.
-            <strong className="text-white"> No payment on this page.</strong> Billing happens after we confirm fit on the call.
+            Three questions, then a 15-minute call with the founder — who will tell you what's
+            actually available, including when the answer is nothing.
+            <strong className="text-white"> No payment on this page.</strong> Nothing is billed until you've heard the real number and said yes to it.
           </motion.p>
 
           <motion.div {...fadeIn} className="mt-12 max-w-[560px]">
@@ -616,10 +646,12 @@ export default function Founding() {
                   <Check className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <p className="mt-5 text-lg font-semibold">
-                  Got it. Dawood will text you within 24 hours to schedule your call.
+                  Got it. Dawood will text you within 24 hours with a straight answer.
                 </p>
                 <p className="mt-2 text-sm text-white/70">
-                  No charge today. We'll only invoice after we confirm CareHalo360 is the right fit for your family.
+                  He'll tell you what's open, what it costs, and whether CareHalo360 is even the
+                  right thing for your family. Sometimes the honest answer is no. Nothing is
+                  charged today either way.
                 </p>
               </div>
             ) : (
@@ -713,7 +745,7 @@ export default function Founding() {
                   disabled={submitting}
                   className="w-full h-12 rounded-xl bg-teal-500 hover:bg-teal-700 disabled:opacity-60 text-white font-semibold transition-colors"
                 >
-                  {submitting ? "Sending…" : "Apply now"}
+                  {submitting ? "Sending…" : "Ask about the founding rate"}
                 </button>
                 <p className="text-xs text-slate-500 text-center">
                   We don't charge anything on this page. Payment is collected only after a qualifying call.
@@ -731,7 +763,7 @@ export default function Founding() {
             href="#apply"
             className="flex items-center justify-center w-full rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold h-12 text-base"
           >
-            Reserve My Spot
+            Ask If It's Still Open
           </a>
         </div>
       )}
