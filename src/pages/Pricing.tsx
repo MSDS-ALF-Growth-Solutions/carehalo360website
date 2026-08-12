@@ -141,10 +141,13 @@ export default function Pricing() {
 
                     <div className="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/20">
                       <p className="text-sm font-semibold text-foreground mb-1">
-                        Founding Family pricing — Texas, first 20 families
+                        The founding rate — our first twenty are placed
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        Apply via the waitlist to lock <span className="font-medium text-foreground">$45/month or $299/year</span> — permanently. Same product. Lower price for early supporters.
+                        We capped the founding cohort at twenty Texas families, and it filled. The rate itself
+                        didn't end — it just isn't a button anymore. Spots reopen quietly, and when they do they go
+                        to whoever asked. <Link to="/founding" className="font-medium text-foreground underline underline-offset-2">Ask whether <span className="font-medium">$45/month or $299/year</span> is still open for you</Link> —
+                        you'll get a straight answer, including when it's no.
                       </p>
                     </div>
                   </div>

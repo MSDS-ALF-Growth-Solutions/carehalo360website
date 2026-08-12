@@ -84,7 +84,7 @@ const faqSections = [
     faqs: [
       {
         question: "How much does CareHalo360 cost?",
-        answer: "CareHalo360 is offered as a single monthly subscription, typically between $39–$49 per month. Final pricing is shown at checkout."
+        answer: "One subscription, hardware included: $79 per month, or $790 per year. No install fee, no add-ons, no contract. Separately, there is a founding rate of $45/month or $299/year — that started as a cap of 20 Texas families and that cohort is now closed, but spots reopen from time to time. If you'd like to know whether it's still open for your family, just ask us and you'll get a straight answer either way. Final pricing is always shown before you pay."
       },
       {
         question: "Is the hardware included?",
