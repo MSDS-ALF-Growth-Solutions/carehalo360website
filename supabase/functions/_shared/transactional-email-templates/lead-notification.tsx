@@ -41,7 +41,12 @@ export const template = {
   component: LeadNotificationEmail,
   subject: (data: Record<string, any>) =>
     `New ${data?.source || 'website'} lead${data?.name ? `: ${data.name}` : ''}`,
-  to: 'dawoodshabbir734@gmail.com',
+  // Read from the environment so the owner address can be changed without a
+  // code deploy. This previously hardcoded a personal gmail, which silently
+  // overrode LEAD_OWNER_EMAIL — send-transactional-email resolves the
+  // recipient as `template.to || recipientEmail`, so a literal here wins over
+  // whatever the caller passes and the env var could never take effect.
+  to: Deno.env.get('LEAD_OWNER_EMAIL') ?? 'dawoodk@carehalo360.com',
   displayName: 'Owner lead notification',
   previewData: {
     source: 'founding',

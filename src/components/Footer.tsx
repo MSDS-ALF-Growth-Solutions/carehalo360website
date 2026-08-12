@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const footerLinks = [
+  { href: "/get-started", label: "Get Started" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/for-families", label: "For Families" },
   { href: "/for-facilities", label: "For Facilities" },

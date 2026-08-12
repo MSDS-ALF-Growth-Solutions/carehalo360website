@@ -44,7 +44,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button asChild variant="hero" size="default">
-              <Link to="/waitlist">Join Waitlist</Link>
+              <Link to="/get-started">Get Started</Link>
             </Button>
           </div>
 
@@ -77,7 +77,7 @@ export default function Header() {
                 </Link>
               ))}
               <Button asChild variant="hero" size="lg" className="mt-2">
-                <Link to="/waitlist">Join Waitlist</Link>
+                <Link to="/get-started">Get Started</Link>
               </Button>
             </div>
           </nav>
