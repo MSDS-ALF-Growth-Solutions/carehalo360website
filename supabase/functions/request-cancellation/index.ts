@@ -1,11 +1,20 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import Stripe from "https://esm.sh/stripe@18.5.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
+
+// Stripe used to gate this endpoint: it looked the email up as a customer and
+// refused anyone without an active subscription. Billing is now handled with
+// manually issued payment links, so there is no Stripe customer list to check
+// against. The rate limiter below replaces Stripe as the abuse control, and
+// every request is reviewed by a human before a subscription is ended.
+const PER_IP_LIMIT = 3;
+const PER_IP_WINDOW_SECONDS = 600;
+const GLOBAL_LIMIT = 40;
+const GLOBAL_WINDOW_SECONDS = 3600;
 
 const logStep = (step: string, details?: Record<string, unknown>) => {
   const detailsStr = details ? ` - ${JSON.stringify(details)}` : "";
@@ -24,11 +33,25 @@ function sanitizeString(value: unknown, maxLength: number): string | null {
   return trimmed.length > 0 ? trimmed : null;
 }
 
+function jsonResponse(body: unknown, status: number) {
+  return new Response(JSON.stringify(body), {
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+    status,
+  });
+}
+
 function badRequest(message: string) {
-  return new Response(
-    JSON.stringify({ error: message }),
-    { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
-  );
+  return jsonResponse({ error: message }, 400);
+}
+
+function clientIp(req: Request): string {
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) {
+    // Left-most entry is the original client as seen by Supabase's edge.
+    const first = forwarded.split(",")[0]?.trim();
+    if (first) return first.slice(0, 64);
+  }
+  return req.headers.get("cf-connecting-ip")?.slice(0, 64) ?? "unknown";
 }
 
 serve(async (req) => {
@@ -38,9 +61,6 @@ serve(async (req) => {
 
   try {
     logStep("Function started");
-
-    const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
-    if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL");
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -80,45 +100,46 @@ serve(async (req) => {
     const sanitizedName = sanitizeString(name, 100);
     const sanitizedReason = sanitizeString(reason, 1000);
 
-    logStep("Checking for active subscription", { email: normalizedEmail });
+    // Fail CLOSED. A cancellation that is refused here can be retried, or sent
+    // by email per the cancellation promise. Silently accepting unbounded
+    // writes would be worse.
+    const ip = clientIp(req);
+    const buckets: Array<[string, number, number]> = [
+      [`cancel-request:ip:${ip}`, PER_IP_LIMIT, PER_IP_WINDOW_SECONDS],
+      ["cancel-request:global", GLOBAL_LIMIT, GLOBAL_WINDOW_SECONDS],
+    ];
 
-    const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
-
-    // Generic response shared by every "not eligible" branch — prevents
-    // attackers from enumerating which emails are Stripe customers.
-    const GENERIC_NOT_FOUND = {
-      error:
-        "We could not process your request. Please check the email you used at signup or contact support if you need help.",
-      found: false,
-    };
-    const notFoundResponse = () =>
-      new Response(JSON.stringify(GENERIC_NOT_FOUND), {
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-        status: 404,
+    for (const [bucket, limit, windowSeconds] of buckets) {
+      const { data: withinBudget, error } = await supabase.rpc("check_rate_limit", {
+        p_bucket: bucket,
+        p_limit: limit,
+        p_window_seconds: windowSeconds,
       });
 
-    const customers = await stripe.customers.list({ email: normalizedEmail, limit: 1 });
+      if (error) {
+        logStep("Rate limiter unavailable", { bucket, error: error.message });
+        return jsonResponse(
+          {
+            error:
+              "We could not process your request right now. Please try again shortly, or email support@carehalo360.com and we will cancel it for you.",
+          },
+          503,
+        );
+      }
 
-    if (customers.data.length === 0) {
-      logStep("No customer found", { email: normalizedEmail });
-      return notFoundResponse();
+      if (withinBudget !== true) {
+        logStep("Rate limited", { bucket });
+        return jsonResponse(
+          {
+            error:
+              "Too many requests from this connection. Please wait a few minutes, or email support@carehalo360.com and we will cancel it for you.",
+          },
+          429,
+        );
+      }
     }
 
-    const customerId = customers.data[0].id;
-    logStep("Customer found", { customerId });
-
-    const subscriptions = await stripe.subscriptions.list({
-      customer: customerId,
-      status: "active",
-      limit: 1,
-    });
-
-    if (subscriptions.data.length === 0) {
-      logStep("No active subscription found", { customerId });
-      return notFoundResponse();
-    }
-
-    logStep("Active subscription found, storing cancellation request");
+    logStep("Storing cancellation request", { email: normalizedEmail });
 
     const { error: insertError } = await supabase
       .from("cancellation_requests")
@@ -136,19 +157,19 @@ serve(async (req) => {
 
     logStep("Cancellation request stored successfully");
 
-    return new Response(
-      JSON.stringify({
+    return jsonResponse(
+      {
         success: true,
         message: "Your cancellation request has been received. We'll process it shortly.",
-      }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
+      },
+      200,
     );
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
     logStep("ERROR", { message: errorMessage });
-    return new Response(
-      JSON.stringify({ error: "An unexpected error occurred. Please try again later." }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
+    return jsonResponse(
+      { error: "An unexpected error occurred. Please try again later." },
+      500,
     );
   }
 });
